@@ -2,7 +2,7 @@
 <html lang="en" class="h-full">
   <head>
     <meta charset="utf-8">
-    <title>QorTruth.News — Politics</title>
+    <title>QorTruth — Politics</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="QorTruth politics coverage: power shifts, policy negotiations, and institutional accountability.">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -48,20 +48,20 @@
     </style>
   </head>
   <body class="bg-slate-950 text-slate-100 antialiased min-h-full">
-    <div class="relative overflow-hidden">
+    <div class="relative overflow-visible">
       <header class="border-b border-slate-800 bg-slate-950/80 backdrop-blur">
-        <div class="mx-auto max-w-6xl px-6 py-6">
-          <div class="flex items-center justify-between gap-6">
-            <a href="index.html" class="flex items-center gap-3">
-              <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-indigo-500 font-semibold text-white">QN</span>
+        <div class="mx-auto max-w-6xl px-6 py-6 lg:px-6">
+          <div class="flex items-center justify-between gap-8">
+            <a href="index.html" class="flex items-center gap-4 shrink-0">
+              <img src="assets/logo.png" alt="QorTruth logo" class="h-12 w-12 rounded-full bg-slate-950 object-cover">
               <span class="flex flex-col">
-                <span class="text-sm font-semibold tracking-tight text-white md:hidden">QorTruth.News</span>
-                <span class="hidden text-lg font-semibold tracking-tight text-white md:block">QorTruth.News</span>
-                <span class="hidden text-xs uppercase tracking-[0.3em] text-indigo-200 md:block">Independent newsroom</span>
+                <span class="text-sm font-semibold tracking-tight text-white md:hidden">QorTruth</span>
+                <span class="hidden text-lg font-semibold tracking-tight text-white md:block">QorTruth</span>
+                
               </span>
             </a>
 
-            <nav class="hidden flex-1 items-center justify-center gap-6 text-xs font-semibold uppercase tracking-[0.28em] lg:text-sm md:flex">
+            <nav class="hidden flex-1 items-center justify-center gap-10 xl:gap-12 text-xs font-semibold uppercase tracking-[0.16em] lg:text-sm md:flex mx-auto">
               <a class="text-slate-300 transition hover:text-indigo-300" href="index.html" data-nav="latest">Latest</a>
               <a class="text-slate-300 transition hover:text-indigo-300" href="politics.html" data-nav="politics">Politics</a>
               <a class="text-slate-300 transition hover:text-indigo-300" href="world.html" data-nav="world">World</a>
@@ -71,13 +71,34 @@
               <a class="text-slate-300 transition hover:text-indigo-300" href="opinion.html" data-nav="opinion">Opinion</a>
             </nav>
 
-            <div class="hidden items-center gap-3 md:flex">
-              <button type="button" class="rounded-full border border-indigo-500/60 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-indigo-300 transition hover:border-indigo-400 hover:text-indigo-100" data-subscribe-trigger>Subscribe</button>
-              <button class="inline-flex items-center justify-center rounded-full bg-indigo-500 px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-white shadow-lg shadow-indigo-500/30 transition hover:bg-indigo-400">Sign In</button>
+            <div class="hidden md:flex shrink-0" data-account>
+              <div class="relative">
+                <button type="button" class="inline-flex items-center gap-2 rounded-full border border-indigo-500/60 px-7 py-2 text-xs font-semibold uppercase tracking-[0.08em] text-indigo-200 whitespace-nowrap transition hover:border-indigo-400 hover:text-indigo-100" data-account-toggle aria-haspopup="true" aria-expanded="false">
+                  Sign In
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6" />
+                  </svg>
+                </button>
+                <div class="absolute right-0 mt-3 hidden w-44 overflow-hidden rounded-2xl border border-slate-800 bg-slate-950/95 shadow-xl shadow-black/30 z-30" data-account-menu role="menu">
+                  <a href="#" class="flex items-center justify-between px-4 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-slate-200 transition hover:bg-slate-900/80" role="menuitem">Sign In <span class="text-[10px] text-indigo-300">→</span></a>
+                  <a href="#" class="flex items-center justify-between border-t border-slate-800/70 px-4 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-slate-200 transition hover:bg-slate-900/80" role="menuitem" data-subscribe-trigger>Subscribe <span class="text-[10px] text-indigo-300">+</span></a>
+                </div>
+              </div>
             </div>
 
             <div class="flex items-center gap-3 md:hidden">
-              <button type="button" class="rounded-full border border-indigo-500/60 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-indigo-300 transition hover:border-indigo-400 hover:text-indigo-200" data-subscribe-trigger>Subscribe</button>
+              <div class="relative" data-account>
+                <button type="button" class="inline-flex items-center gap-2 rounded-full border border-indigo-500/60 px-6 py-2 text-xs font-semibold uppercase tracking-[0.1em] text-indigo-200 whitespace-nowrap transition hover:border-indigo-400 hover:text-indigo-100" data-account-toggle aria-haspopup="true" aria-expanded="false">
+                  Sign In
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6" />
+                  </svg>
+                </button>
+                <div class="absolute right-0 mt-3 hidden w-44 overflow-hidden rounded-2xl border border-slate-800 bg-slate-950/95 shadow-xl shadow-black/30 z-30" data-account-menu role="menu">
+                  <a href="#" class="flex items-center justify-between px-4 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-slate-200 transition hover:bg-slate-900/80" role="menuitem">Sign In <span class="text-[10px] text-indigo-300">→</span></a>
+                  <a href="#" class="flex items-center justify-between border-t border-slate-800/70 px-4 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-slate-200 transition hover:bg-slate-900/80" role="menuitem" data-subscribe-trigger>Subscribe <span class="text-[10px] text-indigo-300">+</span></a>
+                </div>
+              </div>
               <button type="button" class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-700 text-slate-300 transition hover:border-indigo-400 hover:text-indigo-200" data-nav-toggle aria-expanded="false" aria-controls="mobile-nav">
                 <span class="sr-only">Toggle navigation</span>
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
@@ -90,7 +111,7 @@
 
         <div id="mobile-nav" class="hidden border-t border-slate-800 bg-slate-950/95 md:hidden" data-mobile-nav>
           <div class="mx-auto max-w-6xl px-6 py-5">
-            <nav class="grid gap-4 text-sm uppercase tracking-[0.3em] text-slate-200">
+            <nav class="grid gap-5 text-sm uppercase tracking-[0.3em] text-slate-200">
               <a class="text-slate-200 transition hover:text-indigo-300" href="index.html" data-nav-link data-nav="latest">Latest</a>
               <a class="text-slate-200 transition hover:text-indigo-300" href="politics.html" data-nav-link data-nav="politics">Politics</a>
               <a class="text-slate-200 transition hover:text-indigo-300" href="world.html" data-nav-link data-nav="world">World</a>
@@ -100,14 +121,14 @@
               <a class="text-slate-200 transition hover:text-indigo-300" href="opinion.html" data-nav-link data-nav="opinion">Opinion</a>
             </nav>
             <div class="mt-6 grid gap-3">
-              <button class="w-full rounded-full bg-indigo-500 px-4 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-white transition hover:bg-indigo-400">Sign In</button>
+              <button class="w-full rounded-full bg-indigo-500 px-6 py-3 text-xs font-semibold uppercase tracking-[0.18em] text-white whitespace-nowrap transition hover:bg-indigo-400">Sign In</button>
               <a href="index.html#newsletter" class="w-full rounded-full border border-slate-700 px-4 py-3 text-center text-xs font-semibold uppercase tracking-[0.3em] text-slate-200 transition hover:border-indigo-400 hover:text-indigo-200">Newsletters</a>
             </div>
           </div>
         </div>
         <div class="border-t border-slate-800 bg-slate-900/70">
           <div class="mx-auto max-w-6xl px-6 py-3">
-            <div class="flex items-center gap-4">
+            <div class="flex items-center gap-4 pr-8 md:pr-10 lg:pr-12">
               <span class="relative inline-flex h-2 w-2 items-center justify-center">
                 <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-indigo-400 opacity-75"></span>
                 <span class="relative inline-flex h-2 w-2 rounded-full bg-indigo-300"></span>
@@ -388,7 +409,7 @@
       <footer class="border-t border-slate-800 bg-slate-950/80">
         <div class="mx-auto flex flex-col gap-10 px-6 py-12 md:max-w-6xl md:flex-row md:justify-between">
           <div class="space-y-4">
-            <p class="text-lg font-semibold text-white">QorTruth.News</p>
+            <p class="text-lg font-semibold text-white">QorTruth</p>
             <p class="max-w-sm text-sm text-slate-400">Independent newsroom dedicated to clarity, accountability, and depth. Built by reporters who believe every angle deserves daylight.</p>
             <div class="flex gap-3 text-xs text-slate-500">
               <a href="legal/privacy.html" class="hover:text-indigo-300">Privacy</a>
@@ -519,6 +540,51 @@
         });
       });
 
+
+      const accountContainers = Array.from(document.querySelectorAll('[data-account]'));
+
+      const closeAccountMenus = () => {
+        accountContainers.forEach((container) => {
+          const toggle = container.querySelector('[data-account-toggle]');
+          const menu = container.querySelector('[data-account-menu]');
+          if (toggle) {
+            toggle.setAttribute('aria-expanded', 'false');
+          }
+          if (menu) {
+            menu.classList.add('hidden');
+          }
+        });
+      };
+
+      accountContainers.forEach((container) => {
+        const toggle = container.querySelector('[data-account-toggle]');
+        const menu = container.querySelector('[data-account-menu]');
+        if (!toggle || !menu) return;
+
+        toggle.addEventListener('click', (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          const expanded = toggle.getAttribute('aria-expanded') === 'true';
+          closeAccountMenus();
+          if (!expanded) {
+            toggle.setAttribute('aria-expanded', 'true');
+            menu.classList.remove('hidden');
+          }
+        });
+
+        menu.querySelectorAll('a').forEach((link) => {
+          link.addEventListener('click', () => {
+            closeAccountMenus();
+          });
+        });
+      });
+
+      document.addEventListener('click', (event) => {
+        if (!event.target.closest('[data-account]')) {
+          closeAccountMenus();
+        }
+      });
+
       if (navItems.length) {
         const navSlugMap = {
           '': 'latest',
@@ -575,12 +641,16 @@
           if (mobileNav && !mobileNav.classList.contains('hidden')) {
             closeMobileNav();
           }
+
+          closeAccountMenus();
         }
       });
 
       subscribeTriggers.forEach((trigger) => {
-        trigger.addEventListener('click', () => {
+        trigger.addEventListener('click', (event) => {
+          event.preventDefault();
           closeMobileNav();
+          closeAccountMenus();
           showModal(subscribeModal);
           requestAnimationFrame(() => {
             subscribeModal?.querySelector('input')?.focus();
