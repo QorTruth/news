@@ -1,9 +1,642 @@
 <!doctype html>
-<html lang="en">
-<meta charset="utf-8">
-<title>QorTruth.News</title>
-<body>
-  <h1>QorTruth.News</h1>
-  <p>Site is connected. Build in progress you master.</p>
-</body>
+<html lang="en" class="h-full">
+  <head>
+    <meta charset="utf-8">
+    <title>QorTruth.News</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Independent coverage and analysis across politics, business, technology, and culture.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+
+      @keyframes ticker-scroll {
+        0% {
+          transform: translateX(100%);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+
+      .ticker-track {
+        animation: ticker-scroll var(--ticker-duration, 60s) linear infinite;
+        will-change: transform;
+      }
+
+      .ticker:hover .ticker-track {
+        animation-play-state: paused;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .ticker-track {
+          animation: none;
+          transform: translateX(0);
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-slate-950 text-slate-100 antialiased min-h-full">
+    <div class="relative overflow-hidden">
+      <header class="border-b border-slate-800 bg-slate-950/80 backdrop-blur">
+        <div class="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-6 md:flex-row md:items-center md:justify-between">
+          <div class="flex items-center gap-3">
+            <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-indigo-500 font-semibold text-white">QN</span>
+            <div>
+              <p class="text-xl font-semibold tracking-tight">QorTruth.News</p>
+              <p class="text-sm text-slate-400">Unfiltered reporting for a complex world</p>
+            </div>
+          </div>
+          <nav class="flex flex-1 flex-wrap items-center gap-x-6 gap-y-4 text-sm uppercase tracking-wider text-slate-300 md:justify-center">
+            <a class="hover:text-indigo-400 transition" href="#latest">Latest</a>
+            <a class="hover:text-indigo-400 transition" href="#politics">Politics</a>
+            <a class="hover:text-indigo-400 transition" href="#world">World</a>
+            <a class="hover:text-indigo-400 transition" href="#business">Business</a>
+            <a class="hover:text-indigo-400 transition" href="#technology">Tech</a>
+            <a class="hover:text-indigo-400 transition" href="#culture">Culture</a>
+            <a class="hover:text-indigo-400 transition" href="#opinion">Opinion</a>
+          </nav>
+          <div class="flex items-center gap-4">
+            <button type="button" class="hidden rounded-full border border-indigo-500/60 px-4 py-2 text-sm font-medium text-indigo-300 transition hover:border-indigo-400 hover:text-indigo-200 md:inline-flex" data-subscribe-trigger>Subscribe</button>
+            <button class="inline-flex items-center justify-center rounded-full bg-indigo-500 px-5 py-2 text-sm font-semibold text-white shadow-lg shadow-indigo-500/30 transition hover:bg-indigo-400">Sign In</button>
+          </div>
+        </div>
+        <div class="border-t border-slate-800 bg-slate-900/70">
+          <div class="mx-auto max-w-6xl px-6 py-3">
+            <div class="flex items-center gap-4">
+              <span class="relative inline-flex h-2 w-2 items-center justify-center">
+                <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-indigo-400 opacity-75"></span>
+                <span class="relative inline-flex h-2 w-2 rounded-full bg-indigo-300"></span>
+              </span>
+              <div class="ticker relative flex-1 overflow-hidden">
+                <div class="ticker-track inline-flex items-center gap-6 whitespace-nowrap text-xs tracking-[0.3em] text-indigo-300" data-ticker-track>
+                  <span class="flex items-center gap-2">
+                    <span class="inline-flex h-1.5 w-1.5 rounded-full bg-indigo-400"></span>
+                    <span>Live briefing: Global markets react to overnight policy shifts</span>
+                  </span>
+                  <span class="flex items-center gap-2">
+                    <span class="inline-flex h-1.5 w-1.5 rounded-full bg-indigo-400"></span>
+                    <span>EU leaders convene emergency summit</span>
+                  </span>
+                  <span class="flex items-center gap-2">
+                    <span class="inline-flex h-1.5 w-1.5 rounded-full bg-indigo-400"></span>
+                    <span>Tech giants face new privacy regulation</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="mx-auto max-w-6xl px-6 py-12">
+        <!-- Hero Feature -->
+        <section class="relative overflow-hidden rounded-3xl border border-slate-800 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 p-10" id="latest">
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(99,102,241,0.18),_transparent_45%)]"></div>
+          <div class="relative grid gap-10 lg:grid-cols-[1.7fr,1fr]">
+            <div class="space-y-6">
+              <span class="inline-flex items-center rounded-full bg-indigo-500/20 px-4 py-1 text-xs font-semibold uppercase tracking-wider text-indigo-200">Featured Analysis</span>
+              <h1 class="text-4xl font-bold tracking-tight text-white md:text-5xl" data-ticker-item>Global realignment: How emerging alliances are reshaping energy, security, and trade</h1>
+              <p class="text-lg text-slate-300 md:text-xl">From the Pacific to the Mediterranean, nations are rewriting the rules of strategic cooperation. QorTruth’s investigative desk unpacks the quiet negotiations transforming supply chains and defense agreements.</p>
+              <div class="flex flex-wrap items-center gap-6 text-sm text-slate-400">
+                <div class="flex items-center gap-2">
+                  <span class="font-medium text-slate-200">By Aria N’Dour</span>
+                  <span>•</span>
+                  <span>Global Desk</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="inline-flex h-2 w-2 rounded-full bg-emerald-400"></span>
+                  <span>Updated 54 minutes ago</span>
+                </div>
+              </div>
+              <div class="flex flex-wrap gap-4">
+                <a href="#" class="inline-flex items-center gap-2 rounded-full bg-indigo-500 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-indigo-400">Read full report</a>
+                <a href="#" class="inline-flex items-center gap-2 rounded-full border border-slate-700 px-5 py-2.5 text-sm font-semibold text-slate-200 transition hover:border-indigo-400 hover:text-indigo-200">Watch briefing</a>
+              </div>
+            </div>
+            <article class="rounded-2xl border border-slate-800 bg-slate-900/60 p-6 shadow-lg shadow-black/30">
+              <p class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">Key Developments</p>
+              <ul class="mt-4 space-y-4 text-sm text-slate-300">
+                <li class="flex items-start gap-3">
+                  <span class="mt-1 inline-flex h-2 w-2 rounded-full bg-indigo-400"></span>
+                  <p>Nordic consortium signs landmark agreement to supply modular energy grids to five African nations, accelerating renewable adoption.</p>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="mt-1 inline-flex h-2 w-2 rounded-full bg-indigo-400"></span>
+                  <p>Pacific security pact introduces maritime data-sharing protocols for the first time, signaling deeper intelligence cooperation.</p>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="mt-1 inline-flex h-2 w-2 rounded-full bg-indigo-400"></span>
+                  <p>Trade analysts expect a 12% shift in semiconductor supply routes as new tariffs take effect next quarter.</p>
+                </li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- Latest Headlines -->
+        <section class="mt-16 grid gap-8 lg:grid-cols-[2fr,1fr]">
+          <div class="space-y-8">
+            <div class="flex items-center justify-between" id="politics">
+              <h2 class="text-2xl font-semibold text-white">Latest Headlines</h2>
+              <a href="#" class="text-sm font-semibold text-indigo-300 hover:text-indigo-200">View All</a>
+            </div>
+            <div class="grid gap-6">
+              <article class="rounded-2xl border border-slate-800 bg-slate-900/60 p-6 transition hover:border-indigo-400/60">
+                <div class="flex flex-wrap items-center gap-3 text-xs uppercase tracking-wider text-indigo-200">
+                  <span class="inline-flex items-center gap-2 font-semibold"><span class="inline-block h-2 w-2 rounded-full bg-indigo-400"></span>Politics</span>
+                  <span class="text-slate-500">2h ago</span>
+                </div>
+                <h3 class="mt-3 text-xl font-semibold text-white" data-ticker-item>Coalition signals breakthrough on climate-forward infrastructure package</h3>
+                <p class="mt-2 text-sm text-slate-300">After weeks of negotiations, lawmakers outline a framework aimed at overhauling transit and energy systems with an emphasis on resilience.</p>
+              </article>
+              <article class="rounded-2xl border border-slate-800 bg-slate-900/60 p-6 transition hover:border-indigo-400/60" id="world">
+                <div class="flex flex-wrap items-center gap-3 text-xs uppercase tracking-wider text-emerald-200">
+                  <span class="inline-flex items-center gap-2 font-semibold"><span class="inline-block h-2 w-2 rounded-full bg-emerald-400"></span>World</span>
+                  <span class="text-slate-500">3h ago</span>
+                </div>
+                <h3 class="mt-3 text-xl font-semibold text-white" data-ticker-item>Ceasefire diplomacy intensifies as regional mediators arrive in capital</h3>
+                <p class="mt-2 text-sm text-slate-300">Envoys from six nations begin shuttle talks aimed at de-escalating the months-long conflict that has disrupted trade corridors.</p>
+              </article>
+              <article class="rounded-2xl border border-slate-800 bg-slate-900/60 p-6 transition hover:border-indigo-400/60" id="business">
+                <div class="flex flex-wrap items-center gap-3 text-xs uppercase tracking-wider text-amber-200">
+                  <span class="inline-flex items-center gap-2 font-semibold"><span class="inline-block h-2 w-2 rounded-full bg-amber-400"></span>Business</span>
+                  <span class="text-slate-500">5h ago</span>
+                </div>
+                <h3 class="mt-3 text-xl font-semibold text-white" data-ticker-item>Global retailers brace for supply chain reset ahead of holiday season</h3>
+                <p class="mt-2 text-sm text-slate-300">Industry leaders diversify shipping routes as port automation pilots cut freight delays across the Atlantic corridor.</p>
+              </article>
+              <article class="rounded-2xl border border-slate-800 bg-slate-900/60 p-6 transition hover:border-indigo-400/60" id="technology">
+                <div class="flex flex-wrap items-center gap-3 text-xs uppercase tracking-wider text-sky-200">
+                  <span class="inline-flex items-center gap-2 font-semibold"><span class="inline-block h-2 w-2 rounded-full bg-sky-400"></span>Technology</span>
+                  <span class="text-slate-500">7h ago</span>
+                </div>
+                <h3 class="mt-3 text-xl font-semibold text-white" data-ticker-item>Open-source AI collective launches privacy-first language model</h3>
+                <p class="mt-2 text-sm text-slate-300">Researchers say the collaborative project sets new standards for transparency and cross-border compliance.</p>
+              </article>
+            </div>
+          </div>
+          <aside class="space-y-6">
+            <div class="rounded-2xl border border-slate-800 bg-slate-900/80 p-6" data-market-card>
+              <h3 class="text-lg font-semibold text-white">Market Pulse</h3>
+              <p class="mt-2 text-xs uppercase tracking-[0.3em] text-slate-500">Live snapshot</p>
+              <ul class="mt-4 space-y-4 text-sm" data-market-feed aria-live="polite">
+                <li class="flex items-center justify-between gap-6" data-symbol="^GSPC">
+                  <div>
+                    <p class="font-medium text-slate-200">S&P 500</p>
+                    <p class="text-xs text-slate-500">US benchmark</p>
+                  </div>
+                  <div class="text-right">
+                    <p class="text-sm font-semibold text-slate-300" data-price>—</p>
+                    <p class="text-xs font-medium text-slate-500" data-change>Loading…</p>
+                  </div>
+                </li>
+                <li class="flex items-center justify-between gap-6" data-symbol="^DJI">
+                  <div>
+                    <p class="font-medium text-slate-200">Dow Jones</p>
+                    <p class="text-xs text-slate-500">Blue-chip</p>
+                  </div>
+                  <div class="text-right">
+                    <p class="text-sm font-semibold text-slate-300" data-price>—</p>
+                    <p class="text-xs font-medium text-slate-500" data-change>Loading…</p>
+                  </div>
+                </li>
+                <li class="flex items-center justify-between gap-6" data-symbol="^IXIC">
+                  <div>
+                    <p class="font-medium text-slate-200">NASDAQ</p>
+                    <p class="text-xs text-slate-500">Growth & tech</p>
+                  </div>
+                  <div class="text-right">
+                    <p class="text-sm font-semibold text-slate-300" data-price>—</p>
+                    <p class="text-xs font-medium text-slate-500" data-change>Loading…</p>
+                  </div>
+                </li>
+                <li class="flex items-center justify-between gap-6" data-symbol="CL=F">
+                  <div>
+                    <p class="font-medium text-slate-200">Crude Oil</p>
+                    <p class="text-xs text-slate-500">WTI futures</p>
+                  </div>
+                  <div class="text-right">
+                    <p class="text-sm font-semibold text-slate-300" data-price>—</p>
+                    <p class="text-xs font-medium text-slate-500" data-change>Loading…</p>
+                  </div>
+                </li>
+              </ul>
+              <p class="mt-3 hidden text-xs text-rose-300" data-market-error>Real-time market data temporarily unavailable.</p>
+              <a href="#" class="mt-6 inline-flex text-sm font-semibold text-indigo-300 hover:text-indigo-200">See full market coverage →</a>
+            </div>
+            <div class="rounded-2xl border border-slate-800 bg-gradient-to-br from-indigo-500/20 via-slate-900 to-slate-950 p-6" id="culture">
+              <h3 class="text-lg font-semibold text-white">Culture & Ideas</h3>
+              <ul class="mt-4 space-y-4 text-sm text-slate-300">
+                <li>
+                  <p class="font-semibold text-slate-100">Streaming platforms pivot to locally produced documentaries</p>
+                  <p class="text-xs text-slate-400">Media analysts say audiences crave investigative storytelling rooted in regional voices.</p>
+                </li>
+                <li>
+                  <p class="font-semibold text-slate-100">The renaissance of analog craftsmanship</p>
+                  <p class="text-xs text-slate-400">Independent designers revive tactile experiences in a digital-first era.</p>
+                </li>
+                <li>
+                  <p class="font-semibold text-slate-100">Five debut authors redefining speculative fiction</p>
+                  <p class="text-xs text-slate-400">New voices explore climate futures, diaspora mythologies, and augmented realities.</p>
+                </li>
+              </ul>
+            </div>
+          </aside>
+        </section>
+
+        <!-- Deep Dive Columns -->
+        <section class="mt-20 grid gap-8 lg:grid-cols-3" id="opinion">
+          <article class="group space-y-4 rounded-3xl border border-slate-800 bg-slate-900/50 p-6 transition hover:border-indigo-400/60">
+            <span class="text-xs font-semibold uppercase tracking-widest text-sky-300">Opinion</span>
+            <h3 class="text-xl font-semibold text-white group-hover:text-indigo-200" data-ticker-item>Why resilient cities need climate-led zoning now</h3>
+            <p class="text-sm text-slate-300">Urban strategist Laila Ortiz argues that data from coastal pilot programs points to a narrow window for decisive action.</p>
+            <a href="#" class="inline-flex text-sm font-semibold text-indigo-300 hover:text-indigo-200">Read column →</a>
+          </article>
+          <article class="group space-y-4 rounded-3xl border border-slate-800 bg-slate-900/50 p-6 transition hover:border-indigo-400/60">
+            <span class="text-xs font-semibold uppercase tracking-widest text-amber-300">Briefing</span>
+            <h3 class="text-xl font-semibold text-white group-hover:text-indigo-200" data-ticker-item>Inside the semiconductor summit reshaping global production</h3>
+            <p class="text-sm text-slate-300">Executives, regulators, and supply chain advocates convene to chart a more transparent procurement ecosystem.</p>
+            <a href="#" class="inline-flex text-sm font-semibold text-indigo-300 hover:text-indigo-200">Download briefing →</a>
+          </article>
+          <article class="group space-y-4 rounded-3xl border border-slate-800 bg-slate-900/50 p-6 transition hover:border-indigo-400/60" id="world-insight">
+            <span class="text-xs font-semibold uppercase tracking-widest text-emerald-300">Deep Dive</span>
+            <h3 class="text-xl font-semibold text-white group-hover:text-indigo-200" data-ticker-item>The quiet revival of cross-border rail in Central Asia</h3>
+            <p class="text-sm text-slate-300">A comparative look at design standards, financing models, and the diplomatic calculus behind the region’s rail boom.</p>
+            <a href="#" class="inline-flex text-sm font-semibold text-indigo-300 hover:text-indigo-200">Explore analysis →</a>
+          </article>
+        </section>
+
+        <!-- Newsletter CTA -->
+        <section class="mt-20 overflow-hidden rounded-3xl border border-slate-800 bg-gradient-to-r from-indigo-600/40 via-indigo-500/20 to-slate-950 p-10" id="newsletter">
+          <div class="grid gap-10 lg:grid-cols-[1.6fr,1fr]">
+            <div class="space-y-5">
+              <span class="inline-flex items-center rounded-full bg-indigo-500/30 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-indigo-100">Morning Dispatch</span>
+              <h2 class="text-3xl font-semibold text-white md:text-4xl">Get the QorTruth agenda in your inbox before markets open</h2>
+              <p class="text-sm text-slate-200 md:text-base">Start your day with the essential briefing across policy, markets, and technology. Curated by editors across four continents.</p>
+            </div>
+            <form class="rounded-2xl border border-indigo-400/30 bg-slate-950/70 p-6 shadow-lg shadow-indigo-500/20">
+              <label class="text-xs font-semibold uppercase tracking-widest text-indigo-200">Email address</label>
+              <input type="email" required placeholder="you@company.com" class="mt-2 w-full rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 text-sm text-white outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-400/40">
+              <label class="mt-6 flex items-center gap-2 text-xs text-slate-400">
+                <input type="checkbox" class="h-4 w-4 rounded border-slate-700 bg-slate-900 text-indigo-500 focus:ring-indigo-400">
+                Send me weekend investigations and events
+              </label>
+              <button type="submit" class="mt-6 w-full rounded-xl bg-indigo-500 px-4 py-3 text-sm font-semibold text-white transition hover:bg-indigo-400">Join the briefing</button>
+              <p class="mt-3 text-[11px] text-slate-500">We respect your inbox. Unsubscribe anytime.</p>
+            </form>
+          </div>
+        </section>
+      </main>
+
+      <!-- Subscribe Modal -->
+      <div class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/80 p-6 backdrop-blur" data-modal="subscribe" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="subscribe-modal-title" aria-describedby="subscribe-modal-description">
+        <div class="relative w-full max-w-md rounded-3xl border border-slate-800 bg-slate-900 p-8 shadow-xl shadow-black/40">
+          <button type="button" class="absolute right-4 top-4 text-slate-500 transition hover:text-indigo-300" data-close-modal aria-label="Close subscribe dialog">&times;</button>
+          <div class="space-y-6">
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-[0.25em] text-indigo-300">Join QorTruth</p>
+              <h2 class="mt-2 text-2xl font-semibold text-white" id="subscribe-modal-title">Stay ahead of the briefing</h2>
+              <p class="mt-2 text-sm text-slate-400" id="subscribe-modal-description">Tell us who you are and we'll queue the latest stories in your inbox every morning.</p>
+            </div>
+            <form class="space-y-5" data-subscribe-form>
+              <div>
+                <label class="block text-sm font-semibold text-slate-200" for="subscribe-name">Name</label>
+                <input id="subscribe-name" name="name" type="text" autocomplete="name" placeholder="Your name" class="mt-2 w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-sm text-white outline-none transition focus:border-indigo-400 focus:ring-2 focus:ring-indigo-400/40">
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-slate-200" for="subscribe-email">Email</label>
+                <input id="subscribe-email" name="email" type="email" required autocomplete="email" placeholder="you@company.com" class="mt-2 w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-sm text-white outline-none transition focus:border-indigo-400 focus:ring-2 focus:ring-indigo-400/40">
+              </div>
+              <div class="flex items-start gap-3 text-xs text-slate-500">
+                <input id="subscribe-briefing" type="checkbox" name="briefing" class="mt-1 h-4 w-4 rounded border-slate-700 bg-slate-950 text-indigo-500 focus:ring-indigo-400">
+                <label for="subscribe-briefing">Send me overnight alerts and newsroom invitations.</label>
+              </div>
+              <button type="submit" class="w-full rounded-xl bg-indigo-500 px-4 py-3 text-sm font-semibold text-white transition hover:bg-indigo-400">Continue</button>
+              <p class="text-[11px] text-slate-500">You can unsubscribe any time. We never sell your data.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Premium Upsell Modal -->
+      <div class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/80 p-6 backdrop-blur" data-modal="premium" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="premium-modal-title" aria-describedby="premium-modal-description">
+        <div class="relative w-full max-w-md rounded-3xl border border-indigo-500/40 bg-slate-900 p-8 shadow-xl shadow-black/40">
+          <button type="button" class="absolute right-4 top-4 text-slate-500 transition hover:text-indigo-300" data-close-modal aria-label="Close premium dialog">&times;</button>
+          <div class="space-y-6">
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-[0.25em] text-indigo-300">Premium Briefings</p>
+              <h2 class="mt-2 text-2xl font-semibold text-white" id="premium-modal-title">Unlock deeper coverage</h2>
+              <p class="mt-2 text-sm text-slate-400" id="premium-modal-description" data-premium-summary>Upgrade to receive unlimited briefings, weekend investigations, and invite-only calls with our editors.</p>
+            </div>
+            <ul class="space-y-3 text-sm text-slate-300">
+              <li class="flex items-start gap-3">
+                <span class="mt-1 inline-flex h-1.5 w-1.5 rounded-full bg-indigo-400"></span>
+                <span>Unlimited access to more than five strategic briefings each month.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-1 inline-flex h-1.5 w-1.5 rounded-full bg-indigo-400"></span>
+                <span>Deeper data visualizations and cross-border investigative notes.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-1 inline-flex h-1.5 w-1.5 rounded-full bg-indigo-400"></span>
+                <span>Priority invites to quarterly newsroom briefings and analyst calls.</span>
+              </li>
+            </ul>
+            <div class="space-y-3">
+              <button type="button" class="w-full rounded-xl bg-indigo-500 px-4 py-3 text-sm font-semibold text-white transition hover:bg-indigo-400" data-premium-choice="upgrade">Upgrade for $12/month</button>
+              <button type="button" class="w-full rounded-xl border border-slate-700 px-4 py-3 text-sm font-semibold text-slate-200 transition hover:border-indigo-400 hover:text-indigo-200" data-premium-choice="skip">Stay on free plan</button>
+            </div>
+            <p class="text-xs text-indigo-200 hidden" data-premium-response></p>
+          </div>
+        </div>
+      </div>
+
+      <footer class="border-t border-slate-800 bg-slate-950/80">
+        <div class="mx-auto flex flex-col gap-10 px-6 py-12 md:max-w-6xl md:flex-row md:justify-between">
+          <div class="space-y-4">
+            <p class="text-lg font-semibold text-white">QorTruth.News</p>
+            <p class="max-w-sm text-sm text-slate-400">Independent newsroom dedicated to clarity, accountability, and depth. Built by reporters who believe every angle deserves daylight.</p>
+            <div class="flex gap-3 text-xs text-slate-500">
+              <a href="legal/privacy.html" class="hover:text-indigo-300">Privacy</a>
+              <span>•</span>
+              <a href="legal/terms.html" class="hover:text-indigo-300">Terms</a>
+              <span>•</span>
+              <a href="contact.html" class="hover:text-indigo-300">Contact</a>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-8 text-sm text-slate-400 md:grid-cols-4">
+            <div class="space-y-3">
+              <p class="text-xs font-semibold uppercase tracking-widest text-slate-500">Coverage</p>
+              <a href="#politics" class="block hover:text-indigo-300">Politics</a>
+              <a href="#world" class="block hover:text-indigo-300">World</a>
+              <a href="#business" class="block hover:text-indigo-300">Markets</a>
+              <a href="#technology" class="block hover:text-indigo-300">Technology</a>
+            </div>
+            <div class="space-y-3">
+              <p class="text-xs font-semibold uppercase tracking-widest text-slate-500">Editorial</p>
+              <a href="#opinion" class="block hover:text-indigo-300">Opinion</a>
+              <a href="#culture" class="block hover:text-indigo-300">Culture</a>
+              <a href="#" class="block hover:text-indigo-300">Investigations</a>
+              <a href="#" class="block hover:text-indigo-300">Data Desk</a>
+            </div>
+            <div class="space-y-3">
+              <p class="text-xs font-semibold uppercase tracking-widest text-slate-500">Community</p>
+              <a href="#newsletter" class="block hover:text-indigo-300">Newsletters</a>
+              <a href="#" class="block hover:text-indigo-300">Events</a>
+              <a href="#" class="block hover:text-indigo-300">Briefings</a>
+              <a href="#" class="block hover:text-indigo-300">Press</a>
+            </div>
+            <div class="space-y-3">
+              <p class="text-xs font-semibold uppercase tracking-widest text-slate-500">Follow</p>
+              <a href="#" class="block hover:text-indigo-300">Telegram</a>
+              <a href="#" class="block hover:text-indigo-300">Signal</a>
+              <a href="#" class="block hover:text-indigo-300">LinkedIn</a>
+              <a href="#" class="block hover:text-indigo-300">RSS</a>
+            </div>
+          </div>
+        </div>
+        <div class="border-t border-slate-800 bg-slate-950/90 py-5">
+          <p class="mx-auto max-w-6xl px-6 text-[11px] uppercase tracking-[0.35em] text-slate-500">© <span id="year"></span> QorTruth Media Collective</p>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      const modals = Array.from(document.querySelectorAll('[data-modal]'));
+      const subscribeModal = document.querySelector('[data-modal="subscribe"]');
+      const premiumModal = document.querySelector('[data-modal="premium"]');
+      const subscribeTrigger = document.querySelector('[data-subscribe-trigger]');
+      const subscribeForm = subscribeModal?.querySelector('[data-subscribe-form]');
+      const premiumSummary = premiumModal?.querySelector('[data-premium-summary]');
+      const premiumSummaryDefault = premiumSummary?.textContent ?? '';
+      const premiumResponse = premiumModal?.querySelector('[data-premium-response]');
+
+      const toggleBodyScroll = (locked) => {
+        document.body.classList.toggle('overflow-hidden', locked);
+      };
+
+      const evaluateBodyLock = () => {
+        const anyVisible = modals.some((modal) => !modal.classList.contains('hidden'));
+        toggleBodyScroll(anyVisible);
+      };
+
+      const showModal = (modal) => {
+        if (!modal) return;
+        modal.classList.remove('hidden');
+        modal.setAttribute('aria-hidden', 'false');
+        evaluateBodyLock();
+      };
+
+      const hideModal = (modal) => {
+        if (!modal) return;
+        modal.classList.add('hidden');
+        modal.setAttribute('aria-hidden', 'true');
+        evaluateBodyLock();
+
+        if (modal === subscribeModal) {
+          subscribeForm?.reset();
+        }
+
+        if (modal === premiumModal) {
+          if (premiumResponse) {
+            premiumResponse.classList.add('hidden');
+            premiumResponse.textContent = '';
+          }
+
+          if (premiumSummary) {
+            premiumSummary.textContent = premiumSummaryDefault;
+          }
+        }
+      };
+
+      modals.forEach((modal) => {
+        modal.addEventListener('click', (event) => {
+          if (event.target === modal) {
+            hideModal(modal);
+          }
+        });
+      });
+
+      document.querySelectorAll('[data-close-modal]').forEach((button) => {
+        button.addEventListener('click', () => {
+          hideModal(button.closest('[data-modal]'));
+        });
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+          const visibleModal = modals.find((modal) => !modal.classList.contains('hidden'));
+          if (visibleModal) {
+            hideModal(visibleModal);
+          }
+        }
+      });
+
+      subscribeTrigger?.addEventListener('click', () => {
+        showModal(subscribeModal);
+        requestAnimationFrame(() => {
+          subscribeModal?.querySelector('input')?.focus();
+        });
+      });
+
+      subscribeForm?.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const formData = new FormData(subscribeForm);
+        const nameValue = String(formData.get('name') ?? '').trim();
+
+        if (premiumSummary) {
+          premiumSummary.textContent = nameValue
+            ? `Great to have you, ${nameValue}. Do you want premium access beyond five briefings a month?`
+            : 'Do you want premium access beyond five briefings a month?';
+        }
+
+        hideModal(subscribeModal);
+        showModal(premiumModal);
+
+        requestAnimationFrame(() => {
+          premiumModal?.querySelector('[data-premium-choice]')?.focus();
+        });
+      });
+
+      premiumModal?.querySelectorAll('[data-premium-choice]').forEach((button) => {
+        button.addEventListener('click', () => {
+          const choice = button.getAttribute('data-premium-choice');
+
+          if (premiumResponse) {
+            premiumResponse.classList.remove('hidden');
+            premiumResponse.textContent = choice === 'upgrade'
+              ? 'Amazing! We'll send premium access details to your inbox shortly.'
+              : 'All set. You will keep receiving five briefings per month.';
+          }
+
+          setTimeout(() => {
+            hideModal(premiumModal);
+          }, 1600);
+        });
+      });
+
+      const tickerTrack = document.querySelector('[data-ticker-track]');
+      if (tickerTrack) {
+        const sources = Array.from(document.querySelectorAll('[data-ticker-item]'));
+        const headlines = sources
+          .map((node) => node.textContent.replace(/\s+/g, ' ').trim())
+          .filter((text, index, collection) => text && collection.indexOf(text) === index);
+
+        if (headlines.length) {
+          const multiplier = headlines.length >= 3 ? 2 : 3;
+          tickerTrack.innerHTML = '';
+
+          const appendHeadline = (text) => {
+            const wrapper = document.createElement('span');
+            wrapper.className = 'inline-flex items-center gap-2';
+
+            const marker = document.createElement('span');
+            marker.className = 'inline-flex h-1.5 w-1.5 rounded-full bg-indigo-400';
+            wrapper.appendChild(marker);
+
+            const label = document.createElement('span');
+            label.className = 'font-medium text-indigo-100';
+            label.textContent = text;
+            wrapper.appendChild(label);
+
+            tickerTrack.appendChild(wrapper);
+          };
+
+          for (let i = 0; i < multiplier; i += 1) {
+            headlines.forEach(appendHeadline);
+          }
+
+          const container = tickerTrack.parentElement;
+          if (container) {
+            const baseSpeed = 40; // pixels per second
+            requestAnimationFrame(() => {
+              const totalWidth = tickerTrack.scrollWidth + container.clientWidth;
+              const durationSeconds = Math.max(50, totalWidth / baseSpeed);
+              tickerTrack.style.setProperty('--ticker-duration', `${durationSeconds.toFixed(2)}s`);
+            });
+          }
+        }
+      }
+
+      const marketFeed = document.querySelector('[data-market-feed]');
+      const marketError = document.querySelector('[data-market-error]');
+
+      if (marketFeed) {
+        const rows = Array.from(marketFeed.querySelectorAll('[data-symbol]'));
+        const symbols = rows.map((row) => row.getAttribute('data-symbol')).filter(Boolean);
+
+        if (symbols.length) {
+          const query = symbols.map((symbol) => encodeURIComponent(symbol)).join(',');
+          const endpoint = `https://query1.finance.yahoo.com/v7/finance/quote?symbols=${query}`;
+
+          const fetchJson = (url) =>
+            fetch(url)
+              .then((response) => {
+                if (!response.ok) {
+                  throw new Error('Network response was not ok');
+                }
+                return response.json();
+              });
+
+          const loadQuotes = () =>
+            fetchJson(endpoint).catch(() => {
+              const proxy = `https://api.allorigins.win/raw?url=${encodeURIComponent(endpoint)}`;
+              return fetchJson(proxy);
+            });
+
+          loadQuotes()
+            .then((payload) => {
+              const quotes = (payload?.quoteResponse?.result ?? []);
+              const formatter = new Intl.NumberFormat('en-US', {
+                maximumFractionDigits: 2,
+                minimumFractionDigits: 2,
+              });
+
+              rows.forEach((row) => {
+                const symbol = row.getAttribute('data-symbol');
+                const priceEl = row.querySelector('[data-price]');
+                const changeEl = row.querySelector('[data-change]');
+                const quote = quotes.find((item) => item.symbol === symbol);
+
+                if (!quote || !priceEl || !changeEl) {
+                  if (priceEl) priceEl.textContent = '—';
+                  if (changeEl) changeEl.textContent = 'Unavailable';
+                  return;
+                }
+
+                const price = Number(quote.regularMarketPrice);
+                const changePercent = Number(quote.regularMarketChangePercent);
+
+                if (Number.isFinite(price)) {
+                  priceEl.textContent = formatter.format(price);
+                } else {
+                  priceEl.textContent = '—';
+                }
+
+                if (Number.isFinite(changePercent)) {
+                  const sign = changePercent > 0 ? '+' : '';
+                  changeEl.textContent = `${sign}${changePercent.toFixed(2)}%`;
+                  changeEl.classList.remove('text-slate-500', 'text-emerald-400', 'text-rose-300');
+                  changeEl.classList.add(changePercent >= 0 ? 'text-emerald-400' : 'text-rose-300');
+                } else {
+                  changeEl.textContent = '—';
+                  changeEl.classList.remove('text-emerald-400', 'text-rose-300');
+                  changeEl.classList.add('text-slate-500');
+                }
+              });
+            })
+            .catch(() => {
+              if (marketError) {
+                marketError.classList.remove('hidden');
+                marketError.textContent = 'Real-time market data temporarily unavailable. Try refreshing in a moment.';
+              }
+            });
+        }
+      }
+    </script>
+  </body>
 </html>
