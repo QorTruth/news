@@ -2,9 +2,9 @@
 <html lang="en" class="h-full">
   <head>
     <meta charset="utf-8">
-    <title>QorTruth.News</title>
+    <title>QorTruth.News — World</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Independent coverage and analysis across politics, business, technology, and culture.">
+    <meta name="description" content="Global reporting from QorTruth: diplomacy, conflicts, and cross-border cooperation reshaping the world stage.">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
       :root {
@@ -29,6 +29,13 @@
         animation-play-state: paused;
       }
 
+      @media (prefers-reduced-motion: reduce) {
+        .ticker-track {
+          animation: none;
+          transform: translateX(0);
+        }
+      }
+
       .market-overview-widget {
         display: block;
       }
@@ -37,13 +44,6 @@
         width: 100% !important;
         border: 0;
         border-radius: 1.25rem;
-      }
-
-      @media (prefers-reduced-motion: reduce) {
-        .ticker-track {
-          animation: none;
-          transform: translateX(0);
-        }
       }
     </style>
   </head>
@@ -116,15 +116,15 @@
                 <div class="ticker-track inline-flex items-center gap-6 whitespace-nowrap text-xs tracking-[0.3em] text-indigo-300" data-ticker-track>
                   <span class="flex items-center gap-2">
                     <span class="inline-flex h-1.5 w-1.5 rounded-full bg-indigo-400"></span>
-                    <span>Live briefing: Global markets react to overnight policy shifts</span>
+                    <span>Breaking coalition talks reshape fiscal agenda ahead of budget week</span>
                   </span>
                   <span class="flex items-center gap-2">
                     <span class="inline-flex h-1.5 w-1.5 rounded-full bg-indigo-400"></span>
-                    <span>EU leaders convene emergency summit</span>
+                    <span>Watchdogs flag new transparency mandates for executive lobbying</span>
                   </span>
                   <span class="flex items-center gap-2">
                     <span class="inline-flex h-1.5 w-1.5 rounded-full bg-indigo-400"></span>
-                    <span>Tech giants face new privacy regulation</span>
+                    <span>Regional blocs negotiate climate carve-outs in infrastructure deal</span>
                   </span>
                 </div>
               </div>
@@ -133,90 +133,58 @@
         </div>
       </header>
 
-      <main class="mx-auto max-w-6xl px-6 py-12">
-        <!-- Hero Feature -->
-        <section class="relative overflow-hidden rounded-3xl border border-slate-800 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 p-10" id="latest">
+      <main class="mx-auto max-w-6xl px-6 py-12 space-y-20">
+        <section class="relative overflow-hidden rounded-3xl border border-slate-800 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 p-10">
           <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(99,102,241,0.18),_transparent_45%)]"></div>
-          <div class="relative grid gap-10 lg:grid-cols-[1.7fr,1fr]">
-            <div class="space-y-6">
-              <span class="inline-flex items-center rounded-full bg-indigo-500/20 px-4 py-1 text-xs font-semibold uppercase tracking-wider text-indigo-200">Featured Analysis</span>
-              <h1 class="text-4xl font-bold tracking-tight text-white md:text-5xl" data-ticker-item>Global realignment: How emerging alliances are reshaping energy, security, and trade</h1>
-              <p class="text-lg text-slate-300 md:text-xl">From the Pacific to the Mediterranean, nations are rewriting the rules of strategic cooperation. QorTruth’s investigative desk unpacks the quiet negotiations transforming supply chains and defense agreements.</p>
-              <div class="flex flex-wrap items-center gap-6 text-sm text-slate-400">
-                <div class="flex items-center gap-2">
-                  <span class="font-medium text-slate-200">By Aria N’Dour</span>
-                  <span>•</span>
-                  <span>Global Desk</span>
-                </div>
-                <div class="flex items-center gap-3">
-                  <span class="inline-flex h-2 w-2 rounded-full bg-emerald-400"></span>
-                  <span>Updated 54 minutes ago</span>
-                </div>
-              </div>
-              <div class="flex flex-wrap gap-4">
-                <a href="#" class="inline-flex items-center gap-2 rounded-full bg-indigo-500 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-indigo-400">Read full report</a>
-                <a href="#" class="inline-flex items-center gap-2 rounded-full border border-slate-700 px-5 py-2.5 text-sm font-semibold text-slate-200 transition hover:border-indigo-400 hover:text-indigo-200">Watch briefing</a>
-              </div>
+          <div class="relative max-w-3xl space-y-6">
+            <span class="inline-flex items-center rounded-full bg-indigo-500/20 px-4 py-1 text-xs font-semibold uppercase tracking-wider text-indigo-200">Global Dispatch</span>
+            <h1 class="text-4xl font-bold tracking-tight text-white md:text-5xl" data-ticker-item>Aftershocks and alliances: mapping the new shifts in international power</h1>
+            <p class="text-lg text-slate-300 md:text-xl">From ceasefire corridors to supply-chain corridors, QorTruth’s world desk examines the diplomacy and disruption shaping regional balances.</p>
+            <div class="flex flex-wrap gap-4">
+              <a href="#" class="inline-flex items-center gap-2 rounded-full bg-indigo-500 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-indigo-400">Global outlook</a>
+              <a href="#" class="inline-flex items-center gap-2 rounded-full border border-slate-700 px-5 py-2.5 text-sm font-semibold text-slate-200 transition hover:border-indigo-400 hover:text-indigo-200">Watch field report</a>
             </div>
-            <article class="rounded-2xl border border-slate-800 bg-slate-900/60 p-6 shadow-lg shadow-black/30">
-              <p class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">Key Developments</p>
-              <ul class="mt-4 space-y-4 text-sm text-slate-300">
-                <li class="flex items-start gap-3">
-                  <span class="mt-1 inline-flex h-2 w-2 rounded-full bg-indigo-400"></span>
-                  <p>Nordic consortium signs landmark agreement to supply modular energy grids to five African nations, accelerating renewable adoption.</p>
-                </li>
-                <li class="flex items-start gap-3">
-                  <span class="mt-1 inline-flex h-2 w-2 rounded-full bg-indigo-400"></span>
-                  <p>Pacific security pact introduces maritime data-sharing protocols for the first time, signaling deeper intelligence cooperation.</p>
-                </li>
-                <li class="flex items-start gap-3">
-                  <span class="mt-1 inline-flex h-2 w-2 rounded-full bg-indigo-400"></span>
-                  <p>Trade analysts expect a 12% shift in semiconductor supply routes as new tariffs take effect next quarter.</p>
-                </li>
-              </ul>
-            </article>
           </div>
         </section>
 
-        <!-- Latest Headlines -->
-        <section class="mt-16 grid gap-8 lg:grid-cols-[2fr,1fr] lg:items-start">
+        <section class="grid gap-8 lg:grid-cols-[2fr,1fr] lg:items-start">
           <div class="space-y-8">
-            <div class="flex items-center justify-between" id="politics">
-              <h2 class="text-2xl font-semibold text-white">Latest Headlines</h2>
-              <a href="#" class="text-sm font-semibold text-indigo-300 hover:text-indigo-200">View All</a>
+            <div class="flex items-center justify-between">
+              <h2 class="text-2xl font-semibold text-white">Worldwide pulse</h2>
+              <a href="#" class="text-sm font-semibold text-indigo-300 hover:text-indigo-200">View all regions</a>
             </div>
             <div class="grid gap-6">
               <article class="rounded-2xl border border-slate-800 bg-slate-900/60 p-6 transition hover:border-indigo-400/60">
                 <div class="flex flex-wrap items-center gap-3 text-xs uppercase tracking-wider text-indigo-200">
-                  <span class="inline-flex items-center gap-2 font-semibold"><span class="inline-block h-2 w-2 rounded-full bg-indigo-400"></span>Politics</span>
-                  <span class="text-slate-500">2h ago</span>
+                  <span class="inline-flex items-center gap-2 font-semibold"><span class="inline-block h-2 w-2 rounded-full bg-indigo-400"></span>Summits</span>
+                  <span class="text-slate-500">1h ago</span>
                 </div>
-                <h3 class="mt-3 text-xl font-semibold text-white" data-ticker-item>Coalition signals breakthrough on climate-forward infrastructure package</h3>
-                <p class="mt-2 text-sm text-slate-300">After weeks of negotiations, lawmakers outline a framework aimed at overhauling transit and energy systems with an emphasis on resilience.</p>
+                <h3 class="mt-3 text-xl font-semibold text-white" data-ticker-item>Asia-Pacific leaders clinch semiconductor resilience compact in Jakarta</h3>
+                <p class="mt-2 text-sm text-slate-300">Ministers finalize resource-sharing guarantees to keep chip supply chains stable through 2026.</p>
               </article>
-              <article class="rounded-2xl border border-slate-800 bg-slate-900/60 p-6 transition hover:border-indigo-400/60" id="world">
+              <article class="rounded-2xl border border-slate-800 bg-slate-900/60 p-6 transition hover:border-indigo-400/60">
                 <div class="flex flex-wrap items-center gap-3 text-xs uppercase tracking-wider text-emerald-200">
-                  <span class="inline-flex items-center gap-2 font-semibold"><span class="inline-block h-2 w-2 rounded-full bg-emerald-400"></span>World</span>
+                  <span class="inline-flex items-center gap-2 font-semibold"><span class="inline-block h-2 w-2 rounded-full bg-emerald-400"></span>Humanitarian</span>
                   <span class="text-slate-500">3h ago</span>
                 </div>
-                <h3 class="mt-3 text-xl font-semibold text-white" data-ticker-item>Ceasefire diplomacy intensifies as regional mediators arrive in capital</h3>
-                <p class="mt-2 text-sm text-slate-300">Envoys from six nations begin shuttle talks aimed at de-escalating the months-long conflict that has disrupted trade corridors.</p>
+                <h3 class="mt-3 text-xl font-semibold text-white" data-ticker-item>New corridor opens to deliver aid across contested Sahel border</h3>
+                <p class="mt-2 text-sm text-slate-300">African Union monitors pair drones with local networks to secure safe passage for medical convoys.</p>
               </article>
-              <article class="rounded-2xl border border-slate-800 bg-slate-900/60 p-6 transition hover:border-indigo-400/60" id="business">
+              <article class="rounded-2xl border border-slate-800 bg-slate-900/60 p-6 transition hover:border-indigo-400/60">
                 <div class="flex flex-wrap items-center gap-3 text-xs uppercase tracking-wider text-amber-200">
-                  <span class="inline-flex items-center gap-2 font-semibold"><span class="inline-block h-2 w-2 rounded-full bg-amber-400"></span>Business</span>
+                  <span class="inline-flex items-center gap-2 font-semibold"><span class="inline-block h-2 w-2 rounded-full bg-amber-400"></span>Economy</span>
                   <span class="text-slate-500">5h ago</span>
                 </div>
-                <h3 class="mt-3 text-xl font-semibold text-white" data-ticker-item>Global retailers brace for supply chain reset ahead of holiday season</h3>
-                <p class="mt-2 text-sm text-slate-300">Industry leaders diversify shipping routes as port automation pilots cut freight delays across the Atlantic corridor.</p>
+                <h3 class="mt-3 text-xl font-semibold text-white" data-ticker-item>EU-Latin America pact trades critical minerals for data-protection guarantees</h3>
+                <p class="mt-2 text-sm text-slate-300">Bloc negotiators link raw material access to privacy standards as part of a green-transition package.</p>
               </article>
-              <article class="rounded-2xl border border-slate-800 bg-slate-900/60 p-6 transition hover:border-indigo-400/60" id="technology">
+              <article class="rounded-2xl border border-slate-800 bg-slate-900/60 p-6 transition hover:border-indigo-400/60">
                 <div class="flex flex-wrap items-center gap-3 text-xs uppercase tracking-wider text-sky-200">
-                  <span class="inline-flex items-center gap-2 font-semibold"><span class="inline-block h-2 w-2 rounded-full bg-sky-400"></span>Technology</span>
+                  <span class="inline-flex items-center gap-2 font-semibold"><span class="inline-block h-2 w-2 rounded-full bg-sky-400"></span>Security</span>
                   <span class="text-slate-500">7h ago</span>
                 </div>
-                <h3 class="mt-3 text-xl font-semibold text-white" data-ticker-item>Open-source AI collective launches privacy-first language model</h3>
-                <p class="mt-2 text-sm text-slate-300">Researchers say the collaborative project sets new standards for transparency and cross-border compliance.</p>
+                <h3 class="mt-3 text-xl font-semibold text-white" data-ticker-item>Baltic states pilot joint cyber shield ahead of transatlantic exercises</h3>
+                <p class="mt-2 text-sm text-slate-300">Shared threat intelligence centers sync with private firms to harden infrastructure before winter.</p>
               </article>
             </div>
           </div>
@@ -229,7 +197,7 @@
                 </div>
                 <span class="text-[11px] uppercase tracking-[0.3em] text-slate-600">Powered by TradingView</span>
               </div>
-            <div class="tradingview-widget-container market-overview-widget bg-slate-950/60 px-0 pb-6 pt-4">
+              <div class="tradingview-widget-container market-overview-widget bg-slate-950/60 px-0 pb-6 pt-4">
                 <div class="tradingview-widget-container__widget"></div>
                 <div class="tradingview-widget-container__copyright text-xs text-slate-500 px-6 pt-3">
                   <span>Data courtesy of <a href="https://www.tradingview.com/" class="text-indigo-300 hover:text-indigo-200" rel="noopener" target="_blank">TradingView</a></span>
@@ -312,72 +280,40 @@
           </aside>
         </section>
 
-        <section class="mt-20" id="culture">
-          <div class="rounded-3xl border border-slate-800 bg-gradient-to-br from-indigo-500/20 via-slate-900 to-slate-950 p-8 shadow-lg shadow-black/10">
-            <div class="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
-              <div class="max-w-xl">
-                <span class="text-xs font-semibold uppercase tracking-widest text-indigo-200">Culture & Ideas</span>
-                <h3 class="mt-3 text-2xl font-semibold text-white md:text-3xl">Storylines shaping art, identity, and influence</h3>
-                <p class="mt-3 text-sm text-slate-300 md:text-base">Weekly curations from QorTruth’s culture desk: media shifts, creative economies, and the movements redefining how communities see themselves.</p>
-              </div>
-              <ul class="grid flex-1 gap-5 text-sm text-slate-200 md:grid-cols-2">
-                <li class="rounded-2xl border border-slate-800/80 bg-slate-950/70 p-5">
-                  <p class="text-sm font-semibold text-white">Streaming platforms pivot to locally produced documentaries</p>
-                  <p class="mt-2 text-xs text-slate-400">Regional storytellers are rewriting discovery with hyperlocal investigative series.</p>
-                </li>
-                <li class="rounded-2xl border border-slate-800/80 bg-slate-950/70 p-5">
-                  <p class="text-sm font-semibold text-white">The renaissance of analog craftsmanship</p>
-                  <p class="mt-2 text-xs text-slate-400">Design houses reintroduce tactile experiences as an antidote to algorithmic sameness.</p>
-                </li>
-                <li class="rounded-2xl border border-slate-800/80 bg-slate-950/70 p-5">
-                  <p class="text-sm font-semibold text-white">Five debut authors redefining speculative fiction</p>
-                  <p class="mt-2 text-xs text-slate-400">Climate futures, diaspora mythologies, and augmented realities collide in new releases.</p>
-                </li>
-                <li class="rounded-2xl border border-slate-800/80 bg-slate-950/70 p-5">
-                  <p class="text-sm font-semibold text-white">Soundscapes from the underground</p>
-                  <p class="mt-2 text-xs text-slate-400">Curators highlight independent labels amplifying borderless genres.</p>
-                </li>
-              </ul>
-            </div>
+        <section class="grid gap-6 rounded-3xl border border-slate-800 bg-slate-900/70 p-8 md:grid-cols-3">
+          <div class="space-y-3">
+            <span class="text-xs font-semibold uppercase tracking-widest text-indigo-200">Briefings</span>
+            <h3 class="text-lg font-semibold text-white" data-ticker-item>UN climate envoy proposes global resilience fund seeded by carbon markets</h3>
+            <p class="text-sm text-slate-300">Draft plan would channel a levy on voluntary offsets into adaptation grants across small island states.</p>
+            <a href="#" class="inline-flex text-sm font-semibold text-indigo-300 hover:text-indigo-200">Read document →</a>
+          </div>
+          <div class="space-y-3">
+            <span class="text-xs font-semibold uppercase tracking-widest text-indigo-200">Insights</span>
+            <h3 class="text-lg font-semibold text-white" data-ticker-item>Trade analysts flag shipping pivots through Arctic summer lanes</h3>
+            <p class="text-sm text-slate-300">Logistics consortia experiment with ice-class vessels to cut transit times between Asia and Europe.</p>
+            <a href="#" class="inline-flex text-sm font-semibold text-indigo-300 hover:text-indigo-200">View analysis →</a>
+          </div>
+          <div class="space-y-3">
+            <span class="text-xs font-semibold uppercase tracking-widest text-indigo-200">Explainers</span>
+            <h3 class="text-lg font-semibold text-white" data-ticker-item>Understanding the ripple effects of the digital-ruble pilot</h3>
+            <p class="text-sm text-slate-300">Our guide to how central bank digital currencies could reshape sanctions, remittances, and FX flows.</p>
+            <a href="#" class="inline-flex text-sm font-semibold text-indigo-300 hover:text-indigo-200">Download brief →</a>
           </div>
         </section>
 
-        <!-- Deep Dive Columns -->
-        <section class="mt-20 grid gap-8 lg:grid-cols-3" id="opinion">
-          <article class="group space-y-4 rounded-3xl border border-slate-800 bg-slate-900/50 p-6 transition hover:border-indigo-400/60">
-            <span class="text-xs font-semibold uppercase tracking-widest text-sky-300">Opinion</span>
-            <h3 class="text-xl font-semibold text-white group-hover:text-indigo-200" data-ticker-item>Why resilient cities need climate-led zoning now</h3>
-            <p class="text-sm text-slate-300">Urban strategist Laila Ortiz argues that data from coastal pilot programs points to a narrow window for decisive action.</p>
-            <a href="#" class="inline-flex text-sm font-semibold text-indigo-300 hover:text-indigo-200">Read column →</a>
-          </article>
-          <article class="group space-y-4 rounded-3xl border border-slate-800 bg-slate-900/50 p-6 transition hover:border-indigo-400/60">
-            <span class="text-xs font-semibold uppercase tracking-widest text-amber-300">Briefing</span>
-            <h3 class="text-xl font-semibold text-white group-hover:text-indigo-200" data-ticker-item>Inside the semiconductor summit reshaping global production</h3>
-            <p class="text-sm text-slate-300">Executives, regulators, and supply chain advocates convene to chart a more transparent procurement ecosystem.</p>
-            <a href="#" class="inline-flex text-sm font-semibold text-indigo-300 hover:text-indigo-200">Download briefing →</a>
-          </article>
-          <article class="group space-y-4 rounded-3xl border border-slate-800 bg-slate-900/50 p-6 transition hover:border-indigo-400/60" id="world-insight">
-            <span class="text-xs font-semibold uppercase tracking-widest text-emerald-300">Deep Dive</span>
-            <h3 class="text-xl font-semibold text-white group-hover:text-indigo-200" data-ticker-item>The quiet revival of cross-border rail in Central Asia</h3>
-            <p class="text-sm text-slate-300">A comparative look at design standards, financing models, and the diplomatic calculus behind the region’s rail boom.</p>
-            <a href="#" class="inline-flex text-sm font-semibold text-indigo-300 hover:text-indigo-200">Explore analysis →</a>
-          </article>
-        </section>
-
-        <!-- Newsletter CTA -->
-        <section class="mt-20 overflow-hidden rounded-3xl border border-slate-800 bg-gradient-to-r from-indigo-600/40 via-indigo-500/20 to-slate-950 p-10" id="newsletter">
+        <section class="rounded-3xl border border-slate-800 bg-gradient-to-r from-indigo-600/40 via-indigo-500/20 to-slate-950 p-10" id="newsletter">
           <div class="grid gap-10 lg:grid-cols-[1.6fr,1fr]">
             <div class="space-y-5">
-              <span class="inline-flex items-center rounded-full bg-indigo-500/30 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-indigo-100">Morning Dispatch</span>
-              <h2 class="text-3xl font-semibold text-white md:text-4xl">Get the QorTruth agenda in your inbox before markets open</h2>
-              <p class="text-sm text-slate-200 md:text-base">Start your day with the essential briefing across policy, markets, and technology. Curated by editors across four continents.</p>
+              <span class="inline-flex items-center rounded-full bg-indigo-500/30 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-indigo-100">Global Dispatch</span>
+              <h2 class="text-3xl font-semibold text-white md:text-4xl">Receive situational awareness before markets open</h2>
+              <p class="text-sm text-slate-200 md:text-base">We brief you on flashpoints, peace talks, and the macro shifts informing trade and security decisions.</p>
             </div>
             <form class="rounded-2xl border border-indigo-400/30 bg-slate-950/70 p-6 shadow-lg shadow-indigo-500/20">
               <label class="text-xs font-semibold uppercase tracking-widest text-indigo-200">Email address</label>
               <input type="email" required placeholder="you@company.com" class="mt-2 w-full rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 text-sm text-white outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-400/40">
               <label class="mt-6 flex items-center gap-2 text-xs text-slate-400">
                 <input type="checkbox" class="h-4 w-4 rounded border-slate-700 bg-slate-900 text-indigo-500 focus:ring-indigo-400">
-                Send me weekend investigations and events
+                Include on-the-ground photo essays and situation maps
               </label>
               <button type="submit" class="mt-6 w-full rounded-xl bg-indigo-500 px-4 py-3 text-sm font-semibold text-white transition hover:bg-indigo-400">Join the briefing</button>
               <p class="mt-3 text-[11px] text-slate-500">We respect your inbox. Unsubscribe anytime.</p>
