@@ -179,7 +179,7 @@
         </section>
 
         <!-- Latest Headlines -->
-        <section class="mt-16 grid gap-8 lg:grid-cols-[2fr,1fr]">
+        <section class="mt-16 grid gap-8 lg:grid-cols-[2fr,1fr] lg:items-start">
           <div class="space-y-8">
             <div class="flex items-center justify-between" id="politics">
               <h2 class="text-2xl font-semibold text-white">Latest Headlines</h2>
@@ -221,7 +221,7 @@
             </div>
           </div>
           <aside class="space-y-6">
-            <div class="overflow-hidden rounded-3xl border border-slate-800 bg-slate-900/85 shadow-lg shadow-black/20" data-market-card>
+            <div class="mt-8 overflow-hidden rounded-3xl border border-slate-800 bg-slate-900/85 shadow-lg shadow-black/20 md:mt-10 lg:mt-[88px]" data-market-card>
               <div class="flex items-center justify-between border-b border-slate-800/80 px-6 py-5">
                 <div>
                   <h3 class="text-lg font-semibold text-white">Market Pulse</h3>
@@ -245,19 +245,19 @@
   "showSymbolLogo": true,
   "showFloatingTooltip": false,
   "width": "100%",
-  "height": 480,
+  "height": 500,
   "tabs": [
     {
       "title": "Global Indices",
       "symbols": [
-        { "s": "TVC:UKX", "d": "FTSE 100" },
-        { "s": "TVC:SPX", "d": "S&P 500" },
-        { "s": "TVC:NDX", "d": "NASDAQ 100" },
-        { "s": "TVC:DAX", "d": "DAX" },
-        { "s": "TVC:SX5E", "d": "Euro Stoxx 50" },
-        { "s": "TVC:NI225", "d": "Nikkei 225" },
-        { "s": "TVC:HSI", "d": "Hang Seng" },
-        { "s": "TVC:AS51", "d": "ASX 200" }
+        { "s": "FOREXCOM:UKXGBP", "d": "FTSE 100" },
+        { "s": "FOREXCOM:SPXUSD", "d": "S&P 500" },
+        { "s": "FOREXCOM:NSXUSD", "d": "NASDAQ 100" },
+        { "s": "FOREXCOM:DJI", "d": "Dow Jones" },
+        { "s": "FOREXCOM:GER40EUR", "d": "DAX" },
+        { "s": "FOREXCOM:JPN225JPY", "d": "Nikkei 225" },
+        { "s": "FOREXCOM:HK50HKD", "d": "Hang Seng" },
+        { "s": "CAPITALCOM:AUS200", "d": "ASX 200" }
       ]
     },
     {
@@ -269,7 +269,8 @@
         { "s": "TVC:GOLD", "d": "Gold" },
         { "s": "TVC:SILVER", "d": "Silver" },
         { "s": "COMEX:PL1!", "d": "Platinum" },
-        { "s": "TVC:COPPER", "d": "Copper" }
+        { "s": "TVC:COPPER", "d": "Copper" },
+        { "s": "CAPITALCOM:COFFEE", "d": "Coffee" }
       ]
     },
     {
@@ -290,6 +291,7 @@
         { "s": "NASDAQ:NVDA", "d": "NVIDIA" },
         { "s": "NYSE:BRK.B", "d": "Berkshire B" },
         { "s": "NYSE:SPY", "d": "S&P ETF" },
+        { "s": "NYSE:DIA", "d": "Dow ETF" },
         { "s": "NASDAQ:QQQ", "d": "NASDAQ ETF" }
       ]
     },
