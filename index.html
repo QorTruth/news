@@ -40,26 +40,59 @@
   <body class="bg-slate-950 text-slate-100 antialiased min-h-full">
     <div class="relative overflow-hidden">
       <header class="border-b border-slate-800 bg-slate-950/80 backdrop-blur">
-        <div class="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-6 md:flex-row md:items-center md:justify-between">
-          <div class="flex items-center gap-3">
-            <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-indigo-500 font-semibold text-white">QN</span>
-            <div>
-              <p class="text-xl font-semibold tracking-tight">QorTruth.News</p>
-              <p class="text-sm text-slate-400">Unfiltered reporting for a complex world</p>
+        <div class="mx-auto max-w-6xl px-6 py-6">
+          <div class="flex items-center justify-between gap-6">
+            <a href="#latest" class="flex items-center gap-3">
+              <span class="inline-flex h-11 w-11 items-center justify-center rounded-full bg-indigo-500 font-semibold text-white">QN</span>
+              <span class="flex flex-col">
+                <span class="text-sm font-semibold tracking-tight text-white md:hidden">QorTruth.News</span>
+                <span class="hidden text-lg font-semibold tracking-tight text-white md:block">QorTruth.News</span>
+                <span class="hidden text-xs uppercase tracking-[0.3em] text-indigo-200 md:block">Independent newsroom</span>
+              </span>
+            </a>
+
+            <nav class="hidden flex-1 items-center justify-center gap-6 text-xs font-semibold uppercase tracking-[0.28em] text-slate-300 lg:text-sm md:flex">
+              <a class="transition hover:text-indigo-300" href="#latest">Latest</a>
+              <a class="transition hover:text-indigo-300" href="#politics">Politics</a>
+              <a class="transition hover:text-indigo-300" href="#world">World</a>
+              <a class="transition hover:text-indigo-300" href="#business">Business</a>
+              <a class="transition hover:text-indigo-300" href="#technology">Tech</a>
+              <a class="transition hover:text-indigo-300" href="#culture">Culture</a>
+              <a class="transition hover:text-indigo-300" href="#opinion">Opinion</a>
+            </nav>
+
+            <div class="hidden items-center gap-3 md:flex">
+              <button type="button" class="rounded-full border border-indigo-500/60 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-indigo-300 transition hover:border-indigo-400 hover:text-indigo-100" data-subscribe-trigger>Subscribe</button>
+              <button class="inline-flex items-center justify-center rounded-full bg-indigo-500 px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-white shadow-lg shadow-indigo-500/30 transition hover:bg-indigo-400">Sign In</button>
+            </div>
+
+            <div class="flex items-center gap-3 md:hidden">
+              <button type="button" class="rounded-full border border-indigo-500/60 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-indigo-300 transition hover:border-indigo-400 hover:text-indigo-200" data-subscribe-trigger>Subscribe</button>
+              <button type="button" class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-700 text-slate-300 transition hover:border-indigo-400 hover:text-indigo-200" data-nav-toggle aria-expanded="false" aria-controls="mobile-nav">
+                <span class="sr-only">Toggle navigation</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+              </button>
             </div>
           </div>
-          <nav class="flex flex-1 flex-wrap items-center gap-x-6 gap-y-4 text-sm uppercase tracking-wider text-slate-300 md:justify-center">
-            <a class="hover:text-indigo-400 transition" href="#latest">Latest</a>
-            <a class="hover:text-indigo-400 transition" href="#politics">Politics</a>
-            <a class="hover:text-indigo-400 transition" href="#world">World</a>
-            <a class="hover:text-indigo-400 transition" href="#business">Business</a>
-            <a class="hover:text-indigo-400 transition" href="#technology">Tech</a>
-            <a class="hover:text-indigo-400 transition" href="#culture">Culture</a>
-            <a class="hover:text-indigo-400 transition" href="#opinion">Opinion</a>
-          </nav>
-          <div class="flex items-center gap-4">
-            <button type="button" class="hidden rounded-full border border-indigo-500/60 px-4 py-2 text-sm font-medium text-indigo-300 transition hover:border-indigo-400 hover:text-indigo-200 md:inline-flex" data-subscribe-trigger>Subscribe</button>
-            <button class="inline-flex items-center justify-center rounded-full bg-indigo-500 px-5 py-2 text-sm font-semibold text-white shadow-lg shadow-indigo-500/30 transition hover:bg-indigo-400">Sign In</button>
+        </div>
+
+        <div id="mobile-nav" class="hidden border-t border-slate-800 bg-slate-950/95 md:hidden" data-mobile-nav>
+          <div class="mx-auto max-w-6xl px-6 py-5">
+            <nav class="grid gap-4 text-sm uppercase tracking-[0.3em] text-slate-200">
+              <a class="transition hover:text-indigo-300" href="#latest" data-nav-link>Latest</a>
+              <a class="transition hover:text-indigo-300" href="#politics" data-nav-link>Politics</a>
+              <a class="transition hover:text-indigo-300" href="#world" data-nav-link>World</a>
+              <a class="transition hover:text-indigo-300" href="#business" data-nav-link>Business</a>
+              <a class="transition hover:text-indigo-300" href="#technology" data-nav-link>Tech</a>
+              <a class="transition hover:text-indigo-300" href="#culture" data-nav-link>Culture</a>
+              <a class="transition hover:text-indigo-300" href="#opinion" data-nav-link>Opinion</a>
+            </nav>
+            <div class="mt-6 grid gap-3">
+              <button class="w-full rounded-full bg-indigo-500 px-4 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-white transition hover:bg-indigo-400">Sign In</button>
+              <a href="#newsletter" class="w-full rounded-full border border-slate-700 px-4 py-3 text-center text-xs font-semibold uppercase tracking-[0.3em] text-slate-200 transition hover:border-indigo-400 hover:text-indigo-200">Newsletters</a>
+            </div>
           </div>
         </div>
         <div class="border-t border-slate-800 bg-slate-900/70">
@@ -179,52 +212,16 @@
           </div>
           <aside class="space-y-6">
             <div class="rounded-2xl border border-slate-800 bg-slate-900/80 p-6" data-market-card>
-              <h3 class="text-lg font-semibold text-white">Market Pulse</h3>
-              <p class="mt-2 text-xs uppercase tracking-[0.3em] text-slate-500">Live snapshot</p>
-              <ul class="mt-4 space-y-4 text-sm" data-market-feed aria-live="polite">
-                <li class="flex items-center justify-between gap-6" data-symbol="^GSPC">
-                  <div>
-                    <p class="font-medium text-slate-200">S&P 500</p>
-                    <p class="text-xs text-slate-500">US benchmark</p>
-                  </div>
-                  <div class="text-right">
-                    <p class="text-sm font-semibold text-slate-300" data-price>—</p>
-                    <p class="text-xs font-medium text-slate-500" data-change>Loading…</p>
-                  </div>
-                </li>
-                <li class="flex items-center justify-between gap-6" data-symbol="^DJI">
-                  <div>
-                    <p class="font-medium text-slate-200">Dow Jones</p>
-                    <p class="text-xs text-slate-500">Blue-chip</p>
-                  </div>
-                  <div class="text-right">
-                    <p class="text-sm font-semibold text-slate-300" data-price>—</p>
-                    <p class="text-xs font-medium text-slate-500" data-change>Loading…</p>
-                  </div>
-                </li>
-                <li class="flex items-center justify-between gap-6" data-symbol="^IXIC">
-                  <div>
-                    <p class="font-medium text-slate-200">NASDAQ</p>
-                    <p class="text-xs text-slate-500">Growth & tech</p>
-                  </div>
-                  <div class="text-right">
-                    <p class="text-sm font-semibold text-slate-300" data-price>—</p>
-                    <p class="text-xs font-medium text-slate-500" data-change>Loading…</p>
-                  </div>
-                </li>
-                <li class="flex items-center justify-between gap-6" data-symbol="CL=F">
-                  <div>
-                    <p class="font-medium text-slate-200">Crude Oil</p>
-                    <p class="text-xs text-slate-500">WTI futures</p>
-                  </div>
-                  <div class="text-right">
-                    <p class="text-sm font-semibold text-slate-300" data-price>—</p>
-                    <p class="text-xs font-medium text-slate-500" data-change>Loading…</p>
-                  </div>
-                </li>
-              </ul>
-              <p class="mt-3 hidden text-xs text-rose-300" data-market-error>Real-time market data temporarily unavailable.</p>
-              <a href="#" class="mt-6 inline-flex text-sm font-semibold text-indigo-300 hover:text-indigo-200">See full market coverage →</a>
+              <div class="flex flex-wrap items-baseline justify-between gap-3">
+                <div>
+                  <h3 class="text-lg font-semibold text-white">Market Pulse</h3>
+                  <p class="text-xs uppercase tracking-[0.3em] text-slate-500">Live global snapshot</p>
+                </div>
+                <span class="text-[11px] uppercase tracking-[0.3em] text-slate-600" data-market-updated>Updating…</span>
+              </div>
+              <div class="mt-5" data-market-panel aria-live="polite"></div>
+              <p class="mt-3 hidden text-xs text-rose-300" data-market-error>Real-time market data temporarily unavailable. Try refreshing in a moment.</p>
+              <div class="mt-6 flex flex-wrap items-center gap-2" data-market-tablist role="tablist"></div>
             </div>
             <div class="rounded-2xl border border-slate-800 bg-gradient-to-br from-indigo-500/20 via-slate-900 to-slate-950 p-6" id="culture">
               <h3 class="text-lg font-semibold text-white">Culture & Ideas</h3>
@@ -409,11 +406,14 @@
       const modals = Array.from(document.querySelectorAll('[data-modal]'));
       const subscribeModal = document.querySelector('[data-modal="subscribe"]');
       const premiumModal = document.querySelector('[data-modal="premium"]');
-      const subscribeTrigger = document.querySelector('[data-subscribe-trigger]');
+      const subscribeTriggers = Array.from(document.querySelectorAll('[data-subscribe-trigger]'));
       const subscribeForm = subscribeModal?.querySelector('[data-subscribe-form]');
       const premiumSummary = premiumModal?.querySelector('[data-premium-summary]');
       const premiumSummaryDefault = premiumSummary?.textContent ?? '';
       const premiumResponse = premiumModal?.querySelector('[data-premium-response]');
+      const navToggle = document.querySelector('[data-nav-toggle]');
+      const mobileNav = document.querySelector('[data-mobile-nav]');
+      const mobileNavLinks = Array.from(document.querySelectorAll('[data-nav-link]'));
 
       const toggleBodyScroll = (locked) => {
         document.body.classList.toggle('overflow-hidden', locked);
@@ -421,7 +421,8 @@
 
       const evaluateBodyLock = () => {
         const anyVisible = modals.some((modal) => !modal.classList.contains('hidden'));
-        toggleBodyScroll(anyVisible);
+        const navVisible = mobileNav ? !mobileNav.classList.contains('hidden') : false;
+        toggleBodyScroll(anyVisible || navVisible);
       };
 
       const showModal = (modal) => {
@@ -453,6 +454,35 @@
         }
       };
 
+      const openMobileNav = () => {
+        if (!mobileNav || !navToggle) return;
+        mobileNav.classList.remove('hidden');
+        navToggle.setAttribute('aria-expanded', 'true');
+        evaluateBodyLock();
+      };
+
+      const closeMobileNav = () => {
+        if (!mobileNav || !navToggle) return;
+        mobileNav.classList.add('hidden');
+        navToggle.setAttribute('aria-expanded', 'false');
+        evaluateBodyLock();
+      };
+
+      navToggle?.addEventListener('click', () => {
+        if (!mobileNav) return;
+        if (mobileNav.classList.contains('hidden')) {
+          openMobileNav();
+        } else {
+          closeMobileNav();
+        }
+      });
+
+      mobileNavLinks.forEach((link) => {
+        link.addEventListener('click', () => {
+          closeMobileNav();
+        });
+      });
+
       modals.forEach((modal) => {
         modal.addEventListener('click', (event) => {
           if (event.target === modal) {
@@ -472,14 +502,22 @@
           const visibleModal = modals.find((modal) => !modal.classList.contains('hidden'));
           if (visibleModal) {
             hideModal(visibleModal);
+            return;
+          }
+
+          if (mobileNav && !mobileNav.classList.contains('hidden')) {
+            closeMobileNav();
           }
         }
       });
 
-      subscribeTrigger?.addEventListener('click', () => {
-        showModal(subscribeModal);
-        requestAnimationFrame(() => {
-          subscribeModal?.querySelector('input')?.focus();
+      subscribeTriggers.forEach((trigger) => {
+        trigger.addEventListener('click', () => {
+          closeMobileNav();
+          showModal(subscribeModal);
+          requestAnimationFrame(() => {
+            subscribeModal?.querySelector('input')?.focus();
+          });
         });
       });
 
@@ -562,79 +600,267 @@
         }
       }
 
-      const marketFeed = document.querySelector('[data-market-feed]');
-      const marketError = document.querySelector('[data-market-error]');
+      const marketCard = document.querySelector('[data-market-card]');
 
-      if (marketFeed) {
-        const rows = Array.from(marketFeed.querySelectorAll('[data-symbol]'));
-        const symbols = rows.map((row) => row.getAttribute('data-symbol')).filter(Boolean);
+      if (marketCard) {
+        const panel = marketCard.querySelector('[data-market-panel]');
+        const tablist = marketCard.querySelector('[data-market-tablist]');
+        const errorEl = marketCard.querySelector('[data-market-error]');
+        const updatedEl = marketCard.querySelector('[data-market-updated]');
 
-        if (symbols.length) {
-          const query = symbols.map((symbol) => encodeURIComponent(symbol)).join(',');
-          const endpoint = `https://query1.finance.yahoo.com/v7/finance/quote?symbols=${query}`;
+        if (panel && tablist) {
+          const marketGroups = [
+            {
+              id: 'indices',
+              label: 'FTSE & Indices',
+              items: [
+                { symbol: '^FTSE', name: 'FTSE 100', context: 'London benchmark', decimals: 2 },
+                { symbol: '^GSPC', name: 'S&P 500', context: 'US equities', decimals: 2 },
+                { symbol: '^DJI', name: 'Dow Jones', context: 'Blue-chip', decimals: 2 },
+                { symbol: '^IXIC', name: 'NASDAQ', context: 'Growth & tech', decimals: 2 },
+                { symbol: '^STOXX50E', name: 'Euro Stoxx 50', context: 'Eurozone', decimals: 2 },
+              ],
+            },
+            {
+              id: 'commodities',
+              label: 'Oil & Commodities',
+              items: [
+                { symbol: 'CL=F', name: 'WTI Crude', context: 'NYMEX', decimals: 2 },
+                { symbol: 'BZ=F', name: 'Brent Crude', context: 'ICE', decimals: 2 },
+                { symbol: 'NG=F', name: 'Natural Gas', context: 'NYMEX', decimals: 3 },
+                { symbol: 'GC=F', name: 'Gold', context: 'COMEX', decimals: 2 },
+              ],
+            },
+            {
+              id: 'forex',
+              label: 'FX Rates',
+              items: [
+                { symbol: 'EURUSD=X', name: 'EUR / USD', context: 'Euro vs Dollar', decimals: 4 },
+                { symbol: 'GBPUSD=X', name: 'GBP / USD', context: 'Pound vs Dollar', decimals: 4 },
+                { symbol: 'USDJPY=X', name: 'USD / JPY', context: 'Dollar vs Yen', decimals: 3 },
+                { symbol: 'USDCNY=X', name: 'USD / CNY', context: 'Dollar vs Yuan', decimals: 4 },
+              ],
+            },
+          ];
+
+          const symbolNodes = new Map();
+          const viewMap = new Map();
+          const tabButtons = [];
+          const formatterCache = new Map();
+
+          const getFormatter = (decimals = 2) => {
+            if (!formatterCache.has(decimals)) {
+              formatterCache.set(decimals, new Intl.NumberFormat('en-US', {
+                minimumFractionDigits: decimals,
+                maximumFractionDigits: decimals,
+              }));
+            }
+            return formatterCache.get(decimals);
+          };
+
+          const registerSymbol = (symbol, node) => {
+            if (!symbolNodes.has(symbol)) {
+              symbolNodes.set(symbol, []);
+            }
+            symbolNodes.get(symbol).push(node);
+          };
+
+          const createRow = (item) => {
+            const row = document.createElement('li');
+            row.className = 'flex items-center justify-between gap-6 rounded-2xl border border-slate-800/70 bg-slate-900/60 px-4 py-3';
+
+            const meta = document.createElement('div');
+            meta.innerHTML = `
+              <p class="font-medium text-slate-200">${item.name}</p>
+              <p class="text-xs text-slate-500">${item.context}</p>
+            `;
+
+            const stats = document.createElement('div');
+            stats.className = 'text-right';
+
+            const priceEl = document.createElement('p');
+            priceEl.className = 'text-sm font-semibold text-slate-100';
+            priceEl.textContent = '—';
+
+            const changeEl = document.createElement('p');
+            changeEl.className = 'text-xs font-semibold text-slate-500';
+            changeEl.textContent = 'Loading…';
+
+            stats.append(priceEl, changeEl);
+            row.append(meta, stats);
+
+            registerSymbol(item.symbol, {
+              priceEl,
+              changeEl,
+              decimals: item.decimals ?? 2,
+            });
+
+            return row;
+          };
+
+          const setActiveTab = (targetId) => {
+            viewMap.forEach((view, id) => {
+              const isActive = id === targetId;
+              view.classList.toggle('hidden', !isActive);
+              view.setAttribute('aria-hidden', (!isActive).toString());
+            });
+
+            tabButtons.forEach((button) => {
+              const isActive = button.dataset.marketTab === targetId;
+              button.setAttribute('aria-selected', isActive ? 'true' : 'false');
+              button.classList.toggle('border-indigo-400', isActive);
+              button.classList.toggle('bg-indigo-500/20', isActive);
+              button.classList.toggle('text-indigo-100', isActive);
+              button.classList.toggle('border-slate-700', !isActive);
+              button.classList.toggle('text-slate-300', !isActive);
+            });
+          };
+
+          marketGroups.forEach((group, index) => {
+            const view = document.createElement('div');
+            view.dataset.marketView = group.id;
+            view.className = index === 0 ? '' : 'hidden';
+            view.id = `market-panel-${group.id}`;
+            view.setAttribute('role', 'tabpanel');
+            view.setAttribute('aria-hidden', index === 0 ? 'false' : 'true');
+
+            const list = document.createElement('ul');
+            list.className = 'space-y-4';
+
+            group.items.forEach((item) => {
+              list.appendChild(createRow(item));
+            });
+
+            view.appendChild(list);
+            panel.appendChild(view);
+            viewMap.set(group.id, view);
+
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.dataset.marketTab = group.id;
+            button.setAttribute('role', 'tab');
+            button.id = `market-tab-${group.id}`;
+            button.setAttribute('aria-controls', view.id);
+            view.setAttribute('aria-labelledby', button.id);
+            button.className = 'rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] transition';
+            if (index === 0) {
+              button.classList.add('border-indigo-400', 'bg-indigo-500/20', 'text-indigo-100');
+            } else {
+              button.classList.add('border-slate-700', 'text-slate-300');
+            }
+            button.textContent = group.label;
+            button.setAttribute('aria-selected', index === 0 ? 'true' : 'false');
+
+            button.addEventListener('click', () => {
+              setActiveTab(group.id);
+            });
+
+            tablist.appendChild(button);
+            tabButtons.push(button);
+          });
+
+          const symbols = Array.from(symbolNodes.keys());
+          const endpointBase = 'https://query1.finance.yahoo.com/v7/finance/quote?symbols=';
 
           const fetchJson = (url) =>
-            fetch(url)
-              .then((response) => {
-                if (!response.ok) {
-                  throw new Error('Network response was not ok');
-                }
-                return response.json();
-              });
+            fetch(url).then((response) => {
+              if (!response.ok) {
+                throw new Error('Network response was not ok');
+              }
+              return response.json();
+            });
 
-          const loadQuotes = () =>
-            fetchJson(endpoint).catch(() => {
+          const loadQuotes = () => {
+            if (!symbols.length) {
+              return Promise.resolve(null);
+            }
+
+            const query = symbols.map((symbol) => encodeURIComponent(symbol)).join(',');
+            const endpoint = `${endpointBase}${query}`;
+
+            return fetchJson(endpoint).catch(() => {
               const proxy = `https://api.allorigins.win/raw?url=${encodeURIComponent(endpoint)}`;
               return fetchJson(proxy);
             });
+          };
 
-          loadQuotes()
-            .then((payload) => {
-              const quotes = (payload?.quoteResponse?.result ?? []);
-              const formatter = new Intl.NumberFormat('en-US', {
-                maximumFractionDigits: 2,
-                minimumFractionDigits: 2,
-              });
-
-              rows.forEach((row) => {
-                const symbol = row.getAttribute('data-symbol');
-                const priceEl = row.querySelector('[data-price]');
-                const changeEl = row.querySelector('[data-change]');
-                const quote = quotes.find((item) => item.symbol === symbol);
-
-                if (!quote || !priceEl || !changeEl) {
-                  if (priceEl) priceEl.textContent = '—';
-                  if (changeEl) changeEl.textContent = 'Unavailable';
+          const updateQuotes = () => {
+            loadQuotes()
+              .then((payload) => {
+                if (!payload) {
                   return;
                 }
 
-                const price = Number(quote.regularMarketPrice);
-                const changePercent = Number(quote.regularMarketChangePercent);
+                const quotes = payload?.quoteResponse?.result ?? [];
+                const quoteMap = new Map(quotes.map((quote) => [quote.symbol, quote]));
 
-                if (Number.isFinite(price)) {
-                  priceEl.textContent = formatter.format(price);
-                } else {
-                  priceEl.textContent = '—';
+                symbols.forEach((symbol) => {
+                  const nodes = symbolNodes.get(symbol) ?? [];
+                  const quote = quoteMap.get(symbol);
+
+                  nodes.forEach((entry) => {
+                    const { priceEl, changeEl, decimals } = entry;
+
+                    if (!quote) {
+                      priceEl.textContent = '—';
+                      changeEl.textContent = 'Unavailable';
+                      changeEl.classList.remove('text-emerald-400', 'text-rose-300');
+                      changeEl.classList.add('text-slate-500');
+                      return;
+                    }
+
+                    const price = Number(quote.regularMarketPrice);
+                    const changePercent = Number(quote.regularMarketChangePercent);
+
+                    if (Number.isFinite(price)) {
+                      priceEl.textContent = getFormatter(decimals).format(price);
+                    } else {
+                      priceEl.textContent = '—';
+                    }
+
+                    if (Number.isFinite(changePercent)) {
+                      const sign = changePercent > 0 ? '+' : '';
+                      changeEl.textContent = `${sign}${changePercent.toFixed(2)}%`;
+                      changeEl.classList.remove('text-slate-500', 'text-emerald-400', 'text-rose-300');
+                      changeEl.classList.add(changePercent >= 0 ? 'text-emerald-400' : 'text-rose-300');
+                    } else {
+                      changeEl.textContent = '—';
+                      changeEl.classList.remove('text-emerald-400', 'text-rose-300');
+                      changeEl.classList.add('text-slate-500');
+                    }
+                  });
+                });
+
+                if (errorEl) {
+                  errorEl.classList.add('hidden');
                 }
 
-                if (Number.isFinite(changePercent)) {
-                  const sign = changePercent > 0 ? '+' : '';
-                  changeEl.textContent = `${sign}${changePercent.toFixed(2)}%`;
-                  changeEl.classList.remove('text-slate-500', 'text-emerald-400', 'text-rose-300');
-                  changeEl.classList.add(changePercent >= 0 ? 'text-emerald-400' : 'text-rose-300');
-                } else {
-                  changeEl.textContent = '—';
-                  changeEl.classList.remove('text-emerald-400', 'text-rose-300');
-                  changeEl.classList.add('text-slate-500');
+                if (updatedEl) {
+                  const timestamp = new Date();
+                  updatedEl.textContent = `Updated ${timestamp.toLocaleTimeString([], {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                  })}`;
+                }
+              })
+              .catch(() => {
+                if (errorEl) {
+                  errorEl.classList.remove('hidden');
+                }
+
+                if (updatedEl) {
+                  updatedEl.textContent = 'Update failed';
                 }
               });
-            })
-            .catch(() => {
-              if (marketError) {
-                marketError.classList.remove('hidden');
-                marketError.textContent = 'Real-time market data temporarily unavailable. Try refreshing in a moment.';
-              }
-            });
+          };
+
+          if (marketGroups.length) {
+            setActiveTab(marketGroups[0].id);
+          }
+
+          updateQuotes();
+          const REFRESH_INTERVAL = 60000;
+          setInterval(updateQuotes, REFRESH_INTERVAL);
         }
       }
     </script>
