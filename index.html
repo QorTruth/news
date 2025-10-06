@@ -219,9 +219,156 @@
                 </div>
                 <span class="text-[11px] uppercase tracking-[0.3em] text-slate-600" data-market-updated>Updating…</span>
               </div>
-              <div class="mt-5" data-market-panel aria-live="polite"></div>
+              <div class="mt-5" data-market-panel aria-live="polite">
+                <div data-market-view="indices" id="market-panel-indices" role="tabpanel" aria-hidden="false" aria-labelledby="market-tab-indices">
+                  <ul class="space-y-4">
+                    <li class="flex items-center justify-between gap-6 rounded-2xl border border-slate-800/70 bg-slate-900/60 px-4 py-3" data-symbol="^FTSE" data-decimals="2">
+                      <div>
+                        <p class="font-medium text-slate-200">FTSE 100</p>
+                        <p class="text-xs text-slate-500">London benchmark</p>
+                      </div>
+                      <div class="text-right">
+                        <p class="text-sm font-semibold text-slate-100" data-price>—</p>
+                        <p class="text-xs font-semibold text-slate-500" data-change>Loading…</p>
+                      </div>
+                    </li>
+                    <li class="flex items-center justify-between gap-6 rounded-2xl border border-slate-800/70 bg-slate-900/60 px-4 py-3" data-symbol="^GSPC" data-decimals="2">
+                      <div>
+                        <p class="font-medium text-slate-200">S&amp;P 500</p>
+                        <p class="text-xs text-slate-500">US equities</p>
+                      </div>
+                      <div class="text-right">
+                        <p class="text-sm font-semibold text-slate-100" data-price>—</p>
+                        <p class="text-xs font-semibold text-slate-500" data-change>Loading…</p>
+                      </div>
+                    </li>
+                    <li class="flex items-center justify-between gap-6 rounded-2xl border border-slate-800/70 bg-slate-900/60 px-4 py-3" data-symbol="^DJI" data-decimals="2">
+                      <div>
+                        <p class="font-medium text-slate-200">Dow Jones</p>
+                        <p class="text-xs text-slate-500">Blue-chip</p>
+                      </div>
+                      <div class="text-right">
+                        <p class="text-sm font-semibold text-slate-100" data-price>—</p>
+                        <p class="text-xs font-semibold text-slate-500" data-change>Loading…</p>
+                      </div>
+                    </li>
+                    <li class="flex items-center justify-between gap-6 rounded-2xl border border-slate-800/70 bg-slate-900/60 px-4 py-3" data-symbol="^IXIC" data-decimals="2">
+                      <div>
+                        <p class="font-medium text-slate-200">NASDAQ</p>
+                        <p class="text-xs text-slate-500">Growth &amp; tech</p>
+                      </div>
+                      <div class="text-right">
+                        <p class="text-sm font-semibold text-slate-100" data-price>—</p>
+                        <p class="text-xs font-semibold text-slate-500" data-change>Loading…</p>
+                      </div>
+                    </li>
+                    <li class="flex items-center justify-between gap-6 rounded-2xl border border-slate-800/70 bg-slate-900/60 px-4 py-3" data-symbol="^STOXX50E" data-decimals="2">
+                      <div>
+                        <p class="font-medium text-slate-200">Euro Stoxx 50</p>
+                        <p class="text-xs text-slate-500">Eurozone</p>
+                      </div>
+                      <div class="text-right">
+                        <p class="text-sm font-semibold text-slate-100" data-price>—</p>
+                        <p class="text-xs font-semibold text-slate-500" data-change>Loading…</p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div data-market-view="commodities" id="market-panel-commodities" role="tabpanel" class="hidden" aria-hidden="true" aria-labelledby="market-tab-commodities">
+                  <ul class="space-y-4">
+                    <li class="flex items-center justify-between gap-6 rounded-2xl border border-slate-800/70 bg-slate-900/60 px-4 py-3" data-symbol="CL=F" data-decimals="2">
+                      <div>
+                        <p class="font-medium text-slate-200">WTI Crude</p>
+                        <p class="text-xs text-slate-500">NYMEX</p>
+                      </div>
+                      <div class="text-right">
+                        <p class="text-sm font-semibold text-slate-100" data-price>—</p>
+                        <p class="text-xs font-semibold text-slate-500" data-change>Loading…</p>
+                      </div>
+                    </li>
+                    <li class="flex items-center justify-between gap-6 rounded-2xl border border-slate-800/70 bg-slate-900/60 px-4 py-3" data-symbol="BZ=F" data-decimals="2">
+                      <div>
+                        <p class="font-medium text-slate-200">Brent Crude</p>
+                        <p class="text-xs text-slate-500">ICE</p>
+                      </div>
+                      <div class="text-right">
+                        <p class="text-sm font-semibold text-slate-100" data-price>—</p>
+                        <p class="text-xs font-semibold text-slate-500" data-change>Loading…</p>
+                      </div>
+                    </li>
+                    <li class="flex items-center justify-between gap-6 rounded-2xl border border-slate-800/70 bg-slate-900/60 px-4 py-3" data-symbol="NG=F" data-decimals="3">
+                      <div>
+                        <p class="font-medium text-slate-200">Natural Gas</p>
+                        <p class="text-xs text-slate-500">NYMEX</p>
+                      </div>
+                      <div class="text-right">
+                        <p class="text-sm font-semibold text-slate-100" data-price>—</p>
+                        <p class="text-xs font-semibold text-slate-500" data-change>Loading…</p>
+                      </div>
+                    </li>
+                    <li class="flex items-center justify-between gap-6 rounded-2xl border border-slate-800/70 bg-slate-900/60 px-4 py-3" data-symbol="GC=F" data-decimals="2">
+                      <div>
+                        <p class="font-medium text-slate-200">Gold</p>
+                        <p class="text-xs text-slate-500">COMEX</p>
+                      </div>
+                      <div class="text-right">
+                        <p class="text-sm font-semibold text-slate-100" data-price>—</p>
+                        <p class="text-xs font-semibold text-slate-500" data-change>Loading…</p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div data-market-view="forex" id="market-panel-forex" role="tabpanel" class="hidden" aria-hidden="true" aria-labelledby="market-tab-forex">
+                  <ul class="space-y-4">
+                    <li class="flex items-center justify-between gap-6 rounded-2xl border border-slate-800/70 bg-slate-900/60 px-4 py-3" data-symbol="EURUSD=X" data-decimals="4">
+                      <div>
+                        <p class="font-medium text-slate-200">EUR / USD</p>
+                        <p class="text-xs text-slate-500">Euro vs Dollar</p>
+                      </div>
+                      <div class="text-right">
+                        <p class="text-sm font-semibold text-slate-100" data-price>—</p>
+                        <p class="text-xs font-semibold text-slate-500" data-change>Loading…</p>
+                      </div>
+                    </li>
+                    <li class="flex items-center justify-between gap-6 rounded-2xl border border-slate-800/70 bg-slate-900/60 px-4 py-3" data-symbol="GBPUSD=X" data-decimals="4">
+                      <div>
+                        <p class="font-medium text-slate-200">GBP / USD</p>
+                        <p class="text-xs text-slate-500">Pound vs Dollar</p>
+                      </div>
+                      <div class="text-right">
+                        <p class="text-sm font-semibold text-slate-100" data-price>—</p>
+                        <p class="text-xs font-semibold text-slate-500" data-change>Loading…</p>
+                      </div>
+                    </li>
+                    <li class="flex items-center justify-between gap-6 rounded-2xl border border-slate-800/70 bg-slate-900/60 px-4 py-3" data-symbol="USDJPY=X" data-decimals="3">
+                      <div>
+                        <p class="font-medium text-slate-200">USD / JPY</p>
+                        <p class="text-xs text-slate-500">Dollar vs Yen</p>
+                      </div>
+                      <div class="text-right">
+                        <p class="text-sm font-semibold text-slate-100" data-price>—</p>
+                        <p class="text-xs font-semibold text-slate-500" data-change>Loading…</p>
+                      </div>
+                    </li>
+                    <li class="flex items-center justify-between gap-6 rounded-2xl border border-slate-800/70 bg-slate-900/60 px-4 py-3" data-symbol="USDCNY=X" data-decimals="4">
+                      <div>
+                        <p class="font-medium text-slate-200">USD / CNY</p>
+                        <p class="text-xs text-slate-500">Dollar vs Yuan</p>
+                      </div>
+                      <div class="text-right">
+                        <p class="text-sm font-semibold text-slate-100" data-price>—</p>
+                        <p class="text-xs font-semibold text-slate-500" data-change>Loading…</p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
               <p class="mt-3 hidden text-xs text-rose-300" data-market-error>Real-time market data temporarily unavailable. Try refreshing in a moment.</p>
-              <div class="mt-6 flex flex-wrap items-center gap-2" data-market-tablist role="tablist"></div>
+              <div class="mt-6 flex flex-wrap items-center gap-2" data-market-tablist role="tablist">
+                <button type="button" class="rounded-full border border-indigo-400 bg-indigo-500/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-indigo-100 transition" data-market-tab="indices" id="market-tab-indices" aria-controls="market-panel-indices" aria-selected="true">FTSE &amp; Indices</button>
+                <button type="button" class="rounded-full border border-slate-700 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-slate-300 transition" data-market-tab="commodities" id="market-tab-commodities" aria-controls="market-panel-commodities" aria-selected="false">Oil &amp; Commodities</button>
+                <button type="button" class="rounded-full border border-slate-700 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-slate-300 transition" data-market-tab="forex" id="market-tab-forex" aria-controls="market-panel-forex" aria-selected="false">FX Rates</button>
+              </div>
             </div>
             <div class="rounded-2xl border border-slate-800 bg-gradient-to-br from-indigo-500/20 via-slate-900 to-slate-950 p-6" id="culture">
               <h3 class="text-lg font-semibold text-white">Culture & Ideas</h3>
@@ -603,265 +750,179 @@
       const marketCard = document.querySelector('[data-market-card]');
 
       if (marketCard) {
-        const panel = marketCard.querySelector('[data-market-panel]');
-        const tablist = marketCard.querySelector('[data-market-tablist]');
         const errorEl = marketCard.querySelector('[data-market-error]');
         const updatedEl = marketCard.querySelector('[data-market-updated]');
+        const tabButtons = Array.from(marketCard.querySelectorAll('[data-market-tab]'));
+        const views = Array.from(marketCard.querySelectorAll('[data-market-view]'));
 
-        if (panel && tablist) {
-          const marketGroups = [
-            {
-              id: 'indices',
-              label: 'FTSE & Indices',
-              items: [
-                { symbol: '^FTSE', name: 'FTSE 100', context: 'London benchmark', decimals: 2 },
-                { symbol: '^GSPC', name: 'S&P 500', context: 'US equities', decimals: 2 },
-                { symbol: '^DJI', name: 'Dow Jones', context: 'Blue-chip', decimals: 2 },
-                { symbol: '^IXIC', name: 'NASDAQ', context: 'Growth & tech', decimals: 2 },
-                { symbol: '^STOXX50E', name: 'Euro Stoxx 50', context: 'Eurozone', decimals: 2 },
-              ],
-            },
-            {
-              id: 'commodities',
-              label: 'Oil & Commodities',
-              items: [
-                { symbol: 'CL=F', name: 'WTI Crude', context: 'NYMEX', decimals: 2 },
-                { symbol: 'BZ=F', name: 'Brent Crude', context: 'ICE', decimals: 2 },
-                { symbol: 'NG=F', name: 'Natural Gas', context: 'NYMEX', decimals: 3 },
-                { symbol: 'GC=F', name: 'Gold', context: 'COMEX', decimals: 2 },
-              ],
-            },
-            {
-              id: 'forex',
-              label: 'FX Rates',
-              items: [
-                { symbol: 'EURUSD=X', name: 'EUR / USD', context: 'Euro vs Dollar', decimals: 4 },
-                { symbol: 'GBPUSD=X', name: 'GBP / USD', context: 'Pound vs Dollar', decimals: 4 },
-                { symbol: 'USDJPY=X', name: 'USD / JPY', context: 'Dollar vs Yen', decimals: 3 },
-                { symbol: 'USDCNY=X', name: 'USD / CNY', context: 'Dollar vs Yuan', decimals: 4 },
-              ],
-            },
-          ];
+        const symbolNodes = new Map();
+        const formatterCache = new Map();
 
-          const symbolNodes = new Map();
-          const viewMap = new Map();
-          const tabButtons = [];
-          const formatterCache = new Map();
+        const getFormatter = (decimals = 2) => {
+          if (!formatterCache.has(decimals)) {
+            formatterCache.set(decimals, new Intl.NumberFormat('en-US', {
+              minimumFractionDigits: decimals,
+              maximumFractionDigits: decimals,
+            }));
+          }
+          return formatterCache.get(decimals);
+        };
 
-          const getFormatter = (decimals = 2) => {
-            if (!formatterCache.has(decimals)) {
-              formatterCache.set(decimals, new Intl.NumberFormat('en-US', {
-                minimumFractionDigits: decimals,
-                maximumFractionDigits: decimals,
-              }));
-            }
-            return formatterCache.get(decimals);
-          };
+        views.forEach((view) => {
+          const rows = Array.from(view.querySelectorAll('[data-symbol]'));
+          rows.forEach((row) => {
+            const symbol = row.getAttribute('data-symbol');
+            if (!symbol) return;
 
-          const registerSymbol = (symbol, node) => {
+            const decimals = Number(row.getAttribute('data-decimals') ?? '2');
+            const priceEl = row.querySelector('[data-price]');
+            const changeEl = row.querySelector('[data-change]');
+
             if (!symbolNodes.has(symbol)) {
               symbolNodes.set(symbol, []);
             }
-            symbolNodes.get(symbol).push(node);
-          };
 
-          const createRow = (item) => {
-            const row = document.createElement('li');
-            row.className = 'flex items-center justify-between gap-6 rounded-2xl border border-slate-800/70 bg-slate-900/60 px-4 py-3';
+            symbolNodes.get(symbol).push({ priceEl, changeEl, decimals });
+          });
+        });
 
-            const meta = document.createElement('div');
-            meta.innerHTML = `
-              <p class="font-medium text-slate-200">${item.name}</p>
-              <p class="text-xs text-slate-500">${item.context}</p>
-            `;
-
-            const stats = document.createElement('div');
-            stats.className = 'text-right';
-
-            const priceEl = document.createElement('p');
-            priceEl.className = 'text-sm font-semibold text-slate-100';
-            priceEl.textContent = '—';
-
-            const changeEl = document.createElement('p');
-            changeEl.className = 'text-xs font-semibold text-slate-500';
-            changeEl.textContent = 'Loading…';
-
-            stats.append(priceEl, changeEl);
-            row.append(meta, stats);
-
-            registerSymbol(item.symbol, {
-              priceEl,
-              changeEl,
-              decimals: item.decimals ?? 2,
-            });
-
-            return row;
-          };
-
-          const setActiveTab = (targetId) => {
-            viewMap.forEach((view, id) => {
-              const isActive = id === targetId;
-              view.classList.toggle('hidden', !isActive);
-              view.setAttribute('aria-hidden', (!isActive).toString());
-            });
-
-            tabButtons.forEach((button) => {
-              const isActive = button.dataset.marketTab === targetId;
-              button.setAttribute('aria-selected', isActive ? 'true' : 'false');
-              button.classList.toggle('border-indigo-400', isActive);
-              button.classList.toggle('bg-indigo-500/20', isActive);
-              button.classList.toggle('text-indigo-100', isActive);
-              button.classList.toggle('border-slate-700', !isActive);
-              button.classList.toggle('text-slate-300', !isActive);
-            });
-          };
-
-          marketGroups.forEach((group, index) => {
-            const view = document.createElement('div');
-            view.dataset.marketView = group.id;
-            view.className = index === 0 ? '' : 'hidden';
-            view.id = `market-panel-${group.id}`;
-            view.setAttribute('role', 'tabpanel');
-            view.setAttribute('aria-hidden', index === 0 ? 'false' : 'true');
-
-            const list = document.createElement('ul');
-            list.className = 'space-y-4';
-
-            group.items.forEach((item) => {
-              list.appendChild(createRow(item));
-            });
-
-            view.appendChild(list);
-            panel.appendChild(view);
-            viewMap.set(group.id, view);
-
-            const button = document.createElement('button');
-            button.type = 'button';
-            button.dataset.marketTab = group.id;
-            button.setAttribute('role', 'tab');
-            button.id = `market-tab-${group.id}`;
-            button.setAttribute('aria-controls', view.id);
-            view.setAttribute('aria-labelledby', button.id);
-            button.className = 'rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] transition';
-            if (index === 0) {
-              button.classList.add('border-indigo-400', 'bg-indigo-500/20', 'text-indigo-100');
-            } else {
-              button.classList.add('border-slate-700', 'text-slate-300');
-            }
-            button.textContent = group.label;
-            button.setAttribute('aria-selected', index === 0 ? 'true' : 'false');
-
-            button.addEventListener('click', () => {
-              setActiveTab(group.id);
-            });
-
-            tablist.appendChild(button);
-            tabButtons.push(button);
+        const setActiveTab = (targetId) => {
+          views.forEach((view) => {
+            const isActive = view.getAttribute('data-market-view') === targetId;
+            view.classList.toggle('hidden', !isActive);
+            view.setAttribute('aria-hidden', (!isActive).toString());
           });
 
-          const symbols = Array.from(symbolNodes.keys());
-          const endpointBase = 'https://query1.finance.yahoo.com/v7/finance/quote?symbols=';
+          tabButtons.forEach((button) => {
+            const isActive = button.getAttribute('data-market-tab') === targetId;
+            button.setAttribute('aria-selected', isActive ? 'true' : 'false');
+            button.setAttribute('tabindex', isActive ? '0' : '-1');
+            button.classList.toggle('border-indigo-400', isActive);
+            button.classList.toggle('bg-indigo-500/20', isActive);
+            button.classList.toggle('text-indigo-100', isActive);
+            button.classList.toggle('border-slate-700', !isActive);
+            button.classList.toggle('text-slate-300', !isActive);
+          });
+        };
 
-          const fetchJson = (url) =>
-            fetch(url).then((response) => {
-              if (!response.ok) {
-                throw new Error('Network response was not ok');
-              }
-              return response.json();
-            });
-
-          const loadQuotes = () => {
-            if (!symbols.length) {
-              return Promise.resolve(null);
+        tabButtons.forEach((button) => {
+          button.addEventListener('click', () => {
+            const targetId = button.getAttribute('data-market-tab');
+            if (targetId) {
+              setActiveTab(targetId);
             }
+          });
+        });
 
-            const query = symbols.map((symbol) => encodeURIComponent(symbol)).join(',');
-            const endpoint = `${endpointBase}${query}`;
+        const activeTab = tabButtons.find((button) => button.getAttribute('aria-selected') === 'true');
+        if (activeTab) {
+          setActiveTab(activeTab.getAttribute('data-market-tab'));
+        } else if (tabButtons[0]) {
+          setActiveTab(tabButtons[0].getAttribute('data-market-tab'));
+        }
 
-            return fetchJson(endpoint).catch(() => {
-              const proxy = `https://api.allorigins.win/raw?url=${encodeURIComponent(endpoint)}`;
-              return fetchJson(proxy);
-            });
-          };
+        const symbols = Array.from(symbolNodes.keys());
+        const endpointBase = 'https://query1.finance.yahoo.com/v7/finance/quote?symbols=';
 
-          const updateQuotes = () => {
-            loadQuotes()
-              .then((payload) => {
-                if (!payload) {
-                  return;
-                }
+        const fetchJson = (url) =>
+          fetch(url).then((response) => {
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+            return response.json();
+          });
 
-                const quotes = payload?.quoteResponse?.result ?? [];
-                const quoteMap = new Map(quotes.map((quote) => [quote.symbol, quote]));
-
-                symbols.forEach((symbol) => {
-                  const nodes = symbolNodes.get(symbol) ?? [];
-                  const quote = quoteMap.get(symbol);
-
-                  nodes.forEach((entry) => {
-                    const { priceEl, changeEl, decimals } = entry;
-
-                    if (!quote) {
-                      priceEl.textContent = '—';
-                      changeEl.textContent = 'Unavailable';
-                      changeEl.classList.remove('text-emerald-400', 'text-rose-300');
-                      changeEl.classList.add('text-slate-500');
-                      return;
-                    }
-
-                    const price = Number(quote.regularMarketPrice);
-                    const changePercent = Number(quote.regularMarketChangePercent);
-
-                    if (Number.isFinite(price)) {
-                      priceEl.textContent = getFormatter(decimals).format(price);
-                    } else {
-                      priceEl.textContent = '—';
-                    }
-
-                    if (Number.isFinite(changePercent)) {
-                      const sign = changePercent > 0 ? '+' : '';
-                      changeEl.textContent = `${sign}${changePercent.toFixed(2)}%`;
-                      changeEl.classList.remove('text-slate-500', 'text-emerald-400', 'text-rose-300');
-                      changeEl.classList.add(changePercent >= 0 ? 'text-emerald-400' : 'text-rose-300');
-                    } else {
-                      changeEl.textContent = '—';
-                      changeEl.classList.remove('text-emerald-400', 'text-rose-300');
-                      changeEl.classList.add('text-slate-500');
-                    }
-                  });
-                });
-
-                if (errorEl) {
-                  errorEl.classList.add('hidden');
-                }
-
-                if (updatedEl) {
-                  const timestamp = new Date();
-                  updatedEl.textContent = `Updated ${timestamp.toLocaleTimeString([], {
-                    hour: '2-digit',
-                    minute: '2-digit',
-                  })}`;
-                }
-              })
-              .catch(() => {
-                if (errorEl) {
-                  errorEl.classList.remove('hidden');
-                }
-
-                if (updatedEl) {
-                  updatedEl.textContent = 'Update failed';
-                }
-              });
-          };
-
-          if (marketGroups.length) {
-            setActiveTab(marketGroups[0].id);
+        const loadQuotes = () => {
+          if (!symbols.length) {
+            return Promise.resolve(null);
           }
 
-          updateQuotes();
-          const REFRESH_INTERVAL = 60000;
-          setInterval(updateQuotes, REFRESH_INTERVAL);
-        }
+          const query = symbols.map((symbol) => encodeURIComponent(symbol)).join(',');
+          const endpoint = `${endpointBase}${query}`;
+
+          return fetchJson(endpoint).catch(() => {
+            const proxy = `https://api.allorigins.win/raw?url=${encodeURIComponent(endpoint)}`;
+            return fetchJson(proxy);
+          });
+        };
+
+        const updateQuotes = () => {
+          loadQuotes()
+            .then((payload) => {
+              if (!payload) {
+                return;
+              }
+
+              const quotes = payload?.quoteResponse?.result ?? [];
+              const quoteMap = new Map(quotes.map((quote) => [quote.symbol, quote]));
+
+              symbols.forEach((symbol) => {
+                const nodes = symbolNodes.get(symbol) ?? [];
+                const quote = quoteMap.get(symbol);
+
+                nodes.forEach((entry) => {
+                  const { priceEl, changeEl, decimals } = entry;
+
+                  if (!priceEl || !changeEl) {
+                    return;
+                  }
+
+                  if (!quote) {
+                    priceEl.textContent = '—';
+                    changeEl.textContent = 'Unavailable';
+                    changeEl.classList.remove('text-emerald-400', 'text-rose-300');
+                    changeEl.classList.add('text-slate-500');
+                    return;
+                  }
+
+                  const price = Number(quote.regularMarketPrice);
+                  const changePercent = Number(quote.regularMarketChangePercent);
+
+                  if (Number.isFinite(price)) {
+                    priceEl.textContent = getFormatter(decimals).format(price);
+                  } else {
+                    priceEl.textContent = '—';
+                  }
+
+                  if (Number.isFinite(changePercent)) {
+                    const sign = changePercent > 0 ? '+' : '';
+                    changeEl.textContent = `${sign}${changePercent.toFixed(2)}%`;
+                    changeEl.classList.remove('text-slate-500', 'text-emerald-400', 'text-rose-300');
+                    changeEl.classList.add(changePercent >= 0 ? 'text-emerald-400' : 'text-rose-300');
+                  } else {
+                    changeEl.textContent = '—';
+                    changeEl.classList.remove('text-emerald-400', 'text-rose-300');
+                    changeEl.classList.add('text-slate-500');
+                  }
+                });
+              });
+
+              if (errorEl) {
+                errorEl.classList.add('hidden');
+              }
+
+              if (updatedEl) {
+                const timestamp = new Date();
+                updatedEl.textContent = `Updated ${timestamp.toLocaleTimeString([], {
+                  hour: '2-digit',
+                  minute: '2-digit',
+                })}`;
+              }
+            })
+            .catch(() => {
+              if (errorEl) {
+                errorEl.classList.remove('hidden');
+              }
+
+              if (updatedEl) {
+                updatedEl.textContent = 'Update failed';
+              }
+            });
+        };
+
+        updateQuotes();
+        const REFRESH_INTERVAL = 60000;
+        setInterval(updateQuotes, REFRESH_INTERVAL);
       }
     </script>
   </body>
