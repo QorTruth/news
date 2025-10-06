@@ -29,6 +29,16 @@
         animation-play-state: paused;
       }
 
+      .market-overview-widget {
+        display: block;
+      }
+
+      .market-overview-widget iframe {
+        width: 100% !important;
+        border: 0;
+        border-radius: 1.25rem;
+      }
+
       @media (prefers-reduced-motion: reduce) {
         .ticker-track {
           animation: none;
@@ -211,163 +221,90 @@
             </div>
           </div>
           <aside class="space-y-6">
-            <div class="rounded-2xl border border-slate-800 bg-slate-900/80 p-6" data-market-card>
-              <div class="flex flex-wrap items-baseline justify-between gap-3">
+            <div class="overflow-hidden rounded-3xl border border-slate-800 bg-slate-900/85 shadow-lg shadow-black/20" data-market-card>
+              <div class="flex items-center justify-between border-b border-slate-800/80 px-6 py-5">
                 <div>
                   <h3 class="text-lg font-semibold text-white">Market Pulse</h3>
                   <p class="text-xs uppercase tracking-[0.3em] text-slate-500">Live global snapshot</p>
                 </div>
-                <span class="text-[11px] uppercase tracking-[0.3em] text-slate-600" data-market-updated>Updating…</span>
+                <span class="text-[11px] uppercase tracking-[0.3em] text-slate-600">Powered by TradingView</span>
               </div>
-              <div class="mt-5" data-market-panel aria-live="polite">
-                <div data-market-view="indices" id="market-panel-indices" role="tabpanel" aria-hidden="false" aria-labelledby="market-tab-indices">
-                  <ul class="space-y-4">
-                    <li class="flex items-center justify-between gap-6 rounded-2xl border border-slate-800/70 bg-slate-900/60 px-4 py-3" data-symbol="^FTSE" data-decimals="2">
-                      <div>
-                        <p class="font-medium text-slate-200">FTSE 100</p>
-                        <p class="text-xs text-slate-500">London benchmark</p>
-                      </div>
-                      <div class="text-right">
-                        <p class="text-sm font-semibold text-slate-100" data-price>—</p>
-                        <p class="text-xs font-semibold text-slate-500" data-change>Loading…</p>
-                      </div>
-                    </li>
-                    <li class="flex items-center justify-between gap-6 rounded-2xl border border-slate-800/70 bg-slate-900/60 px-4 py-3" data-symbol="^GSPC" data-decimals="2">
-                      <div>
-                        <p class="font-medium text-slate-200">S&amp;P 500</p>
-                        <p class="text-xs text-slate-500">US equities</p>
-                      </div>
-                      <div class="text-right">
-                        <p class="text-sm font-semibold text-slate-100" data-price>—</p>
-                        <p class="text-xs font-semibold text-slate-500" data-change>Loading…</p>
-                      </div>
-                    </li>
-                    <li class="flex items-center justify-between gap-6 rounded-2xl border border-slate-800/70 bg-slate-900/60 px-4 py-3" data-symbol="^DJI" data-decimals="2">
-                      <div>
-                        <p class="font-medium text-slate-200">Dow Jones</p>
-                        <p class="text-xs text-slate-500">Blue-chip</p>
-                      </div>
-                      <div class="text-right">
-                        <p class="text-sm font-semibold text-slate-100" data-price>—</p>
-                        <p class="text-xs font-semibold text-slate-500" data-change>Loading…</p>
-                      </div>
-                    </li>
-                    <li class="flex items-center justify-between gap-6 rounded-2xl border border-slate-800/70 bg-slate-900/60 px-4 py-3" data-symbol="^IXIC" data-decimals="2">
-                      <div>
-                        <p class="font-medium text-slate-200">NASDAQ</p>
-                        <p class="text-xs text-slate-500">Growth &amp; tech</p>
-                      </div>
-                      <div class="text-right">
-                        <p class="text-sm font-semibold text-slate-100" data-price>—</p>
-                        <p class="text-xs font-semibold text-slate-500" data-change>Loading…</p>
-                      </div>
-                    </li>
-                    <li class="flex items-center justify-between gap-6 rounded-2xl border border-slate-800/70 bg-slate-900/60 px-4 py-3" data-symbol="^STOXX50E" data-decimals="2">
-                      <div>
-                        <p class="font-medium text-slate-200">Euro Stoxx 50</p>
-                        <p class="text-xs text-slate-500">Eurozone</p>
-                      </div>
-                      <div class="text-right">
-                        <p class="text-sm font-semibold text-slate-100" data-price>—</p>
-                        <p class="text-xs font-semibold text-slate-500" data-change>Loading…</p>
-                      </div>
-                    </li>
-                  </ul>
+              <div class="tradingview-widget-container market-overview-widget bg-slate-950/60 px-0 pb-3 pt-3">
+                <div class="tradingview-widget-container__widget"></div>
+                <div class="tradingview-widget-container__copyright text-xs text-slate-500 px-6 pt-3">
+                  <span>Data courtesy of <a href="https://www.tradingview.com/" class="text-indigo-300 hover:text-indigo-200" rel="noopener" target="_blank">TradingView</a></span>
                 </div>
-                <div data-market-view="commodities" id="market-panel-commodities" role="tabpanel" class="hidden" aria-hidden="true" aria-labelledby="market-tab-commodities">
-                  <ul class="space-y-4">
-                    <li class="flex items-center justify-between gap-6 rounded-2xl border border-slate-800/70 bg-slate-900/60 px-4 py-3" data-symbol="CL=F" data-decimals="2">
-                      <div>
-                        <p class="font-medium text-slate-200">WTI Crude</p>
-                        <p class="text-xs text-slate-500">NYMEX</p>
-                      </div>
-                      <div class="text-right">
-                        <p class="text-sm font-semibold text-slate-100" data-price>—</p>
-                        <p class="text-xs font-semibold text-slate-500" data-change>Loading…</p>
-                      </div>
-                    </li>
-                    <li class="flex items-center justify-between gap-6 rounded-2xl border border-slate-800/70 bg-slate-900/60 px-4 py-3" data-symbol="BZ=F" data-decimals="2">
-                      <div>
-                        <p class="font-medium text-slate-200">Brent Crude</p>
-                        <p class="text-xs text-slate-500">ICE</p>
-                      </div>
-                      <div class="text-right">
-                        <p class="text-sm font-semibold text-slate-100" data-price>—</p>
-                        <p class="text-xs font-semibold text-slate-500" data-change>Loading…</p>
-                      </div>
-                    </li>
-                    <li class="flex items-center justify-between gap-6 rounded-2xl border border-slate-800/70 bg-slate-900/60 px-4 py-3" data-symbol="NG=F" data-decimals="3">
-                      <div>
-                        <p class="font-medium text-slate-200">Natural Gas</p>
-                        <p class="text-xs text-slate-500">NYMEX</p>
-                      </div>
-                      <div class="text-right">
-                        <p class="text-sm font-semibold text-slate-100" data-price>—</p>
-                        <p class="text-xs font-semibold text-slate-500" data-change>Loading…</p>
-                      </div>
-                    </li>
-                    <li class="flex items-center justify-between gap-6 rounded-2xl border border-slate-800/70 bg-slate-900/60 px-4 py-3" data-symbol="GC=F" data-decimals="2">
-                      <div>
-                        <p class="font-medium text-slate-200">Gold</p>
-                        <p class="text-xs text-slate-500">COMEX</p>
-                      </div>
-                      <div class="text-right">
-                        <p class="text-sm font-semibold text-slate-100" data-price>—</p>
-                        <p class="text-xs font-semibold text-slate-500" data-change>Loading…</p>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-                <div data-market-view="forex" id="market-panel-forex" role="tabpanel" class="hidden" aria-hidden="true" aria-labelledby="market-tab-forex">
-                  <ul class="space-y-4">
-                    <li class="flex items-center justify-between gap-6 rounded-2xl border border-slate-800/70 bg-slate-900/60 px-4 py-3" data-symbol="EURUSD=X" data-decimals="4">
-                      <div>
-                        <p class="font-medium text-slate-200">EUR / USD</p>
-                        <p class="text-xs text-slate-500">Euro vs Dollar</p>
-                      </div>
-                      <div class="text-right">
-                        <p class="text-sm font-semibold text-slate-100" data-price>—</p>
-                        <p class="text-xs font-semibold text-slate-500" data-change>Loading…</p>
-                      </div>
-                    </li>
-                    <li class="flex items-center justify-between gap-6 rounded-2xl border border-slate-800/70 bg-slate-900/60 px-4 py-3" data-symbol="GBPUSD=X" data-decimals="4">
-                      <div>
-                        <p class="font-medium text-slate-200">GBP / USD</p>
-                        <p class="text-xs text-slate-500">Pound vs Dollar</p>
-                      </div>
-                      <div class="text-right">
-                        <p class="text-sm font-semibold text-slate-100" data-price>—</p>
-                        <p class="text-xs font-semibold text-slate-500" data-change>Loading…</p>
-                      </div>
-                    </li>
-                    <li class="flex items-center justify-between gap-6 rounded-2xl border border-slate-800/70 bg-slate-900/60 px-4 py-3" data-symbol="USDJPY=X" data-decimals="3">
-                      <div>
-                        <p class="font-medium text-slate-200">USD / JPY</p>
-                        <p class="text-xs text-slate-500">Dollar vs Yen</p>
-                      </div>
-                      <div class="text-right">
-                        <p class="text-sm font-semibold text-slate-100" data-price>—</p>
-                        <p class="text-xs font-semibold text-slate-500" data-change>Loading…</p>
-                      </div>
-                    </li>
-                    <li class="flex items-center justify-between gap-6 rounded-2xl border border-slate-800/70 bg-slate-900/60 px-4 py-3" data-symbol="USDCNY=X" data-decimals="4">
-                      <div>
-                        <p class="font-medium text-slate-200">USD / CNY</p>
-                        <p class="text-xs text-slate-500">Dollar vs Yuan</p>
-                      </div>
-                      <div class="text-right">
-                        <p class="text-sm font-semibold text-slate-100" data-price>—</p>
-                        <p class="text-xs font-semibold text-slate-500" data-change>Loading…</p>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <p class="mt-3 hidden text-xs text-rose-300" data-market-error>Real-time market data temporarily unavailable. Try refreshing in a moment.</p>
-              <div class="mt-6 flex flex-wrap items-center gap-2" data-market-tablist role="tablist">
-                <button type="button" class="rounded-full border border-indigo-400 bg-indigo-500/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-indigo-100 transition" data-market-tab="indices" id="market-tab-indices" aria-controls="market-panel-indices" aria-selected="true">FTSE &amp; Indices</button>
-                <button type="button" class="rounded-full border border-slate-700 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-slate-300 transition" data-market-tab="commodities" id="market-tab-commodities" aria-controls="market-panel-commodities" aria-selected="false">Oil &amp; Commodities</button>
-                <button type="button" class="rounded-full border border-slate-700 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-slate-300 transition" data-market-tab="forex" id="market-tab-forex" aria-controls="market-panel-forex" aria-selected="false">FX Rates</button>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+{
+  "colorTheme": "dark",
+  "dateRange": "1M",
+  "showChart": true,
+  "locale": "en",
+  "largeChartUrl": "",
+  "isTransparent": false,
+  "showSymbolLogo": true,
+  "showFloatingTooltip": false,
+  "width": "100%",
+  "height": 480,
+  "tabs": [
+    {
+      "title": "Global Indices",
+      "symbols": [
+        { "s": "TVC:UKX", "d": "FTSE 100" },
+        { "s": "TVC:SPX", "d": "S&P 500" },
+        { "s": "TVC:NDX", "d": "NASDAQ 100" },
+        { "s": "TVC:DAX", "d": "DAX" },
+        { "s": "TVC:SX5E", "d": "Euro Stoxx 50" },
+        { "s": "TVC:NI225", "d": "Nikkei 225" },
+        { "s": "TVC:HSI", "d": "Hang Seng" },
+        { "s": "TVC:AS51", "d": "ASX 200" }
+      ]
+    },
+    {
+      "title": "Commodities",
+      "symbols": [
+        { "s": "TVC:UKOIL", "d": "Brent" },
+        { "s": "TVC:USOIL", "d": "WTI" },
+        { "s": "NYMEX:NG1!", "d": "Natural Gas" },
+        { "s": "TVC:GOLD", "d": "Gold" },
+        { "s": "TVC:SILVER", "d": "Silver" },
+        { "s": "COMEX:PL1!", "d": "Platinum" },
+        { "s": "TVC:COPPER", "d": "Copper" }
+      ]
+    },
+    {
+      "title": "FX & Rates",
+      "symbols": [
+        { "s": "FX:EURUSD", "d": "EUR / USD" },
+        { "s": "FX:GBPUSD", "d": "GBP / USD" },
+        { "s": "FX:USDJPY", "d": "USD / JPY" },
+        { "s": "FX:USDCNH", "d": "USD / CNY" },
+        { "s": "FX:AUDUSD", "d": "AUD / USD" },
+        { "s": "TVC:DXY", "d": "DXY" }
+      ]
+    },
+    {
+      "title": "Americas",
+      "symbols": [
+        { "s": "NASDAQ:TSLA", "d": "Tesla" },
+        { "s": "NASDAQ:NVDA", "d": "NVIDIA" },
+        { "s": "NYSE:BRK.B", "d": "Berkshire B" },
+        { "s": "NYSE:SPY", "d": "S&P ETF" },
+        { "s": "NASDAQ:QQQ", "d": "NASDAQ ETF" }
+      ]
+    },
+    {
+      "title": "Crypto",
+      "symbols": [
+        { "s": "CRYPTO:BTCUSD", "d": "Bitcoin" },
+        { "s": "CRYPTO:ETHUSD", "d": "Ethereum" },
+        { "s": "CRYPTO:SOLUSD", "d": "Solana" },
+        { "s": "CRYPTO:XRPUSD", "d": "XRP" }
+      ]
+    }
+  ]
+}
+                </script>
               </div>
             </div>
             <div class="rounded-2xl border border-slate-800 bg-gradient-to-br from-indigo-500/20 via-slate-900 to-slate-950 p-6" id="culture">
@@ -747,183 +684,7 @@
         }
       }
 
-      const marketCard = document.querySelector('[data-market-card]');
-
-      if (marketCard) {
-        const errorEl = marketCard.querySelector('[data-market-error]');
-        const updatedEl = marketCard.querySelector('[data-market-updated]');
-        const tabButtons = Array.from(marketCard.querySelectorAll('[data-market-tab]'));
-        const views = Array.from(marketCard.querySelectorAll('[data-market-view]'));
-
-        const symbolNodes = new Map();
-        const formatterCache = new Map();
-
-        const getFormatter = (decimals = 2) => {
-          if (!formatterCache.has(decimals)) {
-            formatterCache.set(decimals, new Intl.NumberFormat('en-US', {
-              minimumFractionDigits: decimals,
-              maximumFractionDigits: decimals,
-            }));
-          }
-          return formatterCache.get(decimals);
-        };
-
-        views.forEach((view) => {
-          const rows = Array.from(view.querySelectorAll('[data-symbol]'));
-          rows.forEach((row) => {
-            const symbol = row.getAttribute('data-symbol');
-            if (!symbol) return;
-
-            const decimals = Number(row.getAttribute('data-decimals') ?? '2');
-            const priceEl = row.querySelector('[data-price]');
-            const changeEl = row.querySelector('[data-change]');
-
-            if (!symbolNodes.has(symbol)) {
-              symbolNodes.set(symbol, []);
-            }
-
-            symbolNodes.get(symbol).push({ priceEl, changeEl, decimals });
-          });
-        });
-
-        const setActiveTab = (targetId) => {
-          views.forEach((view) => {
-            const isActive = view.getAttribute('data-market-view') === targetId;
-            view.classList.toggle('hidden', !isActive);
-            view.setAttribute('aria-hidden', (!isActive).toString());
-          });
-
-          tabButtons.forEach((button) => {
-            const isActive = button.getAttribute('data-market-tab') === targetId;
-            button.setAttribute('aria-selected', isActive ? 'true' : 'false');
-            button.setAttribute('tabindex', isActive ? '0' : '-1');
-            button.classList.toggle('border-indigo-400', isActive);
-            button.classList.toggle('bg-indigo-500/20', isActive);
-            button.classList.toggle('text-indigo-100', isActive);
-            button.classList.toggle('border-slate-700', !isActive);
-            button.classList.toggle('text-slate-300', !isActive);
-          });
-        };
-
-        tabButtons.forEach((button) => {
-          button.addEventListener('click', () => {
-            const targetId = button.getAttribute('data-market-tab');
-            if (targetId) {
-              setActiveTab(targetId);
-            }
-          });
-        });
-
-        const activeTab = tabButtons.find((button) => button.getAttribute('aria-selected') === 'true');
-        if (activeTab) {
-          setActiveTab(activeTab.getAttribute('data-market-tab'));
-        } else if (tabButtons[0]) {
-          setActiveTab(tabButtons[0].getAttribute('data-market-tab'));
-        }
-
-        const symbols = Array.from(symbolNodes.keys());
-        const endpointBase = 'https://query1.finance.yahoo.com/v7/finance/quote?symbols=';
-
-        const fetchJson = (url) =>
-          fetch(url).then((response) => {
-            if (!response.ok) {
-              throw new Error('Network response was not ok');
-            }
-            return response.json();
-          });
-
-        const loadQuotes = () => {
-          if (!symbols.length) {
-            return Promise.resolve(null);
-          }
-
-          const query = symbols.map((symbol) => encodeURIComponent(symbol)).join(',');
-          const endpoint = `${endpointBase}${query}`;
-
-          return fetchJson(endpoint).catch(() => {
-            const proxy = `https://api.allorigins.win/raw?url=${encodeURIComponent(endpoint)}`;
-            return fetchJson(proxy);
-          });
-        };
-
-        const updateQuotes = () => {
-          loadQuotes()
-            .then((payload) => {
-              if (!payload) {
-                return;
-              }
-
-              const quotes = payload?.quoteResponse?.result ?? [];
-              const quoteMap = new Map(quotes.map((quote) => [quote.symbol, quote]));
-
-              symbols.forEach((symbol) => {
-                const nodes = symbolNodes.get(symbol) ?? [];
-                const quote = quoteMap.get(symbol);
-
-                nodes.forEach((entry) => {
-                  const { priceEl, changeEl, decimals } = entry;
-
-                  if (!priceEl || !changeEl) {
-                    return;
-                  }
-
-                  if (!quote) {
-                    priceEl.textContent = '—';
-                    changeEl.textContent = 'Unavailable';
-                    changeEl.classList.remove('text-emerald-400', 'text-rose-300');
-                    changeEl.classList.add('text-slate-500');
-                    return;
-                  }
-
-                  const price = Number(quote.regularMarketPrice);
-                  const changePercent = Number(quote.regularMarketChangePercent);
-
-                  if (Number.isFinite(price)) {
-                    priceEl.textContent = getFormatter(decimals).format(price);
-                  } else {
-                    priceEl.textContent = '—';
-                  }
-
-                  if (Number.isFinite(changePercent)) {
-                    const sign = changePercent > 0 ? '+' : '';
-                    changeEl.textContent = `${sign}${changePercent.toFixed(2)}%`;
-                    changeEl.classList.remove('text-slate-500', 'text-emerald-400', 'text-rose-300');
-                    changeEl.classList.add(changePercent >= 0 ? 'text-emerald-400' : 'text-rose-300');
-                  } else {
-                    changeEl.textContent = '—';
-                    changeEl.classList.remove('text-emerald-400', 'text-rose-300');
-                    changeEl.classList.add('text-slate-500');
-                  }
-                });
-              });
-
-              if (errorEl) {
-                errorEl.classList.add('hidden');
-              }
-
-              if (updatedEl) {
-                const timestamp = new Date();
-                updatedEl.textContent = `Updated ${timestamp.toLocaleTimeString([], {
-                  hour: '2-digit',
-                  minute: '2-digit',
-                })}`;
-              }
-            })
-            .catch(() => {
-              if (errorEl) {
-                errorEl.classList.remove('hidden');
-              }
-
-              if (updatedEl) {
-                updatedEl.textContent = 'Update failed';
-              }
-            });
-        };
-
-        updateQuotes();
-        const REFRESH_INTERVAL = 60000;
-        setInterval(updateQuotes, REFRESH_INTERVAL);
-      }
+      // Market data is provided via the embedded TradingView widget configured in markup.
     </script>
   </body>
 </html>
