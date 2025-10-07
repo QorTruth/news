@@ -80,7 +80,7 @@
                   </svg>
                 </button>
                 <div class="absolute right-0 mt-3 hidden w-44 overflow-hidden rounded-2xl border border-slate-800 bg-slate-950/95 shadow-xl shadow-black/30 z-30" data-account-menu role="menu">
-                  <a href="#" class="flex items-center justify-between px-4 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-slate-200 transition hover:bg-slate-900/80" role="menuitem">Sign In <span class="text-[10px] text-indigo-300">→</span></a>
+                  <a href="#" class="flex items-center justify-between px-4 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-slate-200 transition hover:bg-slate-900/80" role="menuitem" data-signin-trigger>Sign In <span class="text-[10px] text-indigo-300">→</span></a>
                   <a href="#" class="flex items-center justify-between border-t border-slate-800/70 px-4 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-slate-200 transition hover:bg-slate-900/80" role="menuitem" data-subscribe-trigger>Subscribe <span class="text-[10px] text-indigo-300">+</span></a>
                 </div>
               </div>
@@ -95,7 +95,7 @@
                   </svg>
                 </button>
                 <div class="absolute right-0 mt-3 hidden w-44 overflow-hidden rounded-2xl border border-slate-800 bg-slate-950/95 shadow-xl shadow-black/30 z-30" data-account-menu role="menu">
-                  <a href="#" class="flex items-center justify-between px-4 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-slate-200 transition hover:bg-slate-900/80" role="menuitem">Sign In <span class="text-[10px] text-indigo-300">→</span></a>
+                  <a href="#" class="flex items-center justify-between px-4 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-slate-200 transition hover:bg-slate-900/80" role="menuitem" data-signin-trigger>Sign In <span class="text-[10px] text-indigo-300">→</span></a>
                   <a href="#" class="flex items-center justify-between border-t border-slate-800/70 px-4 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-slate-200 transition hover:bg-slate-900/80" role="menuitem" data-subscribe-trigger>Subscribe <span class="text-[10px] text-indigo-300">+</span></a>
                 </div>
               </div>
@@ -329,19 +329,55 @@
               <h2 class="text-3xl font-semibold text-white md:text-4xl">Stay ahead on creators, venues, and the ideas driving tomorrow</h2>
               <p class="text-sm text-slate-200 md:text-base">Curated essays, artist interviews, and the curations reshaping public imagination.</p>
             </div>
-            <form class="rounded-2xl border border-indigo-400/30 bg-slate-950/70 p-6 shadow-lg shadow-indigo-500/20">
-              <label class="text-xs font-semibold uppercase tracking-widest text-indigo-200">Email address</label>
-              <input type="email" required placeholder="you@company.com" class="mt-2 w-full rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 text-sm text-white outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-400/40">
+            <form class="rounded-2xl border border-indigo-400/30 bg-slate-950/70 p-6 shadow-lg shadow-indigo-500/20" data-newsletter-form>
+              <label class="text-xs font-semibold uppercase tracking-widest text-indigo-200" for="newsletter-email">Email address</label>
+              <input id="newsletter-email" name="email" type="email" required placeholder="you@company.com" class="mt-2 w-full rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 text-sm text-white outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-400/40">
               <label class="mt-6 flex items-center gap-2 text-xs text-slate-400">
-                <input type="checkbox" class="h-4 w-4 rounded border-slate-700 bg-slate-900 text-indigo-500 focus:ring-indigo-400">
+                <input name="weekend" type="checkbox" class="h-4 w-4 rounded border-slate-700 bg-slate-900 text-indigo-500 focus:ring-indigo-400">
                 Send me pop-up exhibition and residency alerts
               </label>
-              <button type="submit" class="mt-6 w-full rounded-xl bg-indigo-500 px-4 py-3 text-sm font-semibold text-white transition hover:bg-indigo-400">Join the briefing</button>
+              <button type="submit" class="mt-6 w-full rounded-xl bg-indigo-500 px-4 py-3 text-sm font-semibold text-white transition hover:bg-indigo-400" data-newsletter-submit>Join the briefing</button>
+              <p class="mt-4 rounded-xl bg-emerald-500/10 px-4 py-3 text-xs font-semibold uppercase tracking-[0.22em] text-emerald-200 hidden" data-newsletter-success>Check your inbox for the confirmation link.</p>
+              <p class="mt-4 rounded-xl bg-rose-500/10 px-4 py-3 text-xs font-semibold uppercase tracking-[0.22em] text-rose-200 hidden" data-newsletter-error></p>
               <p class="mt-3 text-[11px] text-slate-500">We respect your inbox. Unsubscribe anytime.</p>
             </form>
           </div>
         </section>
       </main>
+
+      <!-- Sign In Modal -->
+      <div class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/80 p-6 backdrop-blur" data-modal="signin" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="signin-modal-title" aria-describedby="signin-modal-description">
+        <div class="relative w-full max-w-md rounded-3xl border border-slate-800 bg-slate-900 p-8 shadow-xl shadow-black/40">
+          <button type="button" class="absolute right-4 top-4 text-slate-500 transition hover:text-indigo-300" data-close-modal aria-label="Close sign in dialog">&times;</button>
+          <div class="space-y-6">
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-[0.25em] text-indigo-300">Account Access</p>
+              <h2 class="mt-2 text-2xl font-semibold text-white" id="signin-modal-title">Sign in to QorTruth</h2>
+              <p class="mt-2 text-sm text-slate-400" id="signin-modal-description">Enter your credentials to access premium alerts, saved briefings, and newsroom invitations.</p>
+            </div>
+            <form class="space-y-5" data-signin-form>
+              <div>
+                <label class="block text-sm font-semibold text-slate-200" for="signin-identifier">Email or username</label>
+                <input id="signin-identifier" name="identifier" type="text" autocomplete="username" placeholder="you@company.com" class="mt-2 w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-sm text-white outline-none transition focus:border-indigo-400 focus:ring-2 focus:ring-indigo-400/40" required>
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-slate-200" for="signin-password">Password</label>
+                <input id="signin-password" name="password" type="password" autocomplete="current-password" placeholder="••••••••" class="mt-2 w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-sm text-white outline-none transition focus:border-indigo-400 focus:ring-2 focus:ring-indigo-400/40" required>
+              </div>
+              <div class="flex items-center justify-between text-xs text-slate-400">
+                <label class="inline-flex items-center gap-2">
+                  <input type="checkbox" class="h-4 w-4 rounded border-slate-700 bg-slate-950 text-indigo-500 focus:ring-indigo-400">
+                  Remember me
+                </label>
+                <a href="#" class="font-semibold text-indigo-300 hover:text-indigo-200">Forgot password?</a>
+              </div>
+              <button type="submit" class="w-full rounded-xl bg-indigo-500 px-4 py-3 text-sm font-semibold text-white transition hover:bg-indigo-400">Continue</button>
+              <p class="mt-2 text-xs text-indigo-200 hidden" data-signin-response>Check your inbox for a secure sign-in link.</p>
+              <p class="text-[11px] text-slate-500">Need an account? <a href="#" class="font-semibold text-indigo-300 hover:text-indigo-200" data-subscribe-trigger>Subscribe for full access.</a></p>
+            </form>
+          </div>
+        </div>
+      </div>
 
       <!-- Subscribe Modal -->
       <div class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/80 p-6 backdrop-blur" data-modal="subscribe" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="subscribe-modal-title" aria-describedby="subscribe-modal-description">
@@ -462,11 +498,15 @@
       const modals = Array.from(document.querySelectorAll('[data-modal]'));
       const subscribeModal = document.querySelector('[data-modal="subscribe"]');
       const premiumModal = document.querySelector('[data-modal="premium"]');
+      const signinModal = document.querySelector('[data-modal="signin"]');
       const subscribeTriggers = Array.from(document.querySelectorAll('[data-subscribe-trigger]'));
+      const signinTriggers = Array.from(document.querySelectorAll('[data-signin-trigger]'));
       const subscribeForm = subscribeModal?.querySelector('[data-subscribe-form]');
+      const signinForm = signinModal?.querySelector('[data-signin-form]');
       const premiumSummary = premiumModal?.querySelector('[data-premium-summary]');
       const premiumSummaryDefault = premiumSummary?.textContent ?? '';
       const premiumResponse = premiumModal?.querySelector('[data-premium-response]');
+      const signinResponse = signinModal?.querySelector('[data-signin-response]');
       const navToggle = document.querySelector('[data-nav-toggle]');
       const mobileNav = document.querySelector('[data-mobile-nav]');
       const mobileNavLinks = Array.from(document.querySelectorAll('[data-nav-link]'));
@@ -646,6 +686,88 @@
         }
       });
 
+      const newsletterForms = Array.from(document.querySelectorAll('[data-newsletter-form]'));
+
+      const NEWSLETTER_ENDPOINT = window.NEWSLETTER_ENDPOINT || '/api/newsletter';
+
+      newsletterForms.forEach((form) => {
+        const submitButton = form.querySelector('[data-newsletter-submit]');
+        const successMessage = form.querySelector('[data-newsletter-success]');
+        const errorMessage = form.querySelector('[data-newsletter-error]');
+
+        form.addEventListener('submit', async (event) => {
+          event.preventDefault();
+
+          const formData = new FormData(form);
+          const email = String(formData.get('email') || '').trim();
+          const weekend = formData.get('weekend') === 'on' || formData.get('weekend') === true;
+
+          if (!email) {
+            if (errorMessage) {
+              errorMessage.textContent = 'Please enter a valid email address.';
+              errorMessage.classList.remove('hidden');
+            }
+            return;
+          }
+
+          if (errorMessage) {
+            errorMessage.classList.add('hidden');
+          }
+
+          if (successMessage) {
+            successMessage.classList.add('hidden');
+          }
+
+          if (submitButton) {
+            submitButton.disabled = true;
+            submitButton.textContent = 'Sending…';
+          }
+
+          try {
+            const response = await fetch(NEWSLETTER_ENDPOINT, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({ email, weekend }),
+            });
+
+            const payload = await response.json().catch(() => ({}));
+
+            if (!response.ok) {
+              throw new Error(payload?.message || 'Something went wrong.');
+            }
+
+            form.reset();
+            if (successMessage) {
+              successMessage.classList.remove('hidden');
+            }
+          } catch (error) {
+            if (errorMessage) {
+              errorMessage.textContent = error?.message || 'Unable to subscribe right now.';
+              errorMessage.classList.remove('hidden');
+            }
+          } finally {
+            if (submitButton) {
+              submitButton.disabled = false;
+              submitButton.textContent = 'Join the briefing';
+            }
+          }
+        });
+      });
+
+      signinTriggers.forEach((trigger) => {
+        trigger.addEventListener('click', (event) => {
+          event.preventDefault();
+          closeMobileNav();
+          closeAccountMenus();
+          showModal(signinModal);
+          requestAnimationFrame(() => {
+            signinModal?.querySelector('input')?.focus();
+          });
+        });
+      });
+
       subscribeTriggers.forEach((trigger) => {
         trigger.addEventListener('click', (event) => {
           event.preventDefault();
@@ -656,6 +778,20 @@
             subscribeModal?.querySelector('input')?.focus();
           });
         });
+      });
+
+      signinForm?.addEventListener('submit', (event) => {
+        event.preventDefault();
+        if (signinResponse) {
+          signinResponse.textContent = 'Signed in! Redirecting...';
+          signinResponse.classList.remove('hidden');
+        }
+        setTimeout(() => {
+          hideModal(signinModal);
+          if (signinResponse) {
+            signinResponse.classList.add('hidden');
+          }
+        }, 1300);
       });
 
       subscribeForm?.addEventListener('submit', (event) => {
