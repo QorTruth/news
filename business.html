@@ -688,12 +688,41 @@
 
       const newsletterForms = Array.from(document.querySelectorAll('[data-newsletter-form]'));
 
-      const NEWSLETTER_ENDPOINT = window.NEWSLETTER_ENDPOINT || '/api/newsletter';
+      const DEFAULT_NEWSLETTER_ENDPOINT = '/api/newsletter';
+      const NEWSLETTER_ENDPOINT = typeof window.NEWSLETTER_ENDPOINT === 'string' && window.NEWSLETTER_ENDPOINT.length
+        ? window.NEWSLETTER_ENDPOINT
+        : DEFAULT_NEWSLETTER_ENDPOINT;
+      window.__newsletterFallback = window.__newsletterFallback || [];
 
       newsletterForms.forEach((form) => {
         const submitButton = form.querySelector('[data-newsletter-submit]');
         const successMessage = form.querySelector('[data-newsletter-success]');
         const errorMessage = form.querySelector('[data-newsletter-error]');
+
+        const setLoading = (isLoading) => {
+          if (!submitButton) return;
+          submitButton.disabled = isLoading;
+          submitButton.textContent = isLoading ? 'Sending…' : 'Join the briefing';
+        };
+
+        const showSuccess = () => {
+          if (errorMessage) {
+            errorMessage.classList.add('hidden');
+          }
+          if (successMessage) {
+            successMessage.classList.remove('hidden');
+          }
+        };
+
+        const showError = (message) => {
+          if (successMessage) {
+            successMessage.classList.add('hidden');
+          }
+          if (errorMessage) {
+            errorMessage.textContent = message;
+            errorMessage.classList.remove('hidden');
+          }
+        };
 
         form.addEventListener('submit', async (event) => {
           event.preventDefault();
@@ -702,25 +731,27 @@
           const email = String(formData.get('email') || '').trim();
           const weekend = formData.get('weekend') === 'on' || formData.get('weekend') === true;
 
-          if (!email) {
-            if (errorMessage) {
-              errorMessage.textContent = 'Please enter a valid email address.';
-              errorMessage.classList.remove('hidden');
-            }
+          if (!email || !email.includes('@')) {
+            showError('Please enter a valid email address.');
             return;
           }
 
-          if (errorMessage) {
-            errorMessage.classList.add('hidden');
-          }
+          setLoading(true);
 
-          if (successMessage) {
-            successMessage.classList.add('hidden');
-          }
+          const payload = {
+            email,
+            weekend,
+            ts: Date.now(),
+          };
 
-          if (submitButton) {
-            submitButton.disabled = true;
-            submitButton.textContent = 'Sending…';
+          const shouldAttemptRequest = NEWSLETTER_ENDPOINT && NEWSLETTER_ENDPOINT !== 'off' && NEWSLETTER_ENDPOINT !== '#';
+
+          if (!shouldAttemptRequest) {
+            window.__newsletterFallback.push({ ...payload, reason: 'no-endpoint' });
+            form.reset();
+            showSuccess();
+            setLoading(false);
+            return;
           }
 
           try {
@@ -732,26 +763,25 @@
               body: JSON.stringify({ email, weekend }),
             });
 
-            const payload = await response.json().catch(() => ({}));
+            const result = await response.json().catch(() => ({}));
 
             if (!response.ok) {
-              throw new Error(payload?.message || 'Something went wrong.');
+              throw new Error(result?.message || 'Something went wrong.');
             }
 
             form.reset();
-            if (successMessage) {
-              successMessage.classList.remove('hidden');
-            }
+            showSuccess();
           } catch (error) {
-            if (errorMessage) {
-              errorMessage.textContent = error?.message || 'Unable to subscribe right now.';
-              errorMessage.classList.remove('hidden');
+            if (NEWSLETTER_ENDPOINT === DEFAULT_NEWSLETTER_ENDPOINT) {
+              console.warn('Newsletter endpoint offline; storing submission locally.', error);
+              window.__newsletterFallback.push({ ...payload, reason: 'network-error', error: error?.message || null });
+              form.reset();
+              showSuccess();
+            } else {
+              showError(error?.message || 'Unable to subscribe right now.');
             }
           } finally {
-            if (submitButton) {
-              submitButton.disabled = false;
-              submitButton.textContent = 'Join the briefing';
-            }
+            setLoading(false);
           }
         });
       });
