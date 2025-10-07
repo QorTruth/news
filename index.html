@@ -771,7 +771,6 @@
 
           form.addEventListener('submit', (event) => {
             event.preventDefault(); // block reload
-            event.stopImmediatePropagation(); // block all other submit listeners
 
             const emailInput = form.querySelector('input[name="email"]');
             const email = emailInput?.value.trim() || '';
@@ -922,5 +921,45 @@
         // Market data is provided via the embedded TradingView widget configured in markup.
       });
     </script>
+    <script>
+console.log('⚡ QorTruth script starting');
+
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('✅ DOM fully loaded');
+
+  const form = document.querySelector('form');
+  if (!form) {
+    console.log('❌ No form found on page');
+    return;
+  }
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    console.log('✅ Form submit intercepted');
+    alert('Welcome to QorTruth.News');
+  });
+});
+    </script>
+    <script>
+      console.log('⚡ QorTruth script starting');
+
+      document.addEventListener('DOMContentLoaded', function() {
+        console.log('✅ DOM fully loaded');
+
+        const form = document.querySelector('form');
+        if (!form) {
+          console.log('❌ No form found on page');
+          return;
+        }
+
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          console.log('✅ Form submit intercepted');
+          alert('Welcome to QorTruth.News');
+        });
+      });
+    </script>
+  </body>
+</html>
   </body>
 </html>
