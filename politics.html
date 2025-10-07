@@ -443,13 +443,12 @@
       </div>
 
       <!-- Welcome Modal -->
-      <div class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/80 p-6 backdrop-blur" data-modal="welcome" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="welcome-modal-title">
+      <div class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/80 p-6 backdrop-blur" data-modal="welcome" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="welcome-modal-title" aria-describedby="welcome-modal-description">
         <div class="relative w-full max-w-md rounded-3xl border border-indigo-500/40 bg-slate-900 p-8 shadow-xl shadow-black/40">
           <button type="button" class="absolute right-4 top-4 text-slate-500 transition hover:text-indigo-300" data-close-modal aria-label="Close welcome dialog">&times;</button>
-          <div class="space-y-6 text-center">
-            <p class="text-xs font-semibold uppercase tracking-[0.25em] text-indigo-300">Welcome to QorTruth</p>
-            <h2 class="text-2xl font-semibold text-white" id="welcome-modal-title">You’re on the Morning Dispatch</h2>
-            <p class="text-sm text-slate-300">Check your inbox for the confirmation link—your first briefing is on the way.</p>
+          <div class="space-y-5 text-center">
+            <h2 class="text-2xl font-semibold text-white" id="welcome-modal-title">Welcome to QorTruth</h2>
+            <p class="text-sm text-slate-300" id="welcome-modal-description">You’re now subscribed to the Morning Dispatch. Check your inbox for confirmation.</p>
           </div>
         </div>
       </div>
@@ -511,6 +510,7 @@
       const subscribeModal = document.querySelector('[data-modal="subscribe"]');
       const premiumModal = document.querySelector('[data-modal="premium"]');
       const signinModal = document.querySelector('[data-modal="signin"]');
+      const welcomeModal = document.querySelector('[data-modal="welcome"]');
       const subscribeTriggers = Array.from(document.querySelectorAll('[data-subscribe-trigger]'));
       const signinTriggers = Array.from(document.querySelectorAll('[data-signin-trigger]'));
       const subscribeForm = subscribeModal?.querySelector('[data-subscribe-form]');
@@ -724,7 +724,6 @@
           if (successMessage) {
             successMessage.classList.remove('hidden');
           }
-          const welcomeModal = document.querySelector('[data-modal="welcome"]');
           if (welcomeModal) {
             showModal(welcomeModal);
           }
