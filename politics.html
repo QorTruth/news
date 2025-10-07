@@ -702,38 +702,41 @@
         });
 
         document.querySelectorAll('[data-newsletter-form]').forEach((form) => {
-          const submitButton = form.querySelector('[data-newsletter-submit]');
-          const successMessage = form.querySelector('[data-newsletter-success]');
-          const errorMessage = form.querySelector('[data-newsletter-error]');
           const welcomeModal = document.querySelector('[data-modal="welcome"]');
+          const closeButtons = welcomeModal?.querySelectorAll('[data-close-modal]');
 
-          form.addEventListener('submit', (e) => {
-            e.preventDefault();
+          form.addEventListener('submit', (event) => {
+            event.preventDefault(); // block reload
+            event.stopImmediatePropagation(); // block all other submit listeners
 
-            const email = form.querySelector('input[name="email"]').value.trim();
-            if (!email || !email.includes('@')) {
-              if (errorMessage) {
-                errorMessage.textContent = 'Please enter a valid email address.';
-                errorMessage.classList.remove('hidden');
-              }
+            const emailInput = form.querySelector('input[name="email"]');
+            const email = emailInput?.value.trim() || '';
+
+            if (!email.includes('@')) {
+              alert('Please enter a valid email address.');
               return;
             }
 
             form.reset();
-            if (errorMessage) {
-              errorMessage.classList.add('hidden');
-            }
-            if (successMessage) {
-              successMessage.classList.add('hidden');
-            }
 
+            // show the welcome modal
             if (welcomeModal) {
               welcomeModal.classList.remove('hidden');
               welcomeModal.setAttribute('aria-hidden', 'false');
               document.body.classList.add('overflow-hidden');
             }
           });
+
+          // make sure close buttons still hide the modal
+          closeButtons?.forEach((btn) => {
+            btn.addEventListener('click', () => {
+              welcomeModal.classList.add('hidden');
+              welcomeModal.setAttribute('aria-hidden', 'true');
+              document.body.classList.remove('overflow-hidden');
+            });
+          });
         });
+
 
         signinTriggers.forEach((trigger) => {
           trigger.addEventListener('click', (event) => {
