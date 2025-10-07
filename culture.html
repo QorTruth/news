@@ -504,421 +504,427 @@
     </div>
 
     <script>
-      document.getElementById('year').textContent = new Date().getFullYear();
-
-      const modals = Array.from(document.querySelectorAll('[data-modal]'));
-      const subscribeModal = document.querySelector('[data-modal="subscribe"]');
-      const premiumModal = document.querySelector('[data-modal="premium"]');
-      const signinModal = document.querySelector('[data-modal="signin"]');
-      const welcomeModal = document.querySelector('[data-modal="welcome"]');
-      const subscribeTriggers = Array.from(document.querySelectorAll('[data-subscribe-trigger]'));
-      const signinTriggers = Array.from(document.querySelectorAll('[data-signin-trigger]'));
-      const subscribeForm = subscribeModal?.querySelector('[data-subscribe-form]');
-      const signinForm = signinModal?.querySelector('[data-signin-form]');
-      const premiumSummary = premiumModal?.querySelector('[data-premium-summary]');
-      const premiumSummaryDefault = premiumSummary?.textContent ?? '';
-      const premiumResponse = premiumModal?.querySelector('[data-premium-response]');
-      const signinResponse = signinModal?.querySelector('[data-signin-response]');
-      const navToggle = document.querySelector('[data-nav-toggle]');
-      const mobileNav = document.querySelector('[data-mobile-nav]');
-      const mobileNavLinks = Array.from(document.querySelectorAll('[data-nav-link]'));
-      const navItems = Array.from(document.querySelectorAll('[data-nav]'));
-
-      const toggleBodyScroll = (locked) => {
-        document.body.classList.toggle('overflow-hidden', locked);
-      };
-
-      const evaluateBodyLock = () => {
-        const anyVisible = modals.some((modal) => !modal.classList.contains('hidden'));
-        const navVisible = mobileNav ? !mobileNav.classList.contains('hidden') : false;
-        toggleBodyScroll(anyVisible || navVisible);
-      };
-
-      const showModal = (modal) => {
-        if (!modal) return;
-        modal.classList.remove('hidden');
-        modal.setAttribute('aria-hidden', 'false');
-        evaluateBodyLock();
-      };
-
-      const hideModal = (modal) => {
-        if (!modal) return;
-        modal.classList.add('hidden');
-        modal.setAttribute('aria-hidden', 'true');
-        evaluateBodyLock();
-
-        if (modal === subscribeModal) {
-          subscribeForm?.reset();
+      document.addEventListener('DOMContentLoaded', () => {
+        const yearElement = document.getElementById('year');
+        if (yearElement) {
+          yearElement.textContent = new Date().getFullYear();
         }
 
-        if (modal === premiumModal) {
-          if (premiumResponse) {
-            premiumResponse.classList.add('hidden');
-            premiumResponse.textContent = '';
+        const modals = Array.from(document.querySelectorAll('[data-modal]'));
+        const subscribeModal = document.querySelector('[data-modal="subscribe"]');
+        const premiumModal = document.querySelector('[data-modal="premium"]');
+        const signinModal = document.querySelector('[data-modal="signin"]');
+        const welcomeModal = document.querySelector('[data-modal="welcome"]');
+        const subscribeTriggers = Array.from(document.querySelectorAll('[data-subscribe-trigger]'));
+        const signinTriggers = Array.from(document.querySelectorAll('[data-signin-trigger]'));
+        const subscribeForm = subscribeModal?.querySelector('[data-subscribe-form]');
+        const signinForm = signinModal?.querySelector('[data-signin-form]');
+        const premiumSummary = premiumModal?.querySelector('[data-premium-summary]');
+        const premiumSummaryDefault = premiumSummary?.textContent ?? '';
+        const premiumResponse = premiumModal?.querySelector('[data-premium-response]');
+        const signinResponse = signinModal?.querySelector('[data-signin-response]');
+        const navToggle = document.querySelector('[data-nav-toggle]');
+        const mobileNav = document.querySelector('[data-mobile-nav]');
+        const mobileNavLinks = Array.from(document.querySelectorAll('[data-nav-link]'));
+        const navItems = Array.from(document.querySelectorAll('[data-nav]'));
+
+        const toggleBodyScroll = (locked) => {
+          document.body.classList.toggle('overflow-hidden', locked);
+        };
+
+        const evaluateBodyLock = () => {
+          const anyVisible = modals.some((modal) => !modal.classList.contains('hidden'));
+          const navVisible = mobileNav ? !mobileNav.classList.contains('hidden') : false;
+          toggleBodyScroll(anyVisible || navVisible);
+        };
+
+        const showModal = (modal) => {
+          if (!modal) return;
+          modal.classList.remove('hidden');
+          modal.setAttribute('aria-hidden', 'false');
+          evaluateBodyLock();
+        };
+
+        const hideModal = (modal) => {
+          if (!modal) return;
+          modal.classList.add('hidden');
+          modal.setAttribute('aria-hidden', 'true');
+          evaluateBodyLock();
+
+          if (modal === subscribeModal) {
+            subscribeForm?.reset();
           }
 
-          if (premiumSummary) {
-            premiumSummary.textContent = premiumSummaryDefault;
+          if (modal === premiumModal) {
+            if (premiumResponse) {
+              premiumResponse.classList.add('hidden');
+              premiumResponse.textContent = '';
+            }
+
+            if (premiumSummary) {
+              premiumSummary.textContent = premiumSummaryDefault;
+            }
           }
-        }
-      };
+        };
 
-      const openMobileNav = () => {
-        if (!mobileNav || !navToggle) return;
-        mobileNav.classList.remove('hidden');
-        navToggle.setAttribute('aria-expanded', 'true');
-        evaluateBodyLock();
-      };
+        const openMobileNav = () => {
+          if (!mobileNav || !navToggle) return;
+          mobileNav.classList.remove('hidden');
+          navToggle.setAttribute('aria-expanded', 'true');
+          evaluateBodyLock();
+        };
 
-      const closeMobileNav = () => {
-        if (!mobileNav || !navToggle) return;
-        mobileNav.classList.add('hidden');
-        navToggle.setAttribute('aria-expanded', 'false');
-        evaluateBodyLock();
-      };
+        const closeMobileNav = () => {
+          if (!mobileNav || !navToggle) return;
+          mobileNav.classList.add('hidden');
+          navToggle.setAttribute('aria-expanded', 'false');
+          evaluateBodyLock();
+        };
 
-      navToggle?.addEventListener('click', () => {
-        if (!mobileNav) return;
-        if (mobileNav.classList.contains('hidden')) {
-          openMobileNav();
-        } else {
-          closeMobileNav();
-        }
-      });
-
-      mobileNavLinks.forEach((link) => {
-        link.addEventListener('click', () => {
-          closeMobileNav();
+        navToggle?.addEventListener('click', () => {
+          if (!mobileNav) return;
+          if (mobileNav.classList.contains('hidden')) {
+            openMobileNav();
+          } else {
+            closeMobileNav();
+          }
         });
-      });
 
+        mobileNavLinks.forEach((link) => {
+          link.addEventListener('click', () => {
+            closeMobileNav();
+          });
+        });
 
-      const accountContainers = Array.from(document.querySelectorAll('[data-account]'));
+        const accountContainers = Array.from(document.querySelectorAll('[data-account]'));
 
-      const closeAccountMenus = () => {
+        const closeAccountMenus = () => {
+          accountContainers.forEach((container) => {
+            const toggle = container.querySelector('[data-account-toggle]');
+            const menu = container.querySelector('[data-account-menu]');
+            if (toggle) {
+              toggle.setAttribute('aria-expanded', 'false');
+            }
+            if (menu) {
+              menu.classList.add('hidden');
+            }
+          });
+        };
+
         accountContainers.forEach((container) => {
           const toggle = container.querySelector('[data-account-toggle]');
           const menu = container.querySelector('[data-account-menu]');
-          if (toggle) {
-            toggle.setAttribute('aria-expanded', 'false');
-          }
-          if (menu) {
-            menu.classList.add('hidden');
-          }
-        });
-      };
+          if (!toggle || !menu) return;
 
-      accountContainers.forEach((container) => {
-        const toggle = container.querySelector('[data-account-toggle]');
-        const menu = container.querySelector('[data-account-menu]');
-        if (!toggle || !menu) return;
-
-        toggle.addEventListener('click', (event) => {
-          event.preventDefault();
-          event.stopPropagation();
-          const expanded = toggle.getAttribute('aria-expanded') === 'true';
-          closeAccountMenus();
-          if (!expanded) {
-            toggle.setAttribute('aria-expanded', 'true');
-            menu.classList.remove('hidden');
-          }
-        });
-
-        menu.querySelectorAll('a').forEach((link) => {
-          link.addEventListener('click', () => {
+          toggle.addEventListener('click', (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            const expanded = toggle.getAttribute('aria-expanded') === 'true';
             closeAccountMenus();
+            if (!expanded) {
+              toggle.setAttribute('aria-expanded', 'true');
+              menu.classList.remove('hidden');
+            }
+          });
+
+          menu.querySelectorAll('a').forEach((link) => {
+            link.addEventListener('click', () => {
+              closeAccountMenus();
+            });
           });
         });
-      });
 
-      document.addEventListener('click', (event) => {
-        if (!event.target.closest('[data-account]')) {
-          closeAccountMenus();
-        }
-      });
-
-      if (navItems.length) {
-        const navSlugMap = {
-          '': 'latest',
-          'index.html': 'latest',
-          'politics.html': 'politics',
-          'world.html': 'world',
-          'business.html': 'business',
-          'technology.html': 'technology',
-          'culture.html': 'culture',
-          'opinion.html': 'opinion',
-        };
-
-        const currentPath = window.location.pathname.split('/').pop()?.toLowerCase() ?? '';
-        const activeNav = navSlugMap[currentPath] ?? 'latest';
-
-        navItems.forEach((link) => {
-          const isMobile = Boolean(link.closest('[data-mobile-nav]'));
-          const baseClass = isMobile ? 'text-slate-200' : 'text-slate-300';
-
-          link.classList.remove('text-indigo-200', 'text-indigo-100');
-          if (!link.classList.contains(baseClass)) {
-            link.classList.add(baseClass);
-          }
-
-          if (link.dataset.nav === activeNav) {
-            link.classList.remove(baseClass);
-            link.classList.add('text-indigo-200');
+        document.addEventListener('click', (event) => {
+          if (!event.target.closest('[data-account]')) {
+            closeAccountMenus();
           }
         });
-      }
 
-      modals.forEach((modal) => {
-        modal.addEventListener('click', (event) => {
-          if (event.target === modal) {
-            hideModal(modal);
-          }
-        });
-      });
-
-      document.querySelectorAll('[data-close-modal]').forEach((button) => {
-        button.addEventListener('click', () => {
-          hideModal(button.closest('[data-modal]'));
-        });
-      });
-
-      document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape') {
-          const visibleModal = modals.find((modal) => !modal.classList.contains('hidden'));
-          if (visibleModal) {
-            hideModal(visibleModal);
-            return;
-          }
-
-          if (mobileNav && !mobileNav.classList.contains('hidden')) {
-            closeMobileNav();
-          }
-
-          closeAccountMenus();
-        }
-      });
-
-      const newsletterForms = Array.from(document.querySelectorAll('[data-newsletter-form]'));
-
-      const DEFAULT_NEWSLETTER_ENDPOINT = '/api/newsletter';
-      const NEWSLETTER_ENDPOINT = typeof window.NEWSLETTER_ENDPOINT === 'string' && window.NEWSLETTER_ENDPOINT.length
-        ? window.NEWSLETTER_ENDPOINT
-        : DEFAULT_NEWSLETTER_ENDPOINT;
-      window.__newsletterFallback = window.__newsletterFallback || [];
-
-      newsletterForms.forEach((form) => {
-        const submitButton = form.querySelector('[data-newsletter-submit]');
-        const successMessage = form.querySelector('[data-newsletter-success]');
-        const errorMessage = form.querySelector('[data-newsletter-error]');
-
-        const setLoading = (isLoading) => {
-          if (!submitButton) return;
-          submitButton.disabled = isLoading;
-          submitButton.textContent = isLoading ? 'Sending…' : 'Join the briefing';
-        };
-
-        const showSuccess = () => {
-          if (errorMessage) {
-            errorMessage.classList.add('hidden');
-          }
-          if (successMessage) {
-            successMessage.classList.remove('hidden');
-          }
-          if (welcomeModal) {
-            showModal(welcomeModal);
-          }
-        };
-
-        const showError = (message) => {
-          if (successMessage) {
-            successMessage.classList.add('hidden');
-          }
-          if (errorMessage) {
-            errorMessage.textContent = message;
-            errorMessage.classList.remove('hidden');
-          }
-        };
-
-        form.addEventListener('submit', async (event) => {
-          event.preventDefault();
-
-          const formData = new FormData(form);
-          const email = String(formData.get('email') || '').trim();
-          const weekend = formData.get('weekend') === 'on' || formData.get('weekend') === true;
-
-          if (!email || !email.includes('@')) {
-            showError('Please enter a valid email address.');
-            return;
-          }
-
-          setLoading(true);
-
-          const payload = {
-            email,
-            weekend,
-            ts: Date.now(),
+        if (navItems.length) {
+          const navSlugMap = {
+            '': 'latest',
+            'index.html': 'latest',
+            'politics.html': 'politics',
+            'world.html': 'world',
+            'business.html': 'business',
+            'technology.html': 'technology',
+            'culture.html': 'culture',
+            'opinion.html': 'opinion',
           };
 
-          const shouldAttemptRequest = NEWSLETTER_ENDPOINT && NEWSLETTER_ENDPOINT !== 'off' && NEWSLETTER_ENDPOINT !== '#';
+          const currentPath = window.location.pathname.split('/').pop()?.toLowerCase() ?? '';
+          const activeNav = navSlugMap[currentPath] ?? 'latest';
 
-          if (!shouldAttemptRequest) {
-            window.__newsletterFallback.push({ ...payload, reason: 'no-endpoint' });
-            form.reset();
-            showSuccess();
-            setLoading(false);
-            return;
-          }
+          navItems.forEach((link) => {
+            const isMobile = Boolean(link.closest('[data-mobile-nav]'));
+            const baseClass = isMobile ? 'text-slate-200' : 'text-slate-300';
 
-          try {
-            const response = await fetch(NEWSLETTER_ENDPOINT, {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify({ email, weekend }),
-            });
-
-            const result = await response.json().catch(() => ({}));
-
-            if (!response.ok) {
-              throw new Error(result?.message || 'Something went wrong.');
+            link.classList.remove('text-indigo-200', 'text-indigo-100');
+            if (!link.classList.contains(baseClass)) {
+              link.classList.add(baseClass);
             }
 
-            form.reset();
-            showSuccess();
-          } catch (error) {
-            if (NEWSLETTER_ENDPOINT === DEFAULT_NEWSLETTER_ENDPOINT) {
-              console.warn('Newsletter endpoint offline; storing submission locally.', error);
-              window.__newsletterFallback.push({ ...payload, reason: 'network-error', error: error?.message || null });
+            if (link.dataset.nav === activeNav) {
+              link.classList.remove(baseClass);
+              link.classList.add('text-indigo-200');
+            }
+          });
+        }
+
+        modals.forEach((modal) => {
+          modal.addEventListener('click', (event) => {
+            if (event.target === modal) {
+              hideModal(modal);
+            }
+          });
+        });
+
+        document.querySelectorAll('[data-close-modal]').forEach((button) => {
+          button.addEventListener('click', () => {
+            hideModal(button.closest('[data-modal]'));
+          });
+        });
+
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape') {
+            const visibleModal = modals.find((modal) => !modal.classList.contains('hidden'));
+            if (visibleModal) {
+              hideModal(visibleModal);
+              return;
+            }
+
+            if (mobileNav && !mobileNav.classList.contains('hidden')) {
+              closeMobileNav();
+            }
+
+            closeAccountMenus();
+          }
+        });
+
+        const newsletterForms = Array.from(document.querySelectorAll('[data-newsletter-form]'));
+
+        const DEFAULT_NEWSLETTER_ENDPOINT = '/api/newsletter';
+        const NEWSLETTER_ENDPOINT = typeof window.NEWSLETTER_ENDPOINT === 'string' && window.NEWSLETTER_ENDPOINT.length
+          ? window.NEWSLETTER_ENDPOINT
+          : DEFAULT_NEWSLETTER_ENDPOINT;
+        window.__newsletterFallback = window.__newsletterFallback || [];
+
+        newsletterForms.forEach((form) => {
+          const submitButton = form.querySelector('[data-newsletter-submit]');
+          const successMessage = form.querySelector('[data-newsletter-success]');
+          const errorMessage = form.querySelector('[data-newsletter-error]');
+
+          const setLoading = (isLoading) => {
+            if (!submitButton) return;
+            submitButton.disabled = isLoading;
+            submitButton.textContent = isLoading ? 'Sending…' : 'Join the briefing';
+          };
+
+          const showSuccess = () => {
+            if (errorMessage) {
+              errorMessage.classList.add('hidden');
+            }
+            if (successMessage) {
+              successMessage.classList.remove('hidden');
+            }
+            if (welcomeModal) {
+              setTimeout(() => {
+                showModal(welcomeModal);
+              }, 400);
+            }
+          };
+
+          const showError = (message) => {
+            if (successMessage) {
+              successMessage.classList.add('hidden');
+            }
+            if (errorMessage) {
+              errorMessage.textContent = message;
+              errorMessage.classList.remove('hidden');
+            }
+          };
+
+          form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const formData = new FormData(form);
+            const email = String(formData.get('email') || '').trim();
+            const weekend = formData.get('weekend') === 'on' || formData.get('weekend') === true;
+
+            if (!email || !email.includes('@')) {
+              showError('Please enter a valid email address.');
+              return;
+            }
+
+            setLoading(true);
+
+            const payload = {
+              email,
+              weekend,
+              ts: Date.now(),
+            };
+
+            const shouldAttemptRequest = NEWSLETTER_ENDPOINT && NEWSLETTER_ENDPOINT !== 'off' && NEWSLETTER_ENDPOINT !== '#';
+
+            if (!shouldAttemptRequest) {
+              window.__newsletterFallback.push({ ...payload, reason: 'no-endpoint' });
               form.reset();
               showSuccess();
-            } else {
-              showError(error?.message || 'Unable to subscribe right now.');
+              setLoading(false);
+              return;
             }
-          } finally {
-            setLoading(false);
-          }
-        });
-      });
 
-      signinTriggers.forEach((trigger) => {
-        trigger.addEventListener('click', (event) => {
-          event.preventDefault();
-          closeMobileNav();
-          closeAccountMenus();
-          showModal(signinModal);
-          requestAnimationFrame(() => {
-            signinModal?.querySelector('input')?.focus();
+            try {
+              const response = await fetch(NEWSLETTER_ENDPOINT, {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email, weekend }),
+              });
+
+              const result = await response.json().catch(() => ({}));
+
+              if (!response.ok) {
+                throw new Error(result?.message || 'Something went wrong.');
+              }
+
+              form.reset();
+              showSuccess();
+            } catch (error) {
+              if (NEWSLETTER_ENDPOINT === DEFAULT_NEWSLETTER_ENDPOINT) {
+                console.warn('Newsletter endpoint offline; storing submission locally.', error);
+                window.__newsletterFallback.push({ ...payload, reason: 'network-error', error: error?.message || null });
+                form.reset();
+                showSuccess();
+              } else {
+                showError(error?.message || 'Unable to subscribe right now.');
+              }
+            } finally {
+              setLoading(false);
+            }
           });
         });
-      });
 
-      subscribeTriggers.forEach((trigger) => {
-        trigger.addEventListener('click', (event) => {
-          event.preventDefault();
-          closeMobileNav();
-          closeAccountMenus();
-          showModal(subscribeModal);
-          requestAnimationFrame(() => {
-            subscribeModal?.querySelector('input')?.focus();
-          });
-        });
-      });
-
-      signinForm?.addEventListener('submit', (event) => {
-        event.preventDefault();
-        if (signinResponse) {
-          signinResponse.textContent = 'Signed in! Redirecting...';
-          signinResponse.classList.remove('hidden');
-        }
-        setTimeout(() => {
-          hideModal(signinModal);
-          if (signinResponse) {
-            signinResponse.classList.add('hidden');
-          }
-        }, 1300);
-      });
-
-      subscribeForm?.addEventListener('submit', (event) => {
-        event.preventDefault();
-        const formData = new FormData(subscribeForm);
-        const nameValue = String(formData.get('name') ?? '').trim();
-
-        if (premiumSummary) {
-          premiumSummary.textContent = nameValue
-            ? `Great to have you, ${nameValue}. Do you want premium access beyond five briefings a month?`
-            : 'Do you want premium access beyond five briefings a month?';
-        }
-
-        hideModal(subscribeModal);
-        showModal(premiumModal);
-
-        requestAnimationFrame(() => {
-          premiumModal?.querySelector('[data-premium-choice]')?.focus();
-        });
-      });
-
-      premiumModal?.querySelectorAll('[data-premium-choice]').forEach((button) => {
-        button.addEventListener('click', () => {
-          const choice = button.getAttribute('data-premium-choice');
-
-          if (premiumResponse) {
-            premiumResponse.classList.remove('hidden');
-            premiumResponse.textContent = choice === 'upgrade'
-              ? 'Amazing! We'll send premium access details to your inbox shortly.'
-              : 'All set. You will keep receiving five briefings per month.';
-          }
-
-          setTimeout(() => {
-            hideModal(premiumModal);
-          }, 1600);
-        });
-      });
-
-      const tickerTrack = document.querySelector('[data-ticker-track]');
-      if (tickerTrack) {
-        const sources = Array.from(document.querySelectorAll('[data-ticker-item]'));
-        const headlines = sources
-          .map((node) => node.textContent.replace(/\s+/g, ' ').trim())
-          .filter((text, index, collection) => text && collection.indexOf(text) === index);
-
-        if (headlines.length) {
-          const multiplier = headlines.length >= 3 ? 2 : 3;
-          tickerTrack.innerHTML = '';
-
-          const appendHeadline = (text) => {
-            const wrapper = document.createElement('span');
-            wrapper.className = 'inline-flex items-center gap-2';
-
-            const marker = document.createElement('span');
-            marker.className = 'inline-flex h-1.5 w-1.5 rounded-full bg-indigo-400';
-            wrapper.appendChild(marker);
-
-            const label = document.createElement('span');
-            label.className = 'font-medium text-indigo-100';
-            label.textContent = text;
-            wrapper.appendChild(label);
-
-            tickerTrack.appendChild(wrapper);
-          };
-
-          for (let i = 0; i < multiplier; i += 1) {
-            headlines.forEach(appendHeadline);
-          }
-
-          const container = tickerTrack.parentElement;
-          if (container) {
-            const baseSpeed = 40; // pixels per second
+        signinTriggers.forEach((trigger) => {
+          trigger.addEventListener('click', (event) => {
+            event.preventDefault();
+            closeMobileNav();
+            closeAccountMenus();
+            showModal(signinModal);
             requestAnimationFrame(() => {
-              const totalWidth = tickerTrack.scrollWidth + container.clientWidth;
-              const durationSeconds = Math.max(50, totalWidth / baseSpeed);
-              tickerTrack.style.setProperty('--ticker-duration', `${durationSeconds.toFixed(2)}s`);
+              signinModal?.querySelector('input')?.focus();
             });
+          });
+        });
+
+        subscribeTriggers.forEach((trigger) => {
+          trigger.addEventListener('click', (event) => {
+            event.preventDefault();
+            closeMobileNav();
+            closeAccountMenus();
+            showModal(subscribeModal);
+            requestAnimationFrame(() => {
+              subscribeModal?.querySelector('input')?.focus();
+            });
+          });
+        });
+
+        signinForm?.addEventListener('submit', (event) => {
+          event.preventDefault();
+          if (signinResponse) {
+            signinResponse.textContent = 'Signed in! Redirecting...';
+            signinResponse.classList.remove('hidden');
+          }
+          setTimeout(() => {
+            hideModal(signinModal);
+            if (signinResponse) {
+              signinResponse.classList.add('hidden');
+            }
+          }, 1300);
+        });
+
+        subscribeForm?.addEventListener('submit', (event) => {
+          event.preventDefault();
+          const formData = new FormData(subscribeForm);
+          const nameValue = String(formData.get('name') ?? '').trim();
+
+          if (premiumSummary) {
+            premiumSummary.textContent = nameValue
+              ? `Great to have you, ${nameValue}. Do you want premium access beyond five briefings a month?`
+              : 'Do you want premium access beyond five briefings a month?';
+          }
+
+          hideModal(subscribeModal);
+          showModal(premiumModal);
+
+          requestAnimationFrame(() => {
+            premiumModal?.querySelector('[data-premium-choice]')?.focus();
+          });
+        });
+
+        premiumModal?.querySelectorAll('[data-premium-choice]').forEach((button) => {
+          button.addEventListener('click', () => {
+            const choice = button.getAttribute('data-premium-choice');
+
+            if (premiumResponse) {
+              premiumResponse.classList.remove('hidden');
+              premiumResponse.textContent = choice === 'upgrade'
+                ? 'Amazing! We'll send premium access details to your inbox shortly.'
+                : 'All set. You will keep receiving five briefings per month.';
+            }
+
+            setTimeout(() => {
+              hideModal(premiumModal);
+            }, 1600);
+          });
+        });
+
+        const tickerTrack = document.querySelector('[data-ticker-track]');
+        if (tickerTrack) {
+          const sources = Array.from(document.querySelectorAll('[data-ticker-item]'));
+          const headlines = sources
+            .map((node) => node.textContent.replace(/\s+/g, ' ').trim())
+            .filter((text, index, collection) => text && collection.indexOf(text) === index);
+
+          if (headlines.length) {
+            const multiplier = headlines.length >= 3 ? 2 : 3;
+            tickerTrack.innerHTML = '';
+
+            const appendHeadline = (text) => {
+              const wrapper = document.createElement('span');
+              wrapper.className = 'inline-flex items-center gap-2';
+
+              const marker = document.createElement('span');
+              marker.className = 'inline-flex h-1.5 w-1.5 rounded-full bg-indigo-400';
+              wrapper.appendChild(marker);
+
+              const label = document.createElement('span');
+              label.className = 'font-medium text-indigo-100';
+              label.textContent = text;
+              wrapper.appendChild(label);
+
+              tickerTrack.appendChild(wrapper);
+            };
+
+            for (let i = 0; i < multiplier; i += 1) {
+              headlines.forEach(appendHeadline);
+            }
+
+            const container = tickerTrack.parentElement;
+            if (container) {
+              const baseSpeed = 40; // pixels per second
+              requestAnimationFrame(() => {
+                const totalWidth = tickerTrack.scrollWidth + container.clientWidth;
+                const durationSeconds = Math.max(50, totalWidth / baseSpeed);
+                tickerTrack.style.setProperty('--ticker-duration', `${durationSeconds.toFixed(2)}s`);
+              });
+            }
           }
         }
-      }
 
-      // Market data is provided via the embedded TradingView widget configured in markup.
+        // Market data is provided via the embedded TradingView widget configured in markup.
+      });
     </script>
   </body>
 </html>
