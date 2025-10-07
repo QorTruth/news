@@ -1,1 +1,989 @@
+<!doctype html>
+<html lang="en" class="h-full">
+  <head>
+    <meta charset="utf-8">
+    <title>Privacy Policy • QorTruth</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Privacy policy for QorTruth, operated by Altura Systems LLC in Tbilisi, Georgia.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      :root {
+        color-scheme: dark;
+      }
 
+      @keyframes ticker-scroll {
+        0% {
+          transform: translateX(100%);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+
+      .ticker-track {
+        animation: ticker-scroll var(--ticker-duration, 60s) linear infinite;
+        will-change: transform;
+      }
+
+      .ticker:hover .ticker-track {
+        animation-play-state: paused;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .ticker-track {
+          animation: none;
+          transform: translateX(0);
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-slate-950 text-slate-100 antialiased min-h-full">
+    <div class="relative overflow-visible">
+      <header class="border-b border-slate-800 bg-slate-950/80 backdrop-blur">
+        <div class="mx-auto max-w-6xl px-6 py-6 lg:px-6">
+          <div class="flex items-center justify-between gap-8">
+            <a href="../index.html" class="flex items-center gap-4 shrink-0">
+              <img src="../assets/logo.png" alt="QorTruth logo" class="h-12 w-12 rounded-full bg-slate-950 object-cover">
+              <span class="flex flex-col">
+                <span class="text-sm font-semibold tracking-tight text-white md:hidden">QorTruth</span>
+                <span class="hidden text-lg font-semibold tracking-tight text-white md:block">QorTruth</span>
+              </span>
+            </a>
+
+            <nav class="hidden flex-1 items-center justify-center gap-10 xl:gap-12 text-xs font-semibold uppercase tracking-[0.16em] lg:text-sm md:flex mx-auto">
+              <a class="text-slate-300 transition hover:text-indigo-300" href="../index.html" data-nav="latest">Latest</a>
+              <a class="text-slate-300 transition hover:text-indigo-300" href="../politics.html" data-nav="politics">Politics</a>
+              <a class="text-slate-300 transition hover:text-indigo-300" href="../world.html" data-nav="world">World</a>
+              <a class="text-slate-300 transition hover:text-indigo-300" href="../business.html" data-nav="business">Business</a>
+              <a class="text-slate-300 transition hover:text-indigo-300" href="../technology.html" data-nav="technology">Tech</a>
+              <a class="text-slate-300 transition hover:text-indigo-300" href="../culture.html" data-nav="culture">Culture</a>
+              <a class="text-slate-300 transition hover:text-indigo-300" href="../opinion.html" data-nav="opinion">Opinion</a>
+            </nav>
+
+            <div class="hidden md:flex shrink-0" data-account>
+              <div class="relative">
+                <button type="button" class="inline-flex items-center gap-2 rounded-full border border-indigo-500/60 px-7 py-2 text-xs font-semibold uppercase tracking-[0.08em] text-indigo-200 whitespace-nowrap transition hover:border-indigo-400 hover:text-indigo-100" data-account-toggle aria-haspopup="true" aria-expanded="false">
+                  Sign In
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6" />
+                  </svg>
+                </button>
+                <div class="absolute right-0 mt-3 hidden w-44 overflow-hidden rounded-2xl border border-slate-800 bg-slate-950/95 shadow-xl shadow-black/30 z-30" data-account-menu role="menu">
+                  <a href="#" class="flex items-center justify-between px-4 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-slate-200 transition hover:bg-slate-900/80" role="menuitem" data-signin-trigger>Sign In <span class="text-[10px] text-indigo-300">→</span></a>
+                  <a href="#" class="flex items-center justify-between border-t border-slate-800/70 px-4 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-slate-200 transition hover:bg-slate-900/80" role="menuitem" data-subscribe-trigger>Subscribe <span class="text-[10px] text-indigo-300">+</span></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3 md:hidden">
+              <div class="relative" data-account>
+                <button type="button" class="inline-flex items-center gap-2 rounded-full border border-indigo-500/60 px-6 py-2 text-xs font-semibold uppercase tracking-[0.1em] text-indigo-200 whitespace-nowrap transition hover:border-indigo-400 hover:text-indigo-100" data-account-toggle aria-haspopup="true" aria-expanded="false">
+                  Sign In
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6" />
+                  </svg>
+                </button>
+                <div class="absolute right-0 mt-3 hidden w-44 overflow-hidden rounded-2xl border border-slate-800 bg-slate-950/95 shadow-xl shadow-black/30 z-30" data-account-menu role="menu">
+                  <a href="#" class="flex items-center justify-between px-4 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-slate-200 transition hover:bg-slate-900/80" role="menuitem" data-signin-trigger>Sign In <span class="text-[10px] text-indigo-300">→</span></a>
+                  <a href="#" class="flex items-center justify-between border-t border-slate-800/70 px-4 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-slate-200 transition hover:bg-slate-900/80" role="menuitem" data-subscribe-trigger>Subscribe <span class="text-[10px] text-indigo-300">+</span></a>
+                </div>
+              </div>
+              <button type="button" class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-700 text-slate-300 transition hover:border-indigo-400 hover:text-indigo-200" data-nav-toggle aria-expanded="false" aria-controls="mobile-nav">
+                <span class="sr-only">Toggle navigation</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div id="mobile-nav" class="hidden border-t border-slate-800 bg-slate-950/95 md:hidden" data-mobile-nav>
+          <div class="mx-auto max-w-6xl px-6 py-5">
+            <nav class="grid gap-5 text-sm uppercase tracking-[0.3em] text-slate-200">
+              <a class="text-slate-200 transition hover:text-indigo-300" href="../index.html" data-nav-link data-nav="latest">Latest</a>
+              <a class="text-slate-200 transition hover:text-indigo-300" href="../politics.html" data-nav-link data-nav="politics">Politics</a>
+              <a class="text-slate-200 transition hover:text-indigo-300" href="../world.html" data-nav-link data-nav="world">World</a>
+              <a class="text-slate-200 transition hover:text-indigo-300" href="../business.html" data-nav-link data-nav="business">Business</a>
+              <a class="text-slate-200 transition hover:text-indigo-300" href="../technology.html" data-nav-link data-nav="technology">Tech</a>
+              <a class="text-slate-200 transition hover:text-indigo-300" href="../culture.html" data-nav-link data-nav="culture">Culture</a>
+              <a class="text-slate-200 transition hover:text-indigo-300" href="../opinion.html" data-nav-link data-nav="opinion">Opinion</a>
+            </nav>
+            <div class="mt-6 grid gap-3">
+              <button class="w-full rounded-full bg-indigo-500 px-6 py-3 text-xs font-semibold uppercase tracking-[0.18em] text-white whitespace-nowrap transition hover:bg-indigo-400">Sign In</button>
+              <a href="../index.html#newsletter" class="w-full rounded-full border border-slate-700 px-4 py-3 text-center text-xs font-semibold uppercase tracking-[0.3em] text-slate-200 transition hover:border-indigo-400 hover:text-indigo-200">Newsletters</a>
+            </div>
+          </div>
+        </div>
+        <div class="border-t border-slate-800 bg-slate-900/70">
+          <div class="mx-auto max-w-6xl px-6 py-3">
+            <div class="flex items-center gap-4 pr-8 md:pr-10 lg:pr-12">
+              <span class="relative inline-flex h-2 w-2 items-center justify-center">
+                <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-indigo-400 opacity-75"></span>
+                <span class="relative inline-flex h-2 w-2 rounded-full bg-indigo-300"></span>
+              </span>
+              <div class="ticker relative flex-1 overflow-hidden">
+                <div class="ticker-track inline-flex items-center gap-6 whitespace-nowrap text-xs tracking-[0.3em] text-indigo-300" data-ticker-track>
+                  <span class="flex items-center gap-2">
+                    <span class="inline-flex h-1.5 w-1.5 rounded-full bg-indigo-400"></span>
+                    <span data-ticker-item>Altura Systems LLC operates QorTruth from Tbilisi, Georgia</span>
+                  </span>
+                  <span class="flex items-center gap-2">
+                    <span class="inline-flex h-1.5 w-1.5 rounded-full bg-indigo-400"></span>
+                    <span data-ticker-item>Georgian law sets the foundation for our data protection program</span>
+                  </span>
+                  <span class="flex items-center gap-2">
+                    <span class="inline-flex h-1.5 w-1.5 rounded-full bg-indigo-400"></span>
+                    <span data-ticker-item>Review and accept our privacy commitments before subscribing</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="mx-auto max-w-4xl px-6 py-12 space-y-16">
+        <section class="space-y-5">
+          <span class="inline-flex items-center rounded-full bg-indigo-500/20 px-4 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-indigo-200">Altura Systems • QorTruth</span>
+          <h1 class="text-3xl font-semibold tracking-tight text-white md:text-4xl">Privacy Policy</h1>
+          <p class="text-sm text-slate-400">Effective date: <span class="font-semibold text-slate-200">15 March 2025</span></p>
+          <p class="text-base text-slate-300 md:text-lg">
+            QorTruth delivers global news and intelligence as a registered business name of <strong>Altura Systems LLC</strong>, an information technology company incorporated in Tbilisi, Georgia. This Privacy Policy explains how we collect, use, disclose, and safeguard personal information across our websites, newsletters, briefings, and related services (“<strong>Services</strong>”). By using the Services, you acknowledge that your information will be handled in accordance with the <em>Law of Georgia on Personal Data Protection</em>, other applicable Georgian legislation, and this Privacy Policy.
+          </p>
+        </section>
+
+        <section class="grid gap-6">
+          <article class="space-y-5 rounded-3xl border border-slate-800 bg-slate-900/60 p-8">
+            <h2 class="text-xl font-semibold text-white">1. Scope</h2>
+            <p class="text-sm text-slate-300 md:text-base">This Privacy Policy applies when you:</p>
+            <ul class="space-y-3 text-sm text-slate-300 md:text-base">
+              <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 rounded-full bg-indigo-400"></span><span>Access qortruth.news or any site that links to this policy;</span></li>
+              <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 rounded-full bg-indigo-400"></span><span>Subscribe to newsletters, briefings, alerts, or events we provide;</span></li>
+              <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 rounded-full bg-indigo-400"></span><span>Engage with our newsroom, editors, or analysts; or</span></li>
+              <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 rounded-full bg-indigo-400"></span><span>Interact with QorTruth content distributed through partner platforms where we act as the controller of data collected.</span></li>
+            </ul>
+          </article>
+
+          <article class="space-y-5 rounded-3xl border border-slate-800 bg-slate-900/60 p-8">
+            <h2 class="text-xl font-semibold text-white">2. Information We Collect</h2>
+            <div class="space-y-4 text-sm text-slate-300 md:text-base">
+              <div>
+                <h3 class="font-semibold text-indigo-200 uppercase tracking-[0.28em] text-xs">Information you provide</h3>
+                <ul class="mt-3 space-y-3">
+                  <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 rounded-full bg-indigo-400"></span><span>Account and newsletter data (name, email, role, preferences, regions of interest).</span></li>
+                  <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 rounded-full bg-indigo-400"></span><span>Correspondence and feedback sent to our newsroom or support teams.</span></li>
+                  <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 rounded-full bg-indigo-400"></span><span>Registration information for briefings, webinars, or in-person events.</span></li>
+                </ul>
+              </div>
+              <div>
+                <h3 class="font-semibold text-indigo-200 uppercase tracking-[0.28em] text-xs">Information collected automatically</h3>
+                <ul class="mt-3 space-y-3">
+                  <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 rounded-full bg-indigo-400"></span><span>Usage and device data (IP address, browser, device identifiers, operating system, referring URLs, timestamps, approximate geolocation derived from IP).</span></li>
+                  <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 rounded-full bg-indigo-400"></span><span>Cookies and similar technologies that remember preferences, measure audiences, and secure the Services.</span></li>
+                </ul>
+              </div>
+              <div>
+                <h3 class="font-semibold text-indigo-200 uppercase tracking-[0.28em] text-xs">Information from third parties</h3>
+                <ul class="mt-3 space-y-3">
+                  <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 rounded-full bg-indigo-400"></span><span>Service providers and partners supplying analytics, communications, event, and security capabilities.</span></li>
+                  <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 rounded-full bg-indigo-400"></span><span>Publicly available sources including professional directories, regulatory filings, social media, and press reports that inform editorial coverage.</span></li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="space-y-5 rounded-3xl border border-slate-800 bg-slate-900/60 p-8">
+            <h2 class="text-xl font-semibold text-white">3. How We Use Information</h2>
+            <p class="text-sm text-slate-300 md:text-base">Altura Systems processes personal information to:</p>
+            <ul class="space-y-3 text-sm text-slate-300 md:text-base">
+              <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 rounded-full bg-indigo-400"></span><span>Deliver newsletters, briefings, alerts, and research notes you request;</span></li>
+              <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 rounded-full bg-indigo-400"></span><span>Tailor content and recommendations to your interests;</span></li>
+              <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 rounded-full bg-indigo-400"></span><span>Secure our infrastructure, investigate fraud, and prevent misuse;</span></li>
+              <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 rounded-full bg-indigo-400"></span><span>Measure and analyze audience engagement to improve editorial coverage;</span></li>
+              <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 rounded-full bg-indigo-400"></span><span>Manage community programs, events, and stakeholder outreach;</span></li>
+              <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 rounded-full bg-indigo-400"></span><span>Comply with legal obligations and enforce our Terms of Service.</span></li>
+            </ul>
+          </article>
+
+          <article class="space-y-5 rounded-3xl border border-slate-800 bg-slate-900/60 p-8">
+            <h2 class="text-xl font-semibold text-white">4. Legal Bases for Processing</h2>
+            <p class="text-sm text-slate-300 md:text-base">Where required, we rely on:</p>
+            <ul class="space-y-3 text-sm text-slate-300 md:text-base">
+              <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 rounded-full bg-indigo-400"></span><span><strong>Consent</strong> for newsletters, marketing communications, and non-essential cookies;</span></li>
+              <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 rounded-full bg-indigo-400"></span><span><strong>Contract performance</strong> to deliver requested Services;</span></li>
+              <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 rounded-full bg-indigo-400"></span><span><strong>Legitimate interests</strong> to operate, secure, and improve the Services and pursue editorial objectives;</span></li>
+              <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 rounded-full bg-indigo-400"></span><span><strong>Legal obligations</strong> to comply with Georgian regulations including the <em>Law of Georgia on Personal Data Protection</em> and the <em>Law of Georgia on Electronic Communications</em>, as well as guidance from the Personal Data Protection Service of Georgia.</span></li>
+            </ul>
+          </article>
+
+          <article class="space-y-5 rounded-3xl border border-slate-800 bg-slate-900/60 p-8">
+            <h2 class="text-xl font-semibold text-white">5. How We Share Information</h2>
+            <ul class="space-y-3 text-sm text-slate-300 md:text-base">
+              <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 rounded-full bg-indigo-400"></span><span><strong>Service providers:</strong> vetted vendors supporting hosting, analytics, communications, payments, security, and customer support.</span></li>
+              <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 rounded-full bg-indigo-400"></span><span><strong>Business transfers:</strong> in the event of a merger, acquisition, restructuring, or asset sale.</span></li>
+              <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 rounded-full bg-indigo-400"></span><span><strong>Legal compliance and protection:</strong> to meet legal obligations, respond to lawful requests, or safeguard rights and users.</span></li>
+              <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 rounded-full bg-indigo-400"></span><span><strong>With your consent:</strong> when you explicitly authorize collaboration with third parties.</span></li>
+            </ul>
+          </article>
+
+          <article class="space-y-5 rounded-3xl border border-slate-800 bg-slate-900/60 p-8">
+            <h2 class="text-xl font-semibold text-white">6. International Transfers</h2>
+            <p class="text-sm text-slate-300 md:text-base">
+              QorTruth operates from Georgia. If you access the Services from outside Georgia, your information may be transferred to and processed in Georgia and other jurisdictions where our service providers operate. We implement contractual and technical safeguards such as standard contractual clauses, data processing agreements, and security audits to protect personal information.
+            </p>
+          </article>
+
+          <article class="space-y-5 rounded-3xl border border-slate-800 bg-slate-900/60 p-8">
+            <h2 class="text-xl font-semibold text-white">7. Data Retention</h2>
+            <p class="text-sm text-slate-300 md:text-base">
+              We retain personal information only as long as necessary to fulfill the purposes described in this policy, satisfy legal or reporting obligations, resolve disputes, and enforce agreements. When information is no longer required, we delete, anonymize, or securely store it in non-production systems as permitted by law.
+            </p>
+          </article>
+
+          <article class="space-y-5 rounded-3xl border border-slate-800 bg-slate-900/60 p-8">
+            <h2 class="text-xl font-semibold text-white">8. Data Security</h2>
+            <p class="text-sm text-slate-300 md:text-base">
+              Altura Systems employs administrative, technical, and physical safeguards—including access controls, encryption in transit where appropriate, network monitoring, vendor due diligence, and staff training—to protect personal information. No system is entirely secure; please safeguard your credentials and notify us promptly of suspected unauthorized access.
+            </p>
+          </article>
+
+          <article class="space-y-5 rounded-3xl border border-slate-800 bg-slate-900/60 p-8">
+            <h2 class="text-xl font-semibold text-white">9. Your Choices</h2>
+            <ul class="space-y-3 text-sm text-slate-300 md:text-base">
+              <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 rounded-full bg-indigo-400"></span><span>Update or opt out of newsletters via unsubscribe links or by contacting us.</span></li>
+              <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 rounded-full bg-indigo-400"></span><span>Manage non-essential cookies through browser settings or consent tools.</span></li>
+              <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 rounded-full bg-indigo-400"></span><span>Note that our Services currently do not respond to Do Not Track signals.</span></li>
+            </ul>
+          </article>
+
+          <article class="space-y-5 rounded-3xl border border-slate-800 bg-slate-900/60 p-8">
+            <h2 class="text-xl font-semibold text-white">10. Your Rights</h2>
+            <p class="text-sm text-slate-300 md:text-base">
+              Depending on your location, you may have rights to access, correct, update, delete, or restrict processing of your personal information; to data portability; and to withdraw consent. Individuals in Georgia may exercise rights under the Law of Georgia on Personal Data Protection by contacting us using the details below. If you are unsatisfied with our response, you may lodge a complaint with the <a href="https://personaldata.ge/en" target="_blank" rel="noopener" class="text-indigo-300 hover:text-indigo-200">Personal Data Protection Service of Georgia</a>.
+            </p>
+          </article>
+
+          <article class="space-y-5 rounded-3xl border border-slate-800 bg-slate-900/60 p-8">
+            <h2 class="text-xl font-semibold text-white">11. Children’s Privacy</h2>
+            <p class="text-sm text-slate-300 md:text-base">
+              The Services are intended for audiences aged 16 and older. We do not knowingly collect personal information from children under 16 without verifiable parental consent. If you believe a child has provided information to us without appropriate consent, please contact us so we can delete it.
+            </p>
+          </article>
+
+          <article class="space-y-5 rounded-3xl border border-slate-800 bg-slate-900/60 p-8">
+            <h2 class="text-xl font-semibold text-white">12. Third-Party Links and Services</h2>
+            <p class="text-sm text-slate-300 md:text-base">
+              The Services may link to external sites, applications, or services. We are not responsible for the privacy practices of third parties. Review their privacy policies to understand how they process your information.
+            </p>
+          </article>
+
+          <article class="space-y-5 rounded-3xl border border-slate-800 bg-slate-900/60 p-8">
+            <h2 class="text-xl font-semibold text-white">13. Updates to this Policy</h2>
+            <p class="text-sm text-slate-300 md:text-base">
+              We may update this Privacy Policy to reflect operational, legal, or regulatory changes. When we do, we adjust the effective date and post the revised version here. Material updates may also be communicated via the Services or email where required by law. Continued use after an update signifies acceptance of the revised policy.
+            </p>
+          </article>
+
+          <article class="space-y-5 rounded-3xl border border-slate-800 bg-slate-900/60 p-8">
+            <h2 class="text-xl font-semibold text-white">14. Contact Us</h2>
+            <p class="text-sm text-slate-300 md:text-base">
+              To ask questions or exercise your privacy rights, contact Altura Systems using one of the following methods. We aim to reply within 30 days.
+            </p>
+            <ul class="space-y-3 text-sm text-slate-300 md:text-base">
+              <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 rounded-full bg-indigo-400"></span><span>Email: <a href="mailto:privacy@qortruth.news" class="text-indigo-300 hover:text-indigo-200">privacy@qortruth.news</a></span></li>
+              <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 rounded-full bg-indigo-400"></span><span>Postal mail: Altura Systems LLC — Privacy Office, 12 Rustaveli Ave, Tbilisi 0108, Georgia</span></li>
+              <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 rounded-full bg-indigo-400"></span><span>Contact form: <a href="../contact.html" class="text-indigo-300 hover:text-indigo-200">qortruth.news/contact</a></span></li>
+            </ul>
+          </article>
+        </section>
+
+        <section class="rounded-3xl border border-indigo-500/20 bg-indigo-500/10 p-10 shadow-lg shadow-indigo-500/10">
+          <div class="grid gap-6 md:grid-cols-[1.4fr,1fr] md:items-center">
+            <div class="space-y-5">
+              <span class="inline-flex items-center rounded-full bg-indigo-500/20 px-4 py-1 text-xs font-semibold uppercase tracking-[0.32em] text-indigo-200">Stay informed</span>
+              <h2 class="text-2xl font-semibold text-white md:text-3xl">Transparency is the foundation of trust.</h2>
+              <p class="text-sm text-slate-300 md:text-base">
+                Altura Systems safeguards QorTruth subscribers under Georgian law. Review our commitments anytime and subscribe with confidence to receive cross-border intelligence before markets open.
+              </p>
+            </div>
+            <div class="space-y-4 rounded-2xl border border-indigo-500/30 bg-slate-950/70 p-6 text-sm text-slate-300">
+              <p class="font-semibold text-white">Need clarification?</p>
+              <p>Email <a href="mailto:privacy@qortruth.news" class="text-indigo-300 hover:text-indigo-200">privacy@qortruth.news</a> and our privacy team will respond within 30 days.</p>
+              <p class="text-[11px] uppercase tracking-[0.3em] text-slate-500">Altura Systems LLC • Tbilisi, Georgia</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="rounded-3xl border border-slate-800 bg-slate-900/60 p-8" id="newsletter">
+          <div class="grid gap-8 md:grid-cols-[1.5fr,1fr] md:items-start">
+            <div class="space-y-5">
+              <span class="inline-flex items-center rounded-full bg-indigo-500/20 px-4 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-indigo-200">Morning Dispatch</span>
+              <h2 class="text-2xl font-semibold text-white md:text-3xl">Subscribe after reviewing our policy.</h2>
+              <p class="text-sm text-slate-300 md:text-base">
+                Enter your email to receive briefings curated by editors across four continents. We only send what matters—and you can leave anytime.
+              </p>
+            </div>
+            <form class="space-y-4 rounded-2xl border border-indigo-400/30 bg-slate-950/70 p-6 shadow-lg shadow-indigo-500/10" data-newsletter-form>
+              <label class="text-xs font-semibold uppercase tracking-[0.3em] text-indigo-200" for="newsletter-email">Email address</label>
+              <input id="newsletter-email" name="email" type="email" required placeholder="you@company.com" class="w-full rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 text-sm text-white outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-400/40">
+              <label class="flex items-center gap-2 text-xs text-slate-400">
+                <input name="weekend" type="checkbox" class="h-4 w-4 rounded border-slate-700 bg-slate-900 text-indigo-500 focus:ring-indigo-400">
+                Send me weekend investigations and events.
+              </label>
+              <button type="submit" class="w-full rounded-xl bg-indigo-500 px-4 py-3 text-sm font-semibold text-white transition hover:bg-indigo-400" data-newsletter-submit>Join the briefing</button>
+              <p class="rounded-xl bg-emerald-500/10 px-4 py-3 text-xs font-semibold uppercase tracking-[0.22em] text-emerald-200 hidden" data-newsletter-success>Check your inbox for the confirmation link.</p>
+              <p class="rounded-xl bg-rose-500/10 px-4 py-3 text-xs font-semibold uppercase tracking-[0.22em] text-rose-200 hidden" data-newsletter-error></p>
+              <p class="text-[11px] text-slate-500">We process your data under Georgian law. Review this policy anytime.</p>
+            </form>
+          </div>
+        </section>
+      </main>
+
+      <footer class="border-t border-slate-800 bg-slate-950/80">
+        <div class="mx-auto flex flex-col gap-10 px-6 py-12 md:max-w-6xl md:flex-row md:justify-between">
+          <div class="space-y-4">
+            <p class="text-lg font-semibold text-white">QorTruth</p>
+            <p class="max-w-sm text-sm text-slate-400">Global news and intelligence coverage operated by Altura Systems LLC in Tbilisi, Georgia.</p>
+            <div class="flex gap-3 text-xs text-slate-500">
+              <a href="privacy.html" class="hover:text-indigo-300">Privacy</a>
+              <span>•</span>
+              <a href="terms.html" class="hover:text-indigo-300">Terms</a>
+              <span>•</span>
+              <a href="../contact.html" class="hover:text-indigo-300">Contact</a>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-8 text-sm text-slate-400 md:grid-cols-4">
+            <div class="space-y-3">
+              <p class="text-xs font-semibold uppercase tracking-widest text-slate-500">Coverage</p>
+              <a href="../politics.html" class="block hover:text-indigo-300">Politics</a>
+              <a href="../world.html" class="block hover:text-indigo-300">World</a>
+              <a href="../business.html" class="block hover:text-indigo-300">Markets</a>
+              <a href="../technology.html" class="block hover:text-indigo-300">Technology</a>
+            </div>
+            <div class="space-y-3">
+              <p class="text-xs font-semibold uppercase tracking-widest text-slate-500">Editorial</p>
+              <a href="../opinion.html" class="block hover:text-indigo-300">Opinion</a>
+              <a href="../culture.html" class="block hover:text-indigo-300">Culture</a>
+              <a href="#" class="block hover:text-indigo-300">Investigations</a>
+              <a href="#" class="block hover:text-indigo-300">Data Desk</a>
+            </div>
+            <div class="space-y-3">
+              <p class="text-xs font-semibold uppercase tracking-widest text-slate-500">Community</p>
+              <a href="../index.html#newsletter" class="block hover:text-indigo-300">Newsletters</a>
+              <a href="#" class="block hover:text-indigo-300">Events</a>
+              <a href="#" class="block hover:text-indigo-300">Briefings</a>
+              <a href="#" class="block hover:text-indigo-300">Press</a>
+            </div>
+            <div class="space-y-3">
+              <p class="text-xs font-semibold uppercase tracking-widest text-slate-500">Follow</p>
+              <a href="https://t.me/" class="block hover:text-indigo-300" rel="noopener" target="_blank">Telegram</a>
+              <a href="https://signal.org/" class="block hover:text-indigo-300" rel="noopener" target="_blank">Signal</a>
+              <a href="https://www.linkedin.com/" class="block hover:text-indigo-300" rel="noopener" target="_blank">LinkedIn</a>
+              <a href="../index.xml" class="block hover:text-indigo-300">RSS</a>
+            </div>
+          </div>
+        </div>
+        <div class="border-t border-slate-800 bg-slate-950/90 py-5">
+          <p class="mx-auto max-w-6xl px-6 text-[11px] uppercase tracking-[0.35em] text-slate-500">© <span id="year"></span> Altura Systems LLC • Tbilisi, Georgia</p>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Sign In Modal -->
+    <div class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/80 p-6 backdrop-blur" data-modal="signin" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="signin-modal-title" aria-describedby="signin-modal-description">
+      <div class="relative w-full max-w-md rounded-3xl border border-slate-800 bg-slate-900 p-8 shadow-xl shadow-black/40">
+        <button type="button" class="absolute right-4 top-4 text-slate-500 transition hover:text-indigo-300" data-close-modal aria-label="Close sign in dialog">&times;</button>
+        <div class="space-y-6">
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-[0.25em] text-indigo-300">Account Access</p>
+            <h2 class="mt-2 text-2xl font-semibold text-white" id="signin-modal-title">Sign in to QorTruth</h2>
+            <p class="mt-2 text-sm text-slate-400" id="signin-modal-description">Enter your credentials to access premium alerts, saved briefings, and newsroom invitations.</p>
+          </div>
+          <form class="space-y-5" data-signin-form>
+            <div>
+              <label class="block text-sm font-semibold text-slate-200" for="signin-identifier">Email or username</label>
+              <input id="signin-identifier" name="identifier" type="text" autocomplete="username" placeholder="you@company.com" class="mt-2 w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-sm text-white outline-none transition focus:border-indigo-400 focus:ring-2 focus:ring-indigo-400/40" required>
+            </div>
+            <div>
+              <label class="block text-sm font-semibold text-slate-200" for="signin-password">Password</label>
+              <input id="signin-password" name="password" type="password" autocomplete="current-password" placeholder="••••••••" class="mt-2 w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-sm text-white outline-none transition focus:border-indigo-400 focus:ring-2 focus:ring-indigo-400/40" required>
+            </div>
+            <div class="flex items-center justify-between text-xs text-slate-400">
+              <label class="inline-flex items-center gap-2">
+                <input type="checkbox" class="h-4 w-4 rounded border-slate-700 bg-slate-950 text-indigo-500 focus:ring-indigo-400">
+                Remember me
+              </label>
+              <a href="#" class="font-semibold text-indigo-300 hover:text-indigo-200">Forgot password?</a>
+            </div>
+            <button type="submit" class="w-full rounded-xl bg-indigo-500 px-4 py-3 text-sm font-semibold text-white transition hover:bg-indigo-400">Continue</button>
+            <p class="mt-2 text-xs text-indigo-200 hidden" data-signin-response>Check your inbox for a secure sign-in link.</p>
+            <p class="text-[11px] text-slate-500">Need an account? <a href="#" class="font-semibold text-indigo-300 hover:text-indigo-200" data-subscribe-trigger>Subscribe for full access.</a></p>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Subscribe Modal -->
+    <div class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/80 p-6 backdrop-blur" data-modal="subscribe" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="subscribe-modal-title" aria-describedby="subscribe-modal-description">
+      <div class="relative w-full max-w-md rounded-3xl border border-slate-800 bg-slate-900 p-8 shadow-xl shadow-black/40">
+        <button type="button" class="absolute right-4 top-4 text-slate-500 transition hover:text-indigo-300" data-close-modal aria-label="Close subscribe dialog">&times;</button>
+        <div class="space-y-6">
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-[0.25em] text-indigo-300">Join QorTruth</p>
+            <h2 class="mt-2 text-2xl font-semibold text-white" id="subscribe-modal-title">Stay ahead of the briefing</h2>
+            <p class="mt-2 text-sm text-slate-400" id="subscribe-modal-description">Tell us who you are and we'll queue the latest stories in your inbox every morning.</p>
+          </div>
+          <form class="space-y-5" data-subscribe-form>
+            <div>
+              <label class="block text-sm font-semibold text-slate-200" for="subscribe-name">Name</label>
+              <input id="subscribe-name" name="name" type="text" autocomplete="name" placeholder="Your name" class="mt-2 w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-sm text-white outline-none transition focus:border-indigo-400 focus:ring-2 focus:ring-indigo-400/40">
+            </div>
+            <div>
+              <label class="block text-sm font-semibold text-slate-200" for="subscribe-email">Email</label>
+              <input id="subscribe-email" name="email" type="email" required autocomplete="email" placeholder="you@company.com" class="mt-2 w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-sm text-white outline-none transition focus:border-indigo-400 focus:ring-2 focus:ring-indigo-400/40">
+            </div>
+            <div class="flex items-start gap-3 text-xs text-slate-500">
+              <input id="subscribe-briefing" type="checkbox" name="briefing" class="mt-1 h-4 w-4 rounded border-slate-700 bg-slate-950 text-indigo-500 focus:ring-indigo-400">
+              <label for="subscribe-briefing">Send me overnight alerts and newsroom invitations.</label>
+            </div>
+            <button type="submit" class="w-full rounded-xl bg-indigo-500 px-4 py-3 text-sm font-semibold text-white transition hover:bg-indigo-400">Continue</button>
+            <p class="text-[11px] text-slate-500">You can unsubscribe any time. We never sell your data.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Premium Upsell Modal -->
+    <div class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/80 p-6 backdrop-blur" data-modal="premium" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="premium-modal-title" aria-describedby="premium-modal-description">
+      <div class="relative w-full max-w-md rounded-3xl border border-indigo-500/40 bg-slate-900 p-8 shadow-xl shadow-black/40">
+        <button type="button" class="absolute right-4 top-4 text-slate-500 transition hover:text-indigo-300" data-close-modal aria-label="Close premium dialog">&times;</button>
+        <div class="space-y-6">
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-[0.25em] text-indigo-300">Premium Briefings</p>
+            <h2 class="mt-2 text-2xl font-semibold text-white" id="premium-modal-title">Unlock deeper coverage</h2>
+            <p class="mt-2 text-sm text-slate-400" id="premium-modal-description" data-premium-summary>Upgrade to receive unlimited briefings, weekend investigations, and invite-only calls with our editors.</p>
+          </div>
+          <ul class="space-y-3 text-sm text-slate-300">
+            <li class="flex items-start gap-3">
+              <span class="mt-1 inline-flex h-1.5 w-1.5 rounded-full bg-indigo-400"></span>
+              <span>Unlimited access to more than five strategic briefings each month.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1 inline-flex h-1.5 w-1.5 rounded-full bg-indigo-400"></span>
+              <span>Deeper data visualizations and cross-border investigative notes.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1 inline-flex h-1.5 w-1.5 rounded-full bg-indigo-400"></span>
+              <span>Priority invites to quarterly newsroom briefings and analyst calls.</span>
+            </li>
+          </ul>
+          <div class="space-y-3">
+            <button type="button" class="w-full rounded-xl bg-indigo-500 px-4 py-3 text-sm font-semibold text-white transition hover:bg-indigo-400" data-premium-choice="upgrade">Upgrade for $12/month</button>
+            <button type="button" class="w-full rounded-xl border border-slate-700 px-4 py-3 text-sm font-semibold text-slate-200 transition hover:border-indigo-400 hover:text-indigo-200" data-premium-choice="skip">Stay on free plan</button>
+          </div>
+          <p class="text-xs text-indigo-200 hidden" data-premium-response></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Welcome Modal -->
+    <div class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/80 p-6 backdrop-blur" data-modal="welcome" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="welcome-modal-title" aria-describedby="welcome-modal-description">
+      <div class="relative w-full max-w-xl rounded-3xl border border-indigo-500/40 bg-slate-900 p-8 shadow-xl shadow-black/40">
+        <button type="button" class="absolute right-4 top-4 text-slate-500 transition hover:text-indigo-300" data-close-modal aria-label="Close welcome dialog">&times;</button>
+        <div class="space-y-6">
+          <div class="space-y-3 text-center">
+            <h2 class="text-2xl font-semibold text-white" id="welcome-modal-title">Review Before Subscribing</h2>
+            <p class="text-sm text-slate-300" id="welcome-modal-description">
+              Before subscribing to the QorTruth Pulse newsletter, please review and accept our
+              <a href="terms.html" class="text-indigo-300 transition hover:text-indigo-200" target="_blank" rel="noopener">Terms &amp; Conditions</a>
+              and
+              <a href="privacy.html" class="text-indigo-300 transition hover:text-indigo-200" target="_blank" rel="noopener">Privacy Policy</a>.
+            </p>
+          </div>
+          <div class="max-h-72 overflow-y-auto rounded-2xl border border-slate-800/70 bg-slate-950/60 p-4" data-policy-container data-policy-src="privacy.html">
+            <p class="text-sm text-slate-400 text-center">Scroll to the end of the privacy policy to enable “Accept & Continue”.</p>
+          </div>
+          <div class="flex flex-col items-center gap-3 text-xs text-slate-400 sm:flex-row sm:items-center sm:justify-between sm:text-sm">
+            <div class="flex flex-wrap items-center justify-center gap-3 sm:justify-start">
+              <a href="terms.html" target="_blank" rel="noopener" class="text-indigo-300 transition hover:text-indigo-200">View Terms &amp; Conditions</a>
+              <span class="hidden text-slate-600 sm:inline">•</span>
+              <a href="privacy.html" target="_blank" rel="noopener" class="text-indigo-300 transition hover:text-indigo-200">View Privacy Policy</a>
+            </div>
+            <button type="button" class="inline-flex items-center justify-center rounded-xl bg-indigo-500 px-5 py-2.5 text-sm font-semibold text-white opacity-50 transition hover:bg-indigo-400 cursor-not-allowed" data-accept-button data-close-modal disabled>Accept &amp; Continue</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const yearElement = document.getElementById('year');
+        if (yearElement) {
+          yearElement.textContent = new Date().getFullYear();
+        }
+
+        const modals = Array.from(document.querySelectorAll('[data-modal]'));
+        const subscribeModal = document.querySelector('[data-modal="subscribe"]');
+        const premiumModal = document.querySelector('[data-modal="premium"]');
+        const signinModal = document.querySelector('[data-modal="signin"]');
+        const welcomeModal = document.querySelector('[data-modal="welcome"]');
+        const subscribeTriggers = Array.from(document.querySelectorAll('[data-subscribe-trigger]'));
+        const signinTriggers = Array.from(document.querySelectorAll('[data-signin-trigger]'));
+        const subscribeForm = subscribeModal?.querySelector('[data-subscribe-form]');
+        const signinForm = signinModal?.querySelector('[data-signin-form]');
+        const premiumSummary = premiumModal?.querySelector('[data-premium-summary]');
+        const premiumSummaryDefault = premiumSummary?.textContent ?? '';
+        const premiumResponse = premiumModal?.querySelector('[data-premium-response]');
+        const signinResponse = signinModal?.querySelector('[data-signin-response]');
+        const navToggle = document.querySelector('[data-nav-toggle]');
+        const mobileNav = document.querySelector('[data-mobile-nav]');
+        const mobileNavLinks = Array.from(document.querySelectorAll('[data-nav-link]'));
+        const navItems = Array.from(document.querySelectorAll('[data-nav]'));
+
+        let resetPolicyAcknowledgement = () => {};
+
+        const toggleBodyScroll = (locked) => {
+          document.body.classList.toggle('overflow-hidden', locked);
+        };
+
+        const evaluateBodyLock = () => {
+          const anyVisible = modals.some((modal) => !modal.classList.contains('hidden'));
+          const navVisible = mobileNav ? !mobileNav.classList.contains('hidden') : false;
+          toggleBodyScroll(anyVisible || navVisible);
+        };
+
+        const showModal = (modal) => {
+          if (!modal) return;
+          modal.classList.remove('hidden');
+          modal.setAttribute('aria-hidden', 'false');
+          evaluateBodyLock();
+        };
+
+        const hideModal = (modal) => {
+          if (!modal) return;
+          modal.classList.add('hidden');
+          modal.setAttribute('aria-hidden', 'true');
+          evaluateBodyLock();
+
+          if (modal === subscribeModal) {
+            subscribeForm?.reset();
+          }
+
+          if (modal === premiumModal) {
+            if (premiumResponse) {
+              premiumResponse.classList.add('hidden');
+              premiumResponse.textContent = '';
+            }
+
+            if (premiumSummary) {
+              premiumSummary.textContent = premiumSummaryDefault;
+            }
+          }
+
+          if (modal === welcomeModal) {
+            resetPolicyAcknowledgement();
+          }
+        };
+
+        const openMobileNav = () => {
+          if (!mobileNav || !navToggle) return;
+          mobileNav.classList.remove('hidden');
+          navToggle.setAttribute('aria-expanded', 'true');
+          evaluateBodyLock();
+        };
+
+        const closeMobileNav = () => {
+          if (!mobileNav || !navToggle) return;
+          mobileNav.classList.add('hidden');
+          navToggle.setAttribute('aria-expanded', 'false');
+          evaluateBodyLock();
+        };
+
+        navToggle?.addEventListener('click', () => {
+          if (!mobileNav) return;
+          if (mobileNav.classList.contains('hidden')) {
+            openMobileNav();
+          } else {
+            closeMobileNav();
+          }
+        });
+
+        mobileNavLinks.forEach((link) => {
+          link.addEventListener('click', () => {
+            closeMobileNav();
+          });
+        });
+
+        const accountContainers = Array.from(document.querySelectorAll('[data-account]'));
+
+        const closeAccountMenus = () => {
+          accountContainers.forEach((container) => {
+            const toggle = container.querySelector('[data-account-toggle]');
+            const menu = container.querySelector('[data-account-menu]');
+            if (toggle) {
+              toggle.setAttribute('aria-expanded', 'false');
+            }
+            if (menu) {
+              menu.classList.add('hidden');
+            }
+          });
+        };
+
+        accountContainers.forEach((container) => {
+          const toggle = container.querySelector('[data-account-toggle]');
+          const menu = container.querySelector('[data-account-menu]');
+          if (!toggle || !menu) return;
+
+          toggle.addEventListener('click', (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            const expanded = toggle.getAttribute('aria-expanded') === 'true';
+            closeAccountMenus();
+            if (!expanded) {
+              toggle.setAttribute('aria-expanded', 'true');
+              menu.classList.remove('hidden');
+            }
+          });
+
+          menu.querySelectorAll('a').forEach((link) => {
+            link.addEventListener('click', () => {
+              closeAccountMenus();
+            });
+          });
+        });
+
+        document.addEventListener('click', (event) => {
+          if (!event.target.closest('[data-account]')) {
+            closeAccountMenus();
+          }
+        });
+
+        if (navItems.length) {
+          const navSlugMap = {
+            '': 'latest',
+            'index.html': 'latest',
+            'politics.html': 'politics',
+            'world.html': 'world',
+            'business.html': 'business',
+            'technology.html': 'technology',
+            'culture.html': 'culture',
+            'opinion.html': 'opinion',
+          };
+
+          const currentPath = window.location.pathname.split('/').pop()?.toLowerCase() ?? '';
+          const activeNav = navSlugMap[currentPath] ?? 'latest';
+
+          navItems.forEach((link) => {
+            const isMobile = Boolean(link.closest('[data-mobile-nav]'));
+            const baseClass = isMobile ? 'text-slate-200' : 'text-slate-300';
+
+            link.classList.remove('text-indigo-200', 'text-indigo-100');
+            if (!link.classList.contains(baseClass)) {
+              link.classList.add(baseClass);
+            }
+
+            if (link.dataset.nav === activeNav) {
+              link.classList.remove(baseClass);
+              link.classList.add('text-indigo-200');
+            }
+          });
+        }
+
+        modals.forEach((modal) => {
+          modal.addEventListener('click', (event) => {
+            if (event.target === modal) {
+              hideModal(modal);
+            }
+          });
+        });
+
+        document.querySelectorAll('[data-close-modal]').forEach((button) => {
+          button.addEventListener('click', () => {
+            hideModal(button.closest('[data-modal]'));
+          });
+        });
+
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape') {
+            const visibleModal = modals.find((modal) => !modal.classList.contains('hidden'));
+            if (visibleModal) {
+              hideModal(visibleModal);
+              return;
+            }
+
+            if (mobileNav && !mobileNav.classList.contains('hidden')) {
+              closeMobileNav();
+            }
+
+            closeAccountMenus();
+          }
+        });
+
+        const policyAcknowledgement = {
+          button: welcomeModal?.querySelector('[data-accept-button]') ?? null,
+          container: welcomeModal?.querySelector('[data-policy-container]') ?? null,
+          iframeWindow: null,
+          scrollHandler: null,
+        };
+
+        const POLICY_PLACEHOLDER_HTML = '<p class="text-sm text-slate-400 text-center">Scroll to the end of the privacy policy to enable “Accept & Continue”.</p>';
+
+        const setPolicyAcceptEnabled = (enabled) => {
+          if (!policyAcknowledgement.button) return;
+          if (enabled) {
+            policyAcknowledgement.button.disabled = false;
+            policyAcknowledgement.button.classList.remove('opacity-50', 'cursor-not-allowed');
+          } else {
+            policyAcknowledgement.button.disabled = true;
+            policyAcknowledgement.button.classList.add('opacity-50', 'cursor-not-allowed');
+          }
+        };
+
+        const clearPolicyScrollHandler = () => {
+          if (policyAcknowledgement.iframeWindow && policyAcknowledgement.scrollHandler) {
+            policyAcknowledgement.iframeWindow.removeEventListener('scroll', policyAcknowledgement.scrollHandler);
+          }
+          policyAcknowledgement.iframeWindow = null;
+          policyAcknowledgement.scrollHandler = null;
+        };
+
+        resetPolicyAcknowledgement = () => {
+          setPolicyAcceptEnabled(false);
+          clearPolicyScrollHandler();
+          if (policyAcknowledgement.container) {
+            policyAcknowledgement.container.innerHTML = POLICY_PLACEHOLDER_HTML;
+            policyAcknowledgement.container.scrollTop = 0;
+          }
+        };
+
+        const loadPolicyIframe = () => {
+          if (!policyAcknowledgement.container) return;
+
+          const policySrc = policyAcknowledgement.container.getAttribute('data-policy-src') ?? 'legal/privacy.html';
+          policyAcknowledgement.container.innerHTML = '';
+
+          const iframe = document.createElement('iframe');
+          iframe.src = policySrc;
+          iframe.className = 'w-full h-72 border-0 rounded-xl bg-slate-950';
+          iframe.setAttribute('loading', 'lazy');
+
+          iframe.addEventListener('load', () => {
+            try {
+              const iframeWindow = iframe.contentWindow;
+              const iframeDocument = iframeWindow?.document;
+
+              if (!iframeWindow || !iframeDocument) {
+                setPolicyAcceptEnabled(true);
+                return;
+              }
+
+              iframeWindow.scrollTo(0, 0);
+              const target = iframeDocument.scrollingElement || iframeDocument.documentElement || iframeDocument.body;
+
+              const handleScroll = () => {
+                if (iframeWindow.scrollY + iframeWindow.innerHeight >= target.scrollHeight - 4) {
+                  setPolicyAcceptEnabled(true);
+                  iframeWindow.removeEventListener('scroll', handleScroll);
+                  policyAcknowledgement.scrollHandler = null;
+                  policyAcknowledgement.iframeWindow = null;
+                }
+              };
+
+              clearPolicyScrollHandler();
+              policyAcknowledgement.iframeWindow = iframeWindow;
+              policyAcknowledgement.scrollHandler = handleScroll;
+              iframeWindow.addEventListener('scroll', handleScroll, { passive: true });
+              handleScroll();
+            } catch (error) {
+              setPolicyAcceptEnabled(true);
+            }
+          }, { once: true });
+
+          policyAcknowledgement.container.appendChild(iframe);
+        };
+
+        resetPolicyAcknowledgement();
+
+        const newsletterForms = Array.from(document.querySelectorAll('[data-newsletter-form]'));
+        let lastSubmittedNewsletterForm = null;
+
+        newsletterForms.forEach((form) => {
+          const successMessage = form.querySelector('[data-newsletter-success]');
+          const errorMessage = form.querySelector('[data-newsletter-error]');
+
+          form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            event.stopImmediatePropagation();
+
+            const emailInput = form.querySelector('input[name="email"]');
+            const email = emailInput?.value.trim() || '';
+
+            if (!email.includes('@')) {
+              if (errorMessage) {
+                errorMessage.textContent = 'Please enter a valid email address.';
+                errorMessage.classList.remove('hidden');
+              } else {
+                window.alert('Please enter a valid email address.');
+              }
+              return;
+            }
+
+            lastSubmittedNewsletterForm = form;
+
+            if (errorMessage) {
+              errorMessage.classList.add('hidden');
+            }
+            if (successMessage) {
+              successMessage.classList.add('hidden');
+            }
+
+            resetPolicyAcknowledgement();
+            loadPolicyIframe();
+
+            if (welcomeModal) {
+              showModal(welcomeModal);
+            }
+          });
+        });
+
+        if (policyAcknowledgement.button && welcomeModal) {
+          policyAcknowledgement.button.addEventListener('click', (event) => {
+            if (policyAcknowledgement.button.disabled) {
+              event.preventDefault();
+              event.stopImmediatePropagation();
+              return;
+            }
+
+            event.preventDefault();
+            event.stopImmediatePropagation();
+            hideModal(welcomeModal);
+            if (lastSubmittedNewsletterForm) {
+              lastSubmittedNewsletterForm.reset();
+              lastSubmittedNewsletterForm = null;
+            }
+          });
+        }
+
+        signinTriggers.forEach((trigger) => {
+          trigger.addEventListener('click', (event) => {
+            event.preventDefault();
+            closeMobileNav();
+            closeAccountMenus();
+            showModal(signinModal);
+            requestAnimationFrame(() => {
+              signinModal?.querySelector('input')?.focus();
+            });
+          });
+        });
+
+        subscribeTriggers.forEach((trigger) => {
+          trigger.addEventListener('click', (event) => {
+            event.preventDefault();
+            closeMobileNav();
+            closeAccountMenus();
+            showModal(subscribeModal);
+            requestAnimationFrame(() => {
+              subscribeModal?.querySelector('input')?.focus();
+            });
+          });
+        });
+
+        signinForm?.addEventListener('submit', (event) => {
+          event.preventDefault();
+          if (signinResponse) {
+            signinResponse.textContent = 'Signed in! Redirecting...';
+            signinResponse.classList.remove('hidden');
+          }
+          setTimeout(() => {
+            hideModal(signinModal);
+            if (signinResponse) {
+              signinResponse.classList.add('hidden');
+            }
+          }, 1300);
+        });
+
+        subscribeForm?.addEventListener('submit', (event) => {
+          event.preventDefault();
+          const formData = new FormData(subscribeForm);
+          const nameValue = String(formData.get('name') ?? '').trim();
+
+          if (premiumSummary) {
+            premiumSummary.textContent = nameValue
+              ? `Great to have you, ${nameValue}. Do you want premium access beyond five briefings a month?`
+              : 'Do you want premium access beyond five briefings a month?';
+          }
+
+          hideModal(subscribeModal);
+          showModal(premiumModal);
+
+          requestAnimationFrame(() => {
+            premiumModal?.querySelector('[data-premium-choice]')?.focus();
+          });
+        });
+
+        premiumModal?.querySelectorAll('[data-premium-choice]').forEach((button) => {
+          button.addEventListener('click', () => {
+            const choice = button.getAttribute('data-premium-choice');
+
+            if (premiumResponse) {
+              premiumResponse.classList.remove('hidden');
+              premiumResponse.textContent = choice === 'upgrade'
+                ? 'Amazing! We'll send premium access details to your inbox shortly.'
+                : 'All set. You will keep receiving five briefings per month.';
+            }
+
+            setTimeout(() => {
+              hideModal(premiumModal);
+            }, 1600);
+          });
+        });
+
+        const tickerTrack = document.querySelector('[data-ticker-track]');
+        if (tickerTrack) {
+          const sources = Array.from(document.querySelectorAll('[data-ticker-item]'));
+          const headlines = sources
+            .map((node) => node.textContent.replace(/\s+/g, ' ').trim())
+            .filter((text, index, collection) => text && collection.indexOf(text) === index);
+
+          if (headlines.length) {
+            const multiplier = headlines.length >= 3 ? 2 : 3;
+            tickerTrack.innerHTML = '';
+
+            const appendHeadline = (text) => {
+              const wrapper = document.createElement('span');
+              wrapper.className = 'inline-flex items-center gap-2';
+
+              const marker = document.createElement('span');
+              marker.className = 'inline-flex h-1.5 w-1.5 rounded-full bg-indigo-400';
+              wrapper.appendChild(marker);
+
+              const label = document.createElement('span');
+              label.className = 'font-medium text-indigo-100';
+              label.textContent = text;
+              wrapper.appendChild(label);
+
+              tickerTrack.appendChild(wrapper);
+            };
+
+            for (let i = 0; i < multiplier; i += 1) {
+              headlines.forEach(appendHeadline);
+            }
+
+            const container = tickerTrack.parentElement;
+            if (container) {
+              const baseSpeed = 40; // pixels per second
+              requestAnimationFrame(() => {
+                const totalWidth = tickerTrack.scrollWidth + container.clientWidth;
+                const durationSeconds = Math.max(50, totalWidth / baseSpeed);
+                tickerTrack.style.setProperty('--ticker-duration', `${durationSeconds.toFixed(2)}s`);
+              });
+            }
+          }
+        }
+
+        // Market data is provided via the embedded TradingView widget configured in markup.
+      });
+    </script>
+  </body>
+</html>

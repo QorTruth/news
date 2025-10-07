@@ -508,11 +508,29 @@
 
       <!-- Welcome Modal -->
       <div class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/80 p-6 backdrop-blur" data-modal="welcome" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="welcome-modal-title" aria-describedby="welcome-modal-description">
-        <div class="relative w-full max-w-md rounded-3xl border border-indigo-500/40 bg-slate-900 p-8 shadow-xl shadow-black/40">
+        <div class="relative w-full max-w-xl rounded-3xl border border-indigo-500/40 bg-slate-900 p-8 shadow-xl shadow-black/40">
           <button type="button" class="absolute right-4 top-4 text-slate-500 transition hover:text-indigo-300" data-close-modal aria-label="Close welcome dialog">&times;</button>
-          <div class="space-y-5 text-center">
-            <h2 class="text-2xl font-semibold text-white" id="welcome-modal-title">Welcome to QorTruth</h2>
-            <p class="text-sm text-slate-300" id="welcome-modal-description">You’re now subscribed to the Morning Dispatch. Check your inbox for confirmation.</p>
+          <div class="space-y-6">
+            <div class="space-y-3 text-center">
+              <h2 class="text-2xl font-semibold text-white" id="welcome-modal-title">Review Before Subscribing</h2>
+              <p class="text-sm text-slate-300" id="welcome-modal-description">
+                Before subscribing to the QorTruth Pulse newsletter, please review and accept our
+                <a href="legal/terms.html" class="text-indigo-300 transition hover:text-indigo-200" target="_blank" rel="noopener">Terms &amp; Conditions</a>
+                and
+                <a href="legal/privacy.html" class="text-indigo-300 transition hover:text-indigo-200" target="_blank" rel="noopener">Privacy Policy</a>.
+              </p>
+            </div>
+            <div class="max-h-72 overflow-y-auto rounded-2xl border border-slate-800/70 bg-slate-950/60 p-4" data-policy-container data-policy-src="legal/privacy.html">
+              <p class="text-sm text-slate-400 text-center">Scroll to the end of the privacy policy to enable “Accept & Continue”.</p>
+            </div>
+            <div class="flex flex-col items-center gap-3 text-xs text-slate-400 sm:flex-row sm:items-center sm:justify-between sm:text-sm">
+              <div class="flex flex-wrap items-center justify-center gap-3 sm:justify-start">
+                <a href="legal/terms.html" target="_blank" rel="noopener" class="text-indigo-300 transition hover:text-indigo-200">View Terms &amp; Conditions</a>
+                <span class="hidden text-slate-600 sm:inline">•</span>
+                <a href="legal/privacy.html" target="_blank" rel="noopener" class="text-indigo-300 transition hover:text-indigo-200">View Privacy Policy</a>
+              </div>
+              <button type="button" class="inline-flex items-center justify-center rounded-xl bg-indigo-500 px-5 py-2.5 text-sm font-semibold text-white opacity-50 transition hover:bg-indigo-400 cursor-not-allowed" data-accept-button data-close-modal disabled>Accept &amp; Continue</button>
+            </div>
           </div>
         </div>
       </div>
@@ -592,6 +610,8 @@
         const mobileNavLinks = Array.from(document.querySelectorAll('[data-nav-link]'));
         const navItems = Array.from(document.querySelectorAll('[data-nav]'));
 
+        let resetPolicyAcknowledgement = () => {};
+
         const toggleBodyScroll = (locked) => {
           document.body.classList.toggle('overflow-hidden', locked);
         };
@@ -628,6 +648,10 @@
             if (premiumSummary) {
               premiumSummary.textContent = premiumSummaryDefault;
             }
+          }
+
+          if (modal === welcomeModal) {
+            resetPolicyAcknowledgement();
           }
         };
 
@@ -765,41 +789,150 @@
           }
         });
 
-        document.querySelectorAll('[data-newsletter-form]').forEach((form) => {
-          const welcomeModal = document.querySelector('[data-modal="welcome"]');
-          const closeButtons = welcomeModal?.querySelectorAll('[data-close-modal]');
+        const policyAcknowledgement = {
+          button: welcomeModal?.querySelector('[data-accept-button]') ?? null,
+          container: welcomeModal?.querySelector('[data-policy-container]') ?? null,
+          iframeWindow: null,
+          scrollHandler: null,
+        };
+
+        const POLICY_PLACEHOLDER_HTML = '<p class="text-sm text-slate-400 text-center">Scroll to the end of the privacy policy to enable “Accept & Continue”.</p>';
+
+        const setPolicyAcceptEnabled = (enabled) => {
+          if (!policyAcknowledgement.button) return;
+          if (enabled) {
+            policyAcknowledgement.button.disabled = false;
+            policyAcknowledgement.button.classList.remove('opacity-50', 'cursor-not-allowed');
+          } else {
+            policyAcknowledgement.button.disabled = true;
+            policyAcknowledgement.button.classList.add('opacity-50', 'cursor-not-allowed');
+          }
+        };
+
+        const clearPolicyScrollHandler = () => {
+          if (policyAcknowledgement.iframeWindow && policyAcknowledgement.scrollHandler) {
+            policyAcknowledgement.iframeWindow.removeEventListener('scroll', policyAcknowledgement.scrollHandler);
+          }
+          policyAcknowledgement.iframeWindow = null;
+          policyAcknowledgement.scrollHandler = null;
+        };
+
+        resetPolicyAcknowledgement = () => {
+          setPolicyAcceptEnabled(false);
+          clearPolicyScrollHandler();
+          if (policyAcknowledgement.container) {
+            policyAcknowledgement.container.innerHTML = POLICY_PLACEHOLDER_HTML;
+            policyAcknowledgement.container.scrollTop = 0;
+          }
+        };
+
+        const loadPolicyIframe = () => {
+          if (!policyAcknowledgement.container) return;
+
+          const policySrc = policyAcknowledgement.container.getAttribute('data-policy-src') ?? 'legal/privacy.html';
+          policyAcknowledgement.container.innerHTML = '';
+
+          const iframe = document.createElement('iframe');
+          iframe.src = policySrc;
+          iframe.className = 'w-full h-72 border-0 rounded-xl bg-slate-950';
+          iframe.setAttribute('loading', 'lazy');
+
+          iframe.addEventListener('load', () => {
+            try {
+              const iframeWindow = iframe.contentWindow;
+              const iframeDocument = iframeWindow?.document;
+
+              if (!iframeWindow || !iframeDocument) {
+                setPolicyAcceptEnabled(true);
+                return;
+              }
+
+              iframeWindow.scrollTo(0, 0);
+              const target = iframeDocument.scrollingElement || iframeDocument.documentElement || iframeDocument.body;
+
+              const handleScroll = () => {
+                if (iframeWindow.scrollY + iframeWindow.innerHeight >= target.scrollHeight - 4) {
+                  setPolicyAcceptEnabled(true);
+                  iframeWindow.removeEventListener('scroll', handleScroll);
+                  policyAcknowledgement.scrollHandler = null;
+                  policyAcknowledgement.iframeWindow = null;
+                }
+              };
+
+              clearPolicyScrollHandler();
+              policyAcknowledgement.iframeWindow = iframeWindow;
+              policyAcknowledgement.scrollHandler = handleScroll;
+              iframeWindow.addEventListener('scroll', handleScroll, { passive: true });
+              handleScroll();
+            } catch (error) {
+              setPolicyAcceptEnabled(true);
+            }
+          }, { once: true });
+
+          policyAcknowledgement.container.appendChild(iframe);
+        };
+
+        resetPolicyAcknowledgement();
+
+        const newsletterForms = Array.from(document.querySelectorAll('[data-newsletter-form]'));
+        let lastSubmittedNewsletterForm = null;
+
+        newsletterForms.forEach((form) => {
+          const successMessage = form.querySelector('[data-newsletter-success]');
+          const errorMessage = form.querySelector('[data-newsletter-error]');
 
           form.addEventListener('submit', (event) => {
-            event.preventDefault(); // block reload
+            event.preventDefault();
+            event.stopImmediatePropagation();
 
             const emailInput = form.querySelector('input[name="email"]');
             const email = emailInput?.value.trim() || '';
 
             if (!email.includes('@')) {
-              alert('Please enter a valid email address.');
+              if (errorMessage) {
+                errorMessage.textContent = 'Please enter a valid email address.';
+                errorMessage.classList.remove('hidden');
+              } else {
+                window.alert('Please enter a valid email address.');
+              }
               return;
             }
 
-            form.reset();
+            lastSubmittedNewsletterForm = form;
 
-            // show the welcome modal
-            if (welcomeModal) {
-              welcomeModal.classList.remove('hidden');
-              welcomeModal.setAttribute('aria-hidden', 'false');
-              document.body.classList.add('overflow-hidden');
+            if (errorMessage) {
+              errorMessage.classList.add('hidden');
             }
-          });
+            if (successMessage) {
+              successMessage.classList.add('hidden');
+            }
 
-          // make sure close buttons still hide the modal
-          closeButtons?.forEach((btn) => {
-            btn.addEventListener('click', () => {
-              welcomeModal.classList.add('hidden');
-              welcomeModal.setAttribute('aria-hidden', 'true');
-              document.body.classList.remove('overflow-hidden');
-            });
+            resetPolicyAcknowledgement();
+            loadPolicyIframe();
+
+            if (welcomeModal) {
+              showModal(welcomeModal);
+            }
           });
         });
 
+        if (policyAcknowledgement.button && welcomeModal) {
+          policyAcknowledgement.button.addEventListener('click', (event) => {
+            if (policyAcknowledgement.button.disabled) {
+              event.preventDefault();
+              event.stopImmediatePropagation();
+              return;
+            }
+
+            event.preventDefault();
+            event.stopImmediatePropagation();
+            hideModal(welcomeModal);
+            if (lastSubmittedNewsletterForm) {
+              lastSubmittedNewsletterForm.reset();
+              lastSubmittedNewsletterForm = null;
+            }
+          });
+        }
 
         signinTriggers.forEach((trigger) => {
           trigger.addEventListener('click', (event) => {
@@ -921,45 +1054,5 @@
         // Market data is provided via the embedded TradingView widget configured in markup.
       });
     </script>
-    <script>
-console.log('⚡ QorTruth script starting');
-
-document.addEventListener('DOMContentLoaded', function() {
-  console.log('✅ DOM fully loaded');
-
-  const form = document.querySelector('form');
-  if (!form) {
-    console.log('❌ No form found on page');
-    return;
-  }
-
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    console.log('✅ Form submit intercepted');
-    alert('Welcome to QorTruth.News');
-  });
-});
-    </script>
-    <script>
-      console.log('⚡ QorTruth script starting');
-
-      document.addEventListener('DOMContentLoaded', function() {
-        console.log('✅ DOM fully loaded');
-
-        const form = document.querySelector('form');
-        if (!form) {
-          console.log('❌ No form found on page');
-          return;
-        }
-
-        form.addEventListener('submit', function(e) {
-          e.preventDefault();
-          console.log('✅ Form submit intercepted');
-          alert('Welcome to QorTruth.News');
-        });
-      });
-    </script>
-  </body>
-</html>
   </body>
 </html>
