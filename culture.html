@@ -707,7 +707,6 @@
 
           form.addEventListener('submit', (event) => {
             event.preventDefault(); // block reload
-            event.stopImmediatePropagation(); // block all other submit listeners
 
             const emailInput = form.querySelector('input[name="email"]');
             const email = emailInput?.value.trim() || '';
