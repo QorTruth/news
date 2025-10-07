@@ -701,107 +701,36 @@
           }
         });
 
-        const newsletterForms = Array.from(document.querySelectorAll('[data-newsletter-form]'));
-
-        const DEFAULT_NEWSLETTER_ENDPOINT = '/api/newsletter';
-        const NEWSLETTER_ENDPOINT = typeof window.NEWSLETTER_ENDPOINT === 'string' && window.NEWSLETTER_ENDPOINT.length
-          ? window.NEWSLETTER_ENDPOINT
-          : DEFAULT_NEWSLETTER_ENDPOINT;
-        window.__newsletterFallback = window.__newsletterFallback || [];
-
-        newsletterForms.forEach((form) => {
+        document.querySelectorAll('[data-newsletter-form]').forEach((form) => {
           const submitButton = form.querySelector('[data-newsletter-submit]');
           const successMessage = form.querySelector('[data-newsletter-success]');
           const errorMessage = form.querySelector('[data-newsletter-error]');
+          const welcomeModal = document.querySelector('[data-modal="welcome"]');
 
-          const setLoading = (isLoading) => {
-            if (!submitButton) return;
-            submitButton.disabled = isLoading;
-            submitButton.textContent = isLoading ? 'Sending…' : 'Join the briefing';
-          };
+          form.addEventListener('submit', (e) => {
+            e.preventDefault();
 
-          const showSuccess = () => {
+            const email = form.querySelector('input[name="email"]').value.trim();
+            if (!email || !email.includes('@')) {
+              if (errorMessage) {
+                errorMessage.textContent = 'Please enter a valid email address.';
+                errorMessage.classList.remove('hidden');
+              }
+              return;
+            }
+
+            form.reset();
             if (errorMessage) {
               errorMessage.classList.add('hidden');
             }
             if (successMessage) {
-              successMessage.classList.remove('hidden');
-            }
-            if (welcomeModal) {
-              setTimeout(() => {
-                showModal(welcomeModal);
-              }, 400);
-            }
-          };
-
-          const showError = (message) => {
-            if (successMessage) {
               successMessage.classList.add('hidden');
             }
-            if (errorMessage) {
-              errorMessage.textContent = message;
-              errorMessage.classList.remove('hidden');
-            }
-          };
 
-          form.addEventListener('submit', async (event) => {
-            event.preventDefault();
-
-            const formData = new FormData(form);
-            const email = String(formData.get('email') || '').trim();
-            const weekend = formData.get('weekend') === 'on' || formData.get('weekend') === true;
-
-            if (!email || !email.includes('@')) {
-              showError('Please enter a valid email address.');
-              return;
-            }
-
-            setLoading(true);
-
-            const payload = {
-              email,
-              weekend,
-              ts: Date.now(),
-            };
-
-            const shouldAttemptRequest = NEWSLETTER_ENDPOINT && NEWSLETTER_ENDPOINT !== 'off' && NEWSLETTER_ENDPOINT !== '#';
-
-            if (!shouldAttemptRequest) {
-              window.__newsletterFallback.push({ ...payload, reason: 'no-endpoint' });
-              form.reset();
-              showSuccess();
-              setLoading(false);
-              return;
-            }
-
-            try {
-              const response = await fetch(NEWSLETTER_ENDPOINT, {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ email, weekend }),
-              });
-
-              const result = await response.json().catch(() => ({}));
-
-              if (!response.ok) {
-                throw new Error(result?.message || 'Something went wrong.');
-              }
-
-              form.reset();
-              showSuccess();
-            } catch (error) {
-              if (NEWSLETTER_ENDPOINT === DEFAULT_NEWSLETTER_ENDPOINT) {
-                console.warn('Newsletter endpoint offline; storing submission locally.', error);
-                window.__newsletterFallback.push({ ...payload, reason: 'network-error', error: error?.message || null });
-                form.reset();
-                showSuccess();
-              } else {
-                showError(error?.message || 'Unable to subscribe right now.');
-              }
-            } finally {
-              setLoading(false);
+            if (welcomeModal) {
+              welcomeModal.classList.remove('hidden');
+              welcomeModal.setAttribute('aria-hidden', 'false');
+              document.body.classList.add('overflow-hidden');
             }
           });
         });

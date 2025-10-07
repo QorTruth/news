@@ -589,6 +589,271 @@
             closeMobileNav();
           }
         });
+
+        mobileNavLinks.forEach((link) => {
+          link.addEventListener('click', () => {
+            closeMobileNav();
+          });
+        });
+
+        const accountContainers = Array.from(document.querySelectorAll('[data-account]'));
+
+        const closeAccountMenus = () => {
+          accountContainers.forEach((container) => {
+            const toggle = container.querySelector('[data-account-toggle]');
+            const menu = container.querySelector('[data-account-menu]');
+            if (toggle) {
+              toggle.setAttribute('aria-expanded', 'false');
+            }
+            if (menu) {
+              menu.classList.add('hidden');
+            }
+          });
+        };
+
+        accountContainers.forEach((container) => {
+          const toggle = container.querySelector('[data-account-toggle]');
+          const menu = container.querySelector('[data-account-menu]');
+          if (!toggle || !menu) return;
+
+          toggle.addEventListener('click', (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            const expanded = toggle.getAttribute('aria-expanded') === 'true';
+            closeAccountMenus();
+            if (!expanded) {
+              toggle.setAttribute('aria-expanded', 'true');
+              menu.classList.remove('hidden');
+            }
+          });
+
+          menu.querySelectorAll('a').forEach((link) => {
+            link.addEventListener('click', () => {
+              closeAccountMenus();
+            });
+          });
+        });
+
+        document.addEventListener('click', (event) => {
+          if (!event.target.closest('[data-account]')) {
+            closeAccountMenus();
+          }
+        });
+
+        if (navItems.length) {
+          const navSlugMap = {
+            '': 'latest',
+            'index.html': 'latest',
+            'politics.html': 'politics',
+            'world.html': 'world',
+            'business.html': 'business',
+            'technology.html': 'technology',
+            'culture.html': 'culture',
+            'opinion.html': 'opinion',
+          };
+
+          const currentPath = window.location.pathname.split('/').pop()?.toLowerCase() ?? '';
+          const activeNav = navSlugMap[currentPath] ?? 'latest';
+
+          navItems.forEach((link) => {
+            const isMobile = Boolean(link.closest('[data-mobile-nav]'));
+            const baseClass = isMobile ? 'text-slate-200' : 'text-slate-300';
+
+            link.classList.remove('text-indigo-200', 'text-indigo-100');
+            if (!link.classList.contains(baseClass)) {
+              link.classList.add(baseClass);
+            }
+
+            if (link.dataset.nav === activeNav) {
+              link.classList.remove(baseClass);
+              link.classList.add('text-indigo-200');
+            }
+          });
+        }
+
+        modals.forEach((modal) => {
+          modal.addEventListener('click', (event) => {
+            if (event.target === modal) {
+              hideModal(modal);
+            }
+          });
+        });
+
+        document.querySelectorAll('[data-close-modal]').forEach((button) => {
+          button.addEventListener('click', () => {
+            hideModal(button.closest('[data-modal]'));
+          });
+        });
+
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape') {
+            const visibleModal = modals.find((modal) => !modal.classList.contains('hidden'));
+            if (visibleModal) {
+              hideModal(visibleModal);
+              return;
+            }
+
+            if (mobileNav && !mobileNav.classList.contains('hidden')) {
+              closeMobileNav();
+            }
+
+            closeAccountMenus();
+          }
+        });
+
+        document.querySelectorAll('[data-newsletter-form]').forEach((form) => {
+          const submitButton = form.querySelector('[data-newsletter-submit]');
+          const successMessage = form.querySelector('[data-newsletter-success]');
+          const errorMessage = form.querySelector('[data-newsletter-error]');
+          const welcomeModal = document.querySelector('[data-modal="welcome"]');
+
+          form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const email = form.querySelector('input[name="email"]').value.trim();
+            if (!email || !email.includes('@')) {
+              if (errorMessage) {
+                errorMessage.textContent = 'Please enter a valid email address.';
+                errorMessage.classList.remove('hidden');
+              }
+              return;
+            }
+
+            form.reset();
+            if (errorMessage) {
+              errorMessage.classList.add('hidden');
+            }
+            if (successMessage) {
+              successMessage.classList.add('hidden');
+            }
+
+            if (welcomeModal) {
+              welcomeModal.classList.remove('hidden');
+              welcomeModal.setAttribute('aria-hidden', 'false');
+              document.body.classList.add('overflow-hidden');
+            }
+          });
+        });
+
+        signinTriggers.forEach((trigger) => {
+          trigger.addEventListener('click', (event) => {
+            event.preventDefault();
+            closeMobileNav();
+            closeAccountMenus();
+            showModal(signinModal);
+            requestAnimationFrame(() => {
+              signinModal?.querySelector('input')?.focus();
+            });
+          });
+        });
+
+        subscribeTriggers.forEach((trigger) => {
+          trigger.addEventListener('click', (event) => {
+            event.preventDefault();
+            closeMobileNav();
+            closeAccountMenus();
+            showModal(subscribeModal);
+            requestAnimationFrame(() => {
+              subscribeModal?.querySelector('input')?.focus();
+            });
+          });
+        });
+
+        signinForm?.addEventListener('submit', (event) => {
+          event.preventDefault();
+          if (signinResponse) {
+            signinResponse.textContent = 'Signed in! Redirecting...';
+            signinResponse.classList.remove('hidden');
+          }
+          setTimeout(() => {
+            hideModal(signinModal);
+            if (signinResponse) {
+              signinResponse.classList.add('hidden');
+            }
+          }, 1300);
+        });
+
+        subscribeForm?.addEventListener('submit', (event) => {
+          event.preventDefault();
+          const formData = new FormData(subscribeForm);
+          const nameValue = String(formData.get('name') ?? '').trim();
+
+          if (premiumSummary) {
+            premiumSummary.textContent = nameValue
+              ? `Great to have you, ${nameValue}. Do you want premium access beyond five briefings a month?`
+              : 'Do you want premium access beyond five briefings a month?';
+          }
+
+          hideModal(subscribeModal);
+          showModal(premiumModal);
+
+          requestAnimationFrame(() => {
+            premiumModal?.querySelector('[data-premium-choice]')?.focus();
+          });
+        });
+
+        premiumModal?.querySelectorAll('[data-premium-choice]').forEach((button) => {
+          button.addEventListener('click', () => {
+            const choice = button.getAttribute('data-premium-choice');
+
+            if (premiumResponse) {
+              premiumResponse.classList.remove('hidden');
+              premiumResponse.textContent = choice === 'upgrade'
+                ? 'Amazing! We'll send premium access details to your inbox shortly.'
+                : 'All set. You will keep receiving five briefings per month.';
+            }
+
+            setTimeout(() => {
+              hideModal(premiumModal);
+            }, 1600);
+          });
+        });
+
+        const tickerTrack = document.querySelector('[data-ticker-track]');
+        if (tickerTrack) {
+          const sources = Array.from(document.querySelectorAll('[data-ticker-item]'));
+          const headlines = sources
+            .map((node) => node.textContent.replace(/\s+/g, ' ').trim())
+            .filter((text, index, collection) => text && collection.indexOf(text) === index);
+
+          if (headlines.length) {
+            const multiplier = headlines.length >= 3 ? 2 : 3;
+            tickerTrack.innerHTML = '';
+
+            const appendHeadline = (text) => {
+              const wrapper = document.createElement('span');
+              wrapper.className = 'inline-flex items-center gap-2';
+
+              const marker = document.createElement('span');
+              marker.className = 'inline-flex h-1.5 w-1.5 rounded-full bg-indigo-400';
+              wrapper.appendChild(marker);
+
+              const label = document.createElement('span');
+              label.className = 'font-medium text-indigo-100';
+              label.textContent = text;
+              wrapper.appendChild(label);
+
+              tickerTrack.appendChild(wrapper);
+            };
+
+            for (let i = 0; i < multiplier; i += 1) {
+              headlines.forEach(appendHeadline);
+            }
+
+            const container = tickerTrack.parentElement;
+            if (container) {
+              const baseSpeed = 40; // pixels per second
+              requestAnimationFrame(() => {
+                const totalWidth = tickerTrack.scrollWidth + container.clientWidth;
+                const durationSeconds = Math.max(50, totalWidth / baseSpeed);
+                tickerTrack.style.setProperty('--ticker-duration', `${durationSeconds.toFixed(2)}s`);
+              });
+            }
+          }
+        }
+
+        // Market data is provided via the embedded TradingView widget configured in markup.
+      });
     </script>
   </body>
 </html>
